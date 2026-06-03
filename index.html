@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Heritage Strategies LLC — Brand System</title>
-<meta name="description" content="Heritage Strategies LLC brand system. Warm ivory ground, deep navy ink, single bronze hairline, Source Serif 4 over Inter. Custodial, archival, generational.">
+<meta name="description" content="Heritage Strategies LLC brand system. Cool near-white ground, deep navy ink and chrome, continuous flowing wave atmosphere, Source Serif 4 over Inter. Custodial, archival, generational.">
 <link rel="icon" type="image/webp" href="./heritage-logo.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,23 +18,25 @@
     --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     --font-mono:  'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
 
-    /* surfaces */
-    --page:       #FAF7F2;
-    --surface:    #FFFFFF;
-    --surface-2:  #F2EDE3;
+    /* surfaces — cool near-white default, blue undertones */
+    --page:       #F5F8FC;          /* cool near-white, very subtle blue */
+    --surface:    #FFFFFF;          /* true white card/table */
+    --surface-2:  #E8EEF6;          /* tinted blue panel */
+    --surface-3:  #DDE6F1;          /* deeper blue tint */
 
     /* navy + ink */
     --navy:       #0F1E36;
     --navy-deep:  #0A1628;
+    --navy-mid:   #1E3A5F;          /* mid-blue for wave + accents */
     --ink:        #1B2230;
     --muted:      #5C6573;
-    --on-dark:    #F4F0E6;
-    --on-dark-muted: #A8AEB8;
+    --on-dark:    #FFFFFF;          /* pure white on navy for crispness */
+    --on-dark-muted: #B0BCD0;
 
     /* details */
     --bronze:     #8C7351;
-    --rule:       #E2DCD0;
-    --rule-soft:  #EFEAE0;
+    --rule:       #E1E7EF;          /* cool gray-blue hairline replaces warm rule */
+    --rule-soft:  #EEF2F8;
     --state:      #2C5282;
   }
 
@@ -72,15 +74,20 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 clamp(20px, 4vw, 56px);
-    background: rgba(250, 247, 242, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--navy);
     position: sticky;
     top: 0;
     z-index: 50;
   }
-  .nav__lockup { display: inline-flex; align-items: center; text-decoration: none; }
-  .nav__lockup img { height: 44px; width: auto; display: block; }
+  .nav__lockup {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background: #FFFFFF;
+    padding: 8px 14px;
+    border-radius: 3px;
+  }
+  .nav__lockup img { height: 36px; width: auto; display: block; }
   .nav__links {
     display: flex;
     gap: clamp(20px, 3.2vw, 40px);
@@ -94,11 +101,11 @@
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--navy);
+    color: var(--on-dark);
     text-decoration: none;
     transition: opacity 180ms ease-out;
   }
-  .nav__links a:hover { opacity: 0.55; }
+  .nav__links a:hover { opacity: 0.65; }
   @media (max-width: 720px) {
     .nav__links { gap: 16px; }
     .nav__links a { font-size: 11px; letter-spacing: 0.12em; }
@@ -489,28 +496,29 @@
     .splash { animation: none; }
   }
 
-  /* shared arc animation */
-  .arc-path {
-    fill: none;
-    stroke-linecap: round;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    opacity: 0;
-    animation:
-      arc-draw    10s cubic-bezier(.22, .61, .36, 1) .6s forwards,
-      arc-breathe 14s ease-in-out 10.6s infinite;
+  /* ===== CONTINUOUS WAVE — soft, flowing, always animating ===== */
+  .wave-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
   }
-  @keyframes arc-draw {
-    0%   { stroke-dashoffset: 1; opacity: 0; }
-    20%  { opacity: 1; }
-    100% { stroke-dashoffset: 0; opacity: 1; }
+  .wave-bg svg { width: 100%; height: 100%; display: block; }
+  .wave {
+    animation: wave-flow linear infinite;
+    transform-origin: 0 0;
+    will-change: transform;
   }
-  @keyframes arc-breathe {
-    0%, 100% { opacity: .65; }
-    50%      { opacity: 1; }
+  .wave--a { animation-duration: 28s; }
+  .wave--b { animation-duration: 44s; animation-direction: reverse; }
+  .wave--c { animation-duration: 62s; }
+  @keyframes wave-flow {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-720px, 0, 0); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .arc-path { animation: none; stroke-dashoffset: 0; opacity: .55; }
+    .wave { animation: none; }
   }
 
   /* ===== COMPONENTS ===== */
@@ -869,22 +877,31 @@
   .md a:hover { border-bottom-color: var(--navy); }
 
   /* ===== FOOTER ===== */
+  .footer-wrap { background: var(--navy); }
   footer.colophon {
-    padding: 48px clamp(20px, 4vw, 56px) 56px;
+    padding: 56px clamp(20px, 4vw, 56px) 64px;
     max-width: 1180px;
     margin: 0 auto;
-    color: var(--muted);
+    color: var(--on-dark-muted);
     font-size: 12px;
     letter-spacing: 0.04em;
   }
-  footer.colophon p { margin: 4px 0; }
+  footer.colophon p { margin: 6px 0; }
   footer.colophon a {
-    color: var(--navy);
+    color: var(--on-dark);
     text-decoration: none;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid hsl(218 27% 40%);
   }
-  footer.colophon a:hover { border-bottom-color: var(--navy); }
-  footer.colophon img { height: 28px; width: auto; vertical-align: middle; margin-right: 12px; opacity: 0.85; }
+  footer.colophon a:hover { border-bottom-color: var(--on-dark); }
+  footer.colophon img {
+    height: 32px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 14px;
+    background: #FFFFFF;
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
 
   /* ===== REVEAL ===== */
   .reveal {
@@ -921,27 +938,29 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__arc" aria-hidden="true">
-        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
+      <div class="wave-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="none" role="presentation">
           <defs>
-            <linearGradient id="arcLight" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="#2A3E5E" stop-opacity="0"/>
-              <stop offset="40%"  stop-color="#2A3E5E" stop-opacity="0.32"/>
-              <stop offset="60%"  stop-color="#2A3E5E" stop-opacity="0.32"/>
-              <stop offset="100%" stop-color="#2A3E5E" stop-opacity="0"/>
+            <linearGradient id="waveLight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#1E3A5F" stop-opacity="0"/>
+              <stop offset="60%"  stop-color="#1E3A5F" stop-opacity="0.20"/>
+              <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0.35"/>
             </linearGradient>
-            <filter id="arcLightGlow" x="-10%" y="-10%" width="120%" height="120%">
-              <feGaussianBlur stdDeviation="1.5"/>
+            <filter id="waveSoft" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="14"/>
             </filter>
           </defs>
-          <path
-            class="arc-path"
-            d="M -120 480 Q 380 140 760 280 T 1560 220"
-            stroke="url(#arcLight)"
-            stroke-width="1.2"
-            filter="url(#arcLightGlow)"
-            pathLength="1"
-          />
+          <g filter="url(#waveSoft)">
+            <path class="wave wave--a"
+              d="M-1440,360 C-1080,320 -720,400 -360,360 C0,320 360,400 720,360 C1080,320 1440,400 1800,360 C2160,320 2520,400 2880,360 L2880,600 L-1440,600 Z"
+              fill="url(#waveLight)" opacity="0.7"/>
+            <path class="wave wave--b"
+              d="M-1440,420 C-1080,380 -720,460 -360,420 C0,380 360,460 720,420 C1080,380 1440,460 1800,420 C2160,380 2520,460 2880,420 L2880,600 L-1440,600 Z"
+              fill="url(#waveLight)" opacity="0.5"/>
+            <path class="wave wave--c"
+              d="M-1440,490 C-1080,450 -720,530 -360,490 C0,450 360,530 720,490 C1080,450 1440,530 1800,490 C2160,450 2520,530 2880,490 L2880,600 L-1440,600 Z"
+              fill="url(#waveLight)" opacity="0.35"/>
+          </g>
         </svg>
       </div>
       <div class="wrap hero__inner">
@@ -950,7 +969,7 @@
           A quiet system, set in print.
         </h1>
         <p class="lede hero__lede">
-          A warm ivory ground. A single deep navy. One bronze hairline, top and bottom. Source Serif 4 set against Inter. The brand is the stewardship, not the strategy.
+          A cool near-white ground. A deep navy nav and contrast bands. A continuous flowing wave atmosphere behind every hero. Source Serif 4 set against Inter. The brand is the stewardship, not the strategy.
         </p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="#prompt">Read the brand prompt</a>
@@ -966,9 +985,9 @@
         <span class="dot"></span>
         <span>Source Serif 4 + Inter</span>
         <span class="dot"></span>
-        <span>Warm ivory, deep navy</span>
+        <span>Cool near-white, deep navy</span>
         <span class="dot"></span>
-        <span>One bronze hairline</span>
+        <span>Continuous flowing wave</span>
       </div>
     </div>
 
@@ -983,8 +1002,8 @@
 
         <div class="mark-grid reveal">
           <div class="mark-tile mark-tile--ivory">
-            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on ivory">
-            <p class="mark-tile__caption">On ivory · #FAF7F2</p>
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on near-white">
+            <p class="mark-tile__caption">On near-white · #F5F8FC</p>
           </div>
           <div class="mark-tile">
             <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on white">
@@ -994,7 +1013,7 @@
             <div class="mark-tile__logo-pill">
               <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on navy pill">
             </div>
-            <p class="mark-tile__caption">On navy · ivory pill</p>
+            <p class="mark-tile__caption">On navy · white pill</p>
           </div>
         </div>
 
@@ -1013,7 +1032,7 @@
           </div>
           <div class="rule-card">
             <h4>On dark grounds</h4>
-            <p>The lockup sits on an ivory pill, not directly on navy. The seal needs warm light around it to read.</p>
+            <p>The lockup sits on a white pill, not directly on navy. The seal needs light around it to read.</p>
           </div>
         </div>
       </div>
@@ -1061,18 +1080,18 @@
         <header class="section__head reveal">
           <p class="meta section__eyebrow">Color</p>
           <h2 class="h1 section__title">Five system colors. None of them red.</h2>
-          <p class="section__lede">Warm ivory is the page. Deep navy is the single dark. Bronze appears only as ink-thin hairline. Reserved blue is for active state. The wax-burgundy in the seal belongs to the heraldic mark and does not appear anywhere else in the system.</p>
+          <p class="section__lede">Cool near-white is the page. Deep navy frames it, at the nav, the mid-page band, and the footer. Bronze appears only as ink-thin hairline. Reserved blue is for active state. The wax-burgundy in the seal belongs to the heraldic mark and does not appear anywhere else in the system.</p>
         </header>
 
         <div class="color-grid reveal">
           <div class="swatch">
-            <div class="swatch__chip" style="background: #FAF7F2;"></div>
+            <div class="swatch__chip" style="background: #F5F8FC;"></div>
             <div class="swatch__info">
               <p class="swatch__role">Default page</p>
-              <h3 class="swatch__name">Page Ivory</h3>
-              <p class="swatch__hex">#FAF7F2</p>
-              <p class="swatch__hsl">hsl(36 40% 97%)</p>
-              <p class="swatch__usage">Default background everywhere except the trust strip and one mid-page dark band.</p>
+              <h3 class="swatch__name">Page Near-White</h3>
+              <p class="swatch__hex">#F5F8FC</p>
+              <p class="swatch__hsl">hsl(214 47% 97%)</p>
+              <p class="swatch__usage">Default background. Cool near-white with a subtle blue undertone, never warm ivory, never pure sterile white.</p>
             </div>
           </div>
 
@@ -1083,7 +1102,7 @@
               <h3 class="swatch__name">Surface White</h3>
               <p class="swatch__hex">#FFFFFF</p>
               <p class="swatch__hsl">hsl(0 0% 100%)</p>
-              <p class="swatch__usage">Cards, tables, and dense UI panels on the ivory ground. The hue gap is intentional.</p>
+              <p class="swatch__usage">Cards, tables, and dense UI panels on the near-white ground. The hue gap is intentional.</p>
             </div>
           </div>
 
@@ -1105,7 +1124,7 @@
               <h3 class="swatch__name">Ink</h3>
               <p class="swatch__hex">#1B2230</p>
               <p class="swatch__hsl">hsl(218 27% 14%)</p>
-              <p class="swatch__usage">Body copy on ivory and white. Slightly warmer than the navy used for headings.</p>
+              <p class="swatch__usage">Body copy on near-white and white. Slightly warmer than the navy used for headings.</p>
             </div>
           </div>
 
@@ -1162,31 +1181,33 @@
         <header class="section__head reveal">
           <p class="meta section__eyebrow">Visual</p>
           <h2 class="h1 section__title">The splash mode and the arc.</h2>
-          <p class="section__lede">For video splash cards, deck covers, and PDF title pages only, the brand has a single dark treatment, the original Heritage gradient with the animated luminous arc behind the lockup. Web surfaces stay on the ivory ground.</p>
+          <p class="section__lede">For video splash cards, deck covers, and PDF title pages only, the brand has a single dark treatment. Continuous soft flowing waves drift behind the lockup, three layers at different speeds, always in motion. The same wave system lives more quietly behind the hero on light surfaces.</p>
         </header>
 
-        <div class="splash reveal" aria-label="Splash mode reference, dark gradient with animated arc behind the lockup">
-          <div class="splash__arc" aria-hidden="true">
-            <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
+        <div class="splash reveal" aria-label="Splash mode reference, dark gradient with continuous animated wave behind the lockup">
+          <div class="splash__arc wave-bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 600" preserveAspectRatio="none" role="presentation">
               <defs>
-                <linearGradient id="arcDark" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%"   stop-color="#F4F0E6" stop-opacity="0"/>
-                  <stop offset="45%"  stop-color="#F4F0E6" stop-opacity="0.85"/>
-                  <stop offset="55%"  stop-color="#F4F0E6" stop-opacity="0.85"/>
-                  <stop offset="100%" stop-color="#A8AEB8" stop-opacity="0"/>
+                <linearGradient id="waveDark" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#5A7BAA" stop-opacity="0"/>
+                  <stop offset="60%"  stop-color="#5A7BAA" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#5A7BAA" stop-opacity="0.55"/>
                 </linearGradient>
-                <filter id="arcDarkGlow" x="-10%" y="-10%" width="120%" height="120%">
-                  <feGaussianBlur stdDeviation="3"/>
+                <filter id="waveDarkSoft" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="12"/>
                 </filter>
               </defs>
-              <path
-                class="arc-path"
-                d="M -80 460 Q 360 120 720 240 T 1520 180"
-                stroke="url(#arcDark)"
-                stroke-width="1.2"
-                filter="url(#arcDarkGlow)"
-                pathLength="1"
-              />
+              <g filter="url(#waveDarkSoft)">
+                <path class="wave wave--a"
+                  d="M-1440,340 C-1080,300 -720,380 -360,340 C0,300 360,380 720,340 C1080,300 1440,380 1800,340 C2160,300 2520,380 2880,340 L2880,600 L-1440,600 Z"
+                  fill="url(#waveDark)" opacity="0.9"/>
+                <path class="wave wave--b"
+                  d="M-1440,400 C-1080,360 -720,440 -360,400 C0,360 360,440 720,400 C1080,360 1440,440 1800,400 C2160,360 2520,440 2880,400 L2880,600 L-1440,600 Z"
+                  fill="url(#waveDark)" opacity="0.65"/>
+                <path class="wave wave--c"
+                  d="M-1440,470 C-1080,430 -720,510 -360,470 C0,430 360,510 720,470 C1080,430 1440,510 1800,470 C2160,430 2520,510 2880,470 L2880,600 L-1440,600 Z"
+                  fill="url(#waveDark)" opacity="0.45"/>
+              </g>
             </svg>
           </div>
           <div class="splash__logo">
@@ -1195,7 +1216,7 @@
             </div>
           </div>
         </div>
-        <p class="splash__caption">Splash mode · Video / Deck / PDF cover only · Single animated arc, 10s draw, 14s breathe</p>
+        <p class="splash__caption">Splash mode · Video / Deck / PDF cover only · Three soft layered waves drifting continuously, no draw effect, no end state</p>
       </div>
     </section>
 
@@ -1330,7 +1351,7 @@
           <div class="dodont__panel do">
             <h4>Do</h4>
             <ul>
-              <li>Default to the warm ivory ground. The brand was designed for it.</li>
+              <li>Default to the cool near-white ground. The brand was designed for it.</li>
               <li>Use Source Serif 4 for display and Inter for everything else.</li>
               <li>Reserve navy for headlines, nav, the filled CTA, and one mid-page band.</li>
               <li>Pair every numeric figure with tabular figures and JetBrains Mono.</li>
@@ -1381,11 +1402,12 @@
   </main>
 
   <div class="hairline hairline--soft" role="presentation"></div>
-  <footer class="colophon">
-    <p><img src="./heritage-logo.webp" alt="Heritage Strategies LLC"> Brand System v3 · Page ivory #FAF7F2 · Heritage navy #0F1E36 · Aged bronze hairline #8C7351</p>
-    <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source on GitHub</a></p>
-  </footer>
-  <div class="hairline" role="presentation"></div>
+  <div class="footer-wrap">
+    <footer class="colophon">
+      <p><img src="./heritage-logo.webp" alt="Heritage Strategies LLC"> Brand System v4 · Page near-white #F5F8FC · Heritage navy #0F1E36 · Continuous wave atmosphere</p>
+      <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source on GitHub</a></p>
+    </footer>
+  </div>
 
 </div>
 

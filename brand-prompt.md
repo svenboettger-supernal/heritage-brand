@@ -31,13 +31,13 @@ If unsure, ask before applying status colors or form/input guidance. **Never inv
 
 ## Aesthetic
 
-Editorial and archival. Screens should read like the cover of a fiduciary instrument, the inside of an estate library binder, or the title page of a private-client trust dossier. Restraint as the organizing principle, one warm ivory ground, one deep navy reserved for nav and filled CTA, one mid-page navy band, one aged-bronze hairline metallic accent. The wax-seal red lives only inside the supplied logo file, never in the surrounding UI. Generous negative space on the ivory ground. Hierarchy comes from scale, spacing, and 1px bronze hairlines, not from heavy color contrast or busy chrome.
+Editorial and archival. Screens should read like the cover of a fiduciary instrument, the inside of an estate library binder, or the title page of a private-client trust dossier. Restraint as the organizing principle, one cool near-white ground, one deep navy reserved for nav and filled CTA, one mid-page navy band, one aged-bronze hairline metallic accent. The wax-seal red lives only inside the supplied logo file, never in the surrounding UI. Generous negative space on the ivory ground. Hierarchy comes from scale, spacing, and 1px bronze hairlines, not from heavy color contrast or busy chrome.
 
-Asymmetric balance over centered stacks. Type does the heavy lifting, the luminous arc is the only piece of motion ornament, and even it sits quietly behind the hero copy at low opacity until it has earned the foreground.
+Asymmetric balance over centered stacks. Type does the heavy lifting, the continuous wave is the only piece of motion ornament, and even it sits quietly behind the hero copy at low opacity until it has earned the foreground.
 
 The site of a firm at this tier should age slowly on purpose. Avoid every signal that will look dated in five years, animated counter widgets for AUM, chrome gradients, autoplay aerial b-roll, "Start investing in 60 seconds" urgency banners, glassmorphism, mascot illustrations, oversaturated marketing-orange CTAs.
 
-**The ground is light.** This is the single most important rule. Wealth-brand peers (Bessemer, Pictet, Brown Brothers Harriman, Lombard Odier, Northern Trust, Rothschild & Co, JPMorgan Private Bank, Roemer Capital, Creative Planning, Edelman Financial Engines, Hightower) all run a white or warm-off-white page background. Dark surfaces appear **only** as contrast panels, not as the default ground. A fiduciary brand on a black page reads as a casino or a hedge-fund poster, never as stewardship. Default to warm ivory, navy is a contrast inset.
+**The ground is light.** This is the single most important rule. Wealth-brand peers (Bessemer, Pictet, Brown Brothers Harriman, Lombard Odier, Northern Trust, Rothschild & Co, JPMorgan Private Bank, Roemer Capital, Creative Planning, Edelman Financial Engines, Hightower) all run a white or warm-off-white page background. Dark surfaces appear **only** as contrast panels, not as the default ground. A fiduciary brand on a black page reads as a casino or a hedge-fund poster, never as stewardship. Default to cool near-white, navy is a contrast inset.
 
 ---
 
@@ -47,8 +47,8 @@ Heritage Strategies' identity mark is the **wax-seal HS monogram** paired with t
 
 - **Use the real file.** Never redraw the seal as inline SVG, never reconstruct the wordmark from CSS, never reletter "Heritage Strategies" in a different family. The actual file is the source of truth. Render at `height: 40px; width: auto;` in nav contexts. Render at `height: 64–96px` in hero/footer detail contexts.
 - **The seal is a detail element, not a hero element.** The wax seal monogram appears at 24–48px in section terminators, footer, and as the favicon. It does not appear at hero scale, it does not appear behind type, it does not appear as a watermark inside cards. Demote it on purpose. The seal is the family crest, not the family.
-- **Two surfaces.** Place the lockup on warm ivory (the default page surface) as the canonical treatment. Place it on the navy contrast panel only when a hero or quote inset calls for it, render it on a warm-white pill if contrast falls below WCAG AA, otherwise use the file directly.
-- **Clear space.** Reserve at least the cap-height of the "H" in "Heritage" around the entire lockup. Nothing crosses that boundary, not a bronze hairline, not the luminous arc, not adjacent type.
+- **Two surfaces.** Place the lockup on cool near-white (the default page surface) as the canonical treatment. Place it on the navy contrast panel only when a hero or quote inset calls for it, render it on a warm-white pill if contrast falls below WCAG AA, otherwise use the file directly.
+- **Clear space.** Reserve at least the cap-height of the "H" in "Heritage" around the entire lockup. Nothing crosses that boundary, not a bronze hairline, not the continuous wave, not adjacent type.
 - **Never alter.** The logo is never stretched, rotated, recolored, outlined, embossed, drop-shadowed, or set inside a containing shape. No "logo in a circle," no "logo in a square card."
 
 ---
@@ -189,7 +189,7 @@ All values are HSL components, paste inside `hsl()` to use as a CSS color. HEX v
 
 | # | Role | HEX | HSL | Where |
 |---|------|-----|-----|-------|
-| 1 | **Page Ivory** (default page) | `#FAF7F2` | `hsl(36 40% 97%)` | The default page background on every Heritage marketing surface, statement, and deck. Warm, never pure white. |
+| 1 | **Page Near-White** (default page) | `#F5F8FC` | `hsl(214 47% 97%)` | The default page background on every Heritage marketing surface, statement, and deck. Warm, never pure white. |
 | 2 | **Surface White** (cards, tables) | `#FFFFFF` | `hsl(0 0% 100%)` | Cards, tables, and the inside of statement tear-sheets. Pure white sits on the ivory ground with a quiet hue gap. |
 | 3 | **Ink Navy** (primary text) | `#1B2230` | `hsl(218 27% 14%)` | Body text and headings on ivory, never pure black. Inherits the warmth of the page. |
 | 4 | **Text Muted** (secondary) | `#6B7280` | `hsl(220 9% 47%)` | Secondary text, metadata, captions, dot-separators on the trust bar. Never for body copy. |
@@ -205,7 +205,7 @@ All values are HSL components, paste inside `hsl()` to use as a CSS color. HEX v
 
 The brand is **80 / 14 / 5 / 1**:
 
-- **80%** Page Ivory (`#FAF7F2`) and Surface White (`#FFFFFF`).
+- **80%** Page Near-White (`#F5F8FC`) and Surface White (`#FFFFFF`).
 - **14%** Heritage Navy (`#0F1E36`), the nav text, headlines, filled CTA, and the one mid-page principle-quote inset.
 - **5%** Contrast Dark (`#0A1628`), the deepest panel, used inside the inset band and the splash mode.
 - **1%** Aged Bronze (`#8C7351`), the 1px hairline top + bottom + beneath nav, section eyebrows.
@@ -223,14 +223,14 @@ Heritage has three colors that signal interaction or state. They are strictly pa
 
 ### Page surfaces
 
-The default Heritage surface is **light**. Warm ivory (`#FAF7F2`) is the page, never pure white. Cards and tables sit on **pure white (`#FFFFFF`)** with a quiet hue gap that gives the page a paper feel. Dark surfaces (Heritage Navy, Contrast Dark) appear only as contrast panels, not as the default ground.
+The default Heritage surface is **light**. Cool near-white (`#F5F8FC`) is the page, never pure white. Cards and tables sit on **pure white (`#FFFFFF`)** with a quiet hue gap that gives the page a paper feel. Dark surfaces (Heritage Navy, Contrast Dark) appear only as contrast panels, not as the default ground.
 
 | Role | Value | Where |
 |------|-------|-------|
-| Page Ivory (default page background) | `hsl(36 40% 97%)`, `#FAF7F2` | Default for every Heritage marketing surface, deck, and PDF body |
+| Page Near-White (default page background) | `hsl(214 47% 97%)`, `#F5F8FC` | Default for every Heritage marketing surface, deck, and PDF body |
 | Surface White (cards, tables) | `hsl(0 0% 100%)`, `#FFFFFF` | Cards, statement tables, partner-bio modules |
 | Heritage Navy (nav, contrast panel) | `hsl(220 38% 19%)`, `#1E2A44` | Sticky nav, principle-quote inset, deck cover backgrounds |
-| Contrast Dark (hero panel) | `hsl(220 44% 11%)`, `#0F1626` | The hero ground beneath the luminous arc. Deepest panel in the system |
+| Contrast Dark (hero panel) | `hsl(220 44% 11%)`, `#0F1626` | The hero ground beneath the continuous wave. Deepest panel in the system |
 | Card on dark (rare) | `hsl(220 35% 22%)` | Used inside the navy hero panel only, when a CTA card needs to lift slightly from the ground |
 
 The page is ivory, cards on ivory go **whiter, not darker**. This is the opposite of JetHQ and the opposite of most "modern" wealth-fintech surfaces, and is core to the Heritage feel. The layout reads like ink-on-paper, not pixels-on-screen.
@@ -242,7 +242,7 @@ Heritage's primary button is **filled Heritage Navy with ivory text on a light g
 | Role | Value |
 |------|-------|
 | Primary button bg (filled navy, one per page) | `hsl(218 57% 14%)`, `#0F1E36` |
-| Primary button text on filled navy | `hsl(36 40% 97%)`, `#FAF7F2` (ivory) |
+| Primary button text on filled navy | `hsl(214 47% 97%)`, `#F5F8FC` (ivory) |
 | Primary button hover (filled) | `hsl(220 44% 11%)`, `#0A1628` (one step deeper) |
 | Secondary button bg on ivory (outline) | transparent |
 | Secondary button border on ivory | `hsl(218 57% 14%)`, navy |
@@ -324,77 +324,67 @@ color-mix(in srgb, hsl(var(--color-viz-N)) 70%, black)
 
 Heritage has exactly **three** sanctioned decorative devices. The first is the only piece of motion in the entire system. The second is the family crest. The third is a structural frame.
 
-### 1. The luminous arc (the signature motif, animated)
+### 1. The continuous wave (the signature motif, always in motion)
 
-A single luminous arc, drawn slowly across the navy hero panel from lower-left to upper-right. It is the only piece of motion ornament in the brand. It evokes a generational horizon, a meridian, a long arc of stewardship across decades, the bend of time over multiple lifetimes. Use it once per page, inside the hero panel only.
+A continuous, flowing wave atmosphere drifts behind the hero. **It is not a single line drawing left to right and stopping.** It is three soft fill-paths layered with different periods and directions, blurred heavily, animated by `transform: translate` on an infinite loop. The waves never start, never end, never call attention to themselves. They are the atmosphere of the page, the sense that something is alive underneath, the gleam on polished water.
 
 **When to use:**
-- **Inside the hero panel,** behind the wordmark and hero copy. Always on the contrast-dark background. Always at low opacity once drawn (≤ 0.9).
-- **Nowhere else.** Not inside cards, not in the body, not as a footer ornament, not as a section divider. One arc per page.
+- **Behind the hero on the cool near-white ground.** Low-opacity blue gradient fills, soft and recessive. Never competes with the title.
+- **Behind the splash-mode panel (deck covers, video splash cards, PDF title pages).** Same wave system, deeper opacity, more visible because the navy ground absorbs more of it.
+- **Nowhere else.** Not in body sections, not in cards, not in the footer.
 
 **When NOT to use:**
-- Never on the ivory ground.
-- Never with a gradient tint outside the warm-ivory to soft-bronze spectrum.
-- Never animated faster than the spec (6s draw, 9s breathe).
+- Never as a single line. Single-line "draws" read as marketing chrome.
+- Never with stroke. The wave is a soft FILL, not a stroke.
+- Never at high contrast against text. If the wave fights the title, drop the opacity until it loses.
 - Never with `prefers-reduced-motion: reduce` overridden.
 
 ```html
-<div class="hero-arc" aria-hidden="true">
-  <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
+<div class="wave-bg" aria-hidden="true">
+  <svg viewBox="0 0 1440 600" preserveAspectRatio="none" role="presentation">
     <defs>
-      <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="#F5EFE2" stop-opacity="0"/>
-        <stop offset="50%"  stop-color="#F5EFE2" stop-opacity="1"/>
-        <stop offset="100%" stop-color="#C9B98A" stop-opacity="0"/>
+      <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#1E3A5F" stop-opacity="0"/>
+        <stop offset="60%"  stop-color="#1E3A5F" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0.35"/>
       </linearGradient>
-      <filter id="arcGlow" x="-20%" y="-20%" width="140%" height="140%">
-        <feGaussianBlur stdDeviation="4" result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
+      <filter id="waveSoft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="14"/>
       </filter>
     </defs>
-    <path
-      class="arc"
-      d="M -80 460 Q 360 120 720 240 T 1520 180"
-      fill="none"
-      stroke="url(#arcGrad)"
-      stroke-width="1.25"
-      stroke-linecap="round"
-      filter="url(#arcGlow)"
-      pathLength="1"
-    />
+    <g filter="url(#waveSoft)">
+      <path class="wave wave--a" fill="url(#waveGrad)" opacity="0.7"
+        d="M-1440,360 C-1080,320 -720,400 -360,360 C0,320 360,400 720,360 C1080,320 1440,400 1800,360 C2160,320 2520,400 2880,360 L2880,600 L-1440,600 Z"/>
+      <path class="wave wave--b" fill="url(#waveGrad)" opacity="0.5"
+        d="M-1440,420 C-1080,380 -720,460 -360,420 C0,380 360,460 720,420 C1080,380 1440,460 1800,420 C2160,380 2520,460 2880,420 L2880,600 L-1440,600 Z"/>
+      <path class="wave wave--c" fill="url(#waveGrad)" opacity="0.35"
+        d="M-1440,490 C-1080,450 -720,530 -360,490 C0,450 360,530 720,490 C1080,450 1440,530 1800,490 C2160,450 2520,530 2880,490 L2880,600 L-1440,600 Z"/>
+    </g>
   </svg>
 </div>
 
 <style>
-  .hero-arc { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .hero-arc svg { width: 100%; height: 100%; display: block; }
-  .arc {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    opacity: 0;
-    animation:
-      arc-draw    6s cubic-bezier(.22, .61, .36, 1) .4s forwards,
-      arc-breathe 9s ease-in-out 6.4s infinite;
+  .wave-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .wave-bg svg { width: 100%; height: 100%; display: block; }
+  .wave {
+    animation: wave-flow linear infinite;
+    transform-origin: 0 0;
+    will-change: transform;
   }
-  @keyframes arc-draw {
-    0%   { stroke-dashoffset: 1; opacity: 0; }
-    15%  { opacity: .9; }
-    100% { stroke-dashoffset: 0; opacity: .9; }
-  }
-  @keyframes arc-breathe {
-    0%, 100% { opacity: .55; }
-    50%      { opacity: .95; }
+  .wave--a { animation-duration: 28s; }
+  .wave--b { animation-duration: 44s; animation-direction: reverse; }
+  .wave--c { animation-duration: 62s; }
+  @keyframes wave-flow {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-720px, 0, 0); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .arc { animation: none; stroke-dashoffset: 0; opacity: .8; }
+    .wave { animation: none; }
   }
 </style>
 ```
 
-The arc is the only piece of motion in the brand. No counter animations, no scroll-jacking, no parallax. The arc breathes, that is all.
+The path is drawn 2× the viewport width (-1440 to 2880 in viewBox units) with a wave period of 720. Translating by -720 over the cycle returns the path to a visually identical state, so the loop is seamless and the wave appears to flow forever. Three layers at different periods (28s, 44s reversed, 62s) prevent any visible repetition pattern. The fill gradient and heavy blur keep the waves recessive. **This is the only piece of motion in the brand.** No counter animations, no scroll-jacking, no parallax.
 
 ### 2. The wax-seal HS monogram (demoted to detail)
 
@@ -462,20 +452,20 @@ Every full-page surface follows the same shell:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  [Heritage logo]      Logo · Type · Color · Components   │  ← nav, 72px tall, warm ivory bg
+│  [Heritage logo]      Logo · Type · Color · Components   │  ← nav, 72px tall, cool near-white bg
 ├──────────────────────────────────────────────────────────┤  ← 1px bronze hairline
 │  ╔══════════════════════════════════════════════════════╗ │
 │  ║  HERO, navy/contrast-dark, full-bleed               ║ │  ← the only dark band above the fold
-│  ║  [animated luminous arc behind copy]                ║ │
+│  ║  [animated continuous wave behind copy]                ║ │
 │  ╚══════════════════════════════════════════════════════╝ │
 │                                                          │
-│           [page content on warm ivory]                   │
+│           [page content on cool near-white]                   │
 │                                                          │
 │  ╔══════════════════════════════════════════════════════╗ │
 │  ║ PRINCIPLE QUOTE, navy contrast inset (one only)     ║ │
 │  ╚══════════════════════════════════════════════════════╝ │
 │                                                          │
-│           [more page content on warm ivory]              │
+│           [more page content on cool near-white]              │
 │                                                          │
 ├──────────────────────────────────────────────────────────┤  ← 1px bronze hairline
 │  [footer, ivory, muted ink, view-source link]            │
@@ -504,7 +494,7 @@ Never use heavy drop shadows, they read as dated and salesy.
 
 ### Motion
 
-The luminous arc is the only piece of motion ornament in the brand.
+The continuous wave is the only piece of motion ornament in the brand.
 
 - **Arc draw,** 6s, ease-out, runs once on page load with a 400ms delay.
 - **Arc breathe,** 9s, ease-in-out, runs after the draw completes (6.4s start), loops infinitely.
@@ -581,7 +571,7 @@ Founded 1987   ·   Family stewardship since 1962   ·   $2.4B under stewardship
   --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
   /* surfaces */
-  --page:           hsl(36 40% 97%);   /* #FAF7F2 */
+  --page:           hsl(214 47% 97%);   /* #F5F8FC */
   --surface:        hsl(0 0% 100%);    /* #FFFFFF */
   --surface-2:      hsl(38 22% 92%);   /* #F2EDE3, tinted panel */
   --navy:           hsl(218 57% 14%);  /* #0F1E36, the single dark */
@@ -933,7 +923,7 @@ After mapping, the default Button variant ships filled with `--primary` (Heritag
 
 ### Do
 
-- **Default to the warm ivory ground.** `#FAF7F2` is the page. Cards sit on pure white. Dark panels are insets only.
+- **Default to the cool near-white ground.** `#F5F8FC` is the page. Cards sit on pure white. Dark panels are insets only.
 - **Use the real logo file.** `heritage-logo.webp` ships with the system. Never redraw the seal as inline SVG.
 - **Use exactly two display + body fonts.** Display serif + sans. Mono is for fiduciary detail only.
 - **Keep all red inside the logo file.** The wax seal in `heritage-logo.webp` is the only red the brand carries. Do not introduce a burgundy CTA, link, badge, or accent.
@@ -941,7 +931,7 @@ After mapping, the default Button variant ships filled with `--primary` (Heritag
 - **Frame the page with 1px bronze hairlines** top and bottom. Heritage's quieter version of JetHQ's gold bar.
 - **Tabular figures in any dense data.** Statements, position tables, stewardship counts.
 - **Show the partner.** Named, with credentials, real face, available light. Square portrait crops.
-- **Use the animated luminous arc once per page,** inside the navy hero panel.
+- **Use the animated continuous wave once per page,** inside the navy hero panel.
 - **Numbers beat adjectives.** $X AUM, Y generations, Z years. Never "premier," "trusted," "world-class."
 
 ### Don't
@@ -1135,4 +1125,4 @@ After mapping, the default Button variant ships filled with `--primary` (Heritag
 
 ## One-line summary
 
-Warm ivory ground, deep navy as the single dark, aged-bronze hairlines top and bottom, Source Serif 4 display serif, Inter sans, one animated luminous arc inside the splash-mode dark panel, the real wax-seal logo file as the only red the brand carries. Numbers beat adjectives. Show, never claim. No warning hues, no red anywhere outside the logo file, ever.
+Cool near-white ground, deep navy as the single dark, aged-bronze hairlines top and bottom, Source Serif 4 display serif, Inter sans, one animated continuous wave inside the splash-mode dark panel, the real wax-seal logo file as the only red the brand carries. Numbers beat adjectives. Show, never claim. No warning hues, no red anywhere outside the logo file, ever.
