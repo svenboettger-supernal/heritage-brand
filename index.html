@@ -67,27 +67,21 @@
 
   .page { min-height: 100vh; display: flex; flex-direction: column; }
 
-  /* ===== NAV ===== */
+  /* ===== NAV — white bg, navy text, logo direct ===== */
   .nav {
-    height: 76px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 clamp(20px, 4vw, 56px);
-    background: var(--navy);
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--rule);
     position: sticky;
     top: 0;
     z-index: 50;
   }
-  .nav__lockup {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    background: #FFFFFF;
-    padding: 8px 14px;
-    border-radius: 3px;
-  }
-  .nav__lockup img { height: 36px; width: auto; display: block; }
+  .nav__lockup { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav__lockup img { height: 44px; width: auto; display: block; }
   .nav__links {
     display: flex;
     gap: clamp(20px, 3.2vw, 40px);
@@ -101,11 +95,11 @@
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--on-dark);
+    color: var(--navy);
     text-decoration: none;
     transition: opacity 180ms ease-out;
   }
-  .nav__links a:hover { opacity: 0.65; }
+  .nav__links a:hover { opacity: 0.55; }
   @media (max-width: 720px) {
     .nav__links { gap: 16px; }
     .nav__links a { font-size: 11px; letter-spacing: 0.12em; }
@@ -195,26 +189,47 @@
   .section__title { margin-bottom: 16px; }
   .section__lede { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 620px; }
 
-  /* ===== HERO (light) ===== */
+  /* ===== HERO (dark navy, matches Heritage splash mood) ===== */
   .hero {
     position: relative;
-    padding: clamp(96px, 14vw, 168px) 0 clamp(96px, 12vw, 160px);
+    padding: clamp(112px, 14vw, 184px) 0 clamp(112px, 14vw, 184px);
     overflow: hidden;
-    background: var(--page);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 38%, #1B3358 0%, #0F1E36 55%, #08121F 100%);
   }
   .hero__arc { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
   .hero__arc svg { width: 100%; height: 100%; display: block; }
   .hero__inner { position: relative; z-index: 1; max-width: 880px; }
-  .hero__eyebrow { margin-bottom: 28px; color: var(--muted); }
-  .hero__title { margin-bottom: 32px; }
+  .hero__eyebrow { margin-bottom: 28px; color: var(--on-dark-muted); }
+  .hero__title { margin-bottom: 32px; color: var(--on-dark); }
+  .hero__title em { color: var(--on-dark); }
   .hero__lede {
     margin-bottom: 48px;
-    color: var(--ink);
+    color: var(--on-dark);
     max-width: 620px;
     font-size: clamp(17px, 1.6vw, 19px);
     line-height: 1.65;
+    opacity: 0.85;
   }
   .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero .btn--primary {
+    background: var(--on-dark);
+    color: var(--navy);
+    border-color: var(--on-dark);
+  }
+  .hero .btn--primary:hover {
+    background: #E4ECF7;
+    border-color: #E4ECF7;
+  }
+  .hero .btn--secondary {
+    background: transparent;
+    color: var(--on-dark);
+    border-color: var(--on-dark);
+  }
+  .hero .btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--on-dark);
+  }
 
   /* ===== BUTTONS — navy only ===== */
   .btn {
@@ -241,12 +256,11 @@
   .btn--ghost { background: transparent; color: var(--navy); border-color: var(--rule); }
   .btn--ghost:hover { background: var(--surface-2); }
 
-  /* ===== TRUST BAR ===== */
+  /* ===== TRUST BAR — clean white, no glow ===== */
   .trust {
     padding: 28px 0;
-    border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
-    background: var(--surface-2);
+    background: #FFFFFF;
   }
   .trust__inner {
     display: flex;
@@ -457,33 +471,30 @@
     margin: 12px 0 0 0;
   }
 
-  /* ===== VISUAL — splash ===== */
+  /* ===== VISUAL — splash mode (matches Heritage reference) ===== */
   .splash {
     position: relative;
     aspect-ratio: 16 / 9;
     border-radius: 4px;
     overflow: hidden;
-    background: linear-gradient(135deg, #0A1628 0%, #14233A 50%, #0A1628 100%);
-    background-size: 200% 200%;
-    animation: atmos 50s ease-in-out infinite alternate;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 45%, #1B3358 0%, #0F1E36 50%, #07101D 100%);
   }
-  @keyframes atmos { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
-
   .splash__arc { position: absolute; inset: 0; pointer-events: none; }
   .splash__arc svg { width: 100%; height: 100%; display: block; }
   .splash__logo {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 38%;
+    right: 8%;
+    transform: translateY(-50%);
     z-index: 1;
   }
   .splash__logo-bg {
-    background: rgba(244, 240, 230, 0.96);
-    padding: 18px 28px;
+    background: rgba(245, 240, 230, 0.96);
+    padding: 16px 24px;
     border-radius: 3px;
   }
-  .splash__logo-bg img { height: 48px; width: auto; display: block; }
+  .splash__logo-bg img { height: 56px; width: auto; display: block; }
   .splash__caption {
     margin-top: 16px;
     font-size: 12px;
@@ -492,8 +503,9 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-  @media (prefers-reduced-motion: reduce) {
-    .splash { animation: none; }
+  @media (max-width: 720px) {
+    .splash__logo { right: 6%; top: 32%; }
+    .splash__logo-bg img { height: 36px; }
   }
 
   /* ===== CONTINUOUS WAVE — soft, flowing, always animating ===== */
@@ -510,9 +522,11 @@
     transform-origin: 0 0;
     will-change: transform;
   }
-  .wave--a { animation-duration: 28s; }
-  .wave--b { animation-duration: 44s; animation-direction: reverse; }
-  .wave--c { animation-duration: 62s; }
+  .wave--a       { animation-duration: 30s; }
+  .wave--b       { animation-duration: 46s; animation-direction: reverse; }
+  .wave--c       { animation-duration: 62s; }
+  .wave--sweep   { animation-duration: 22s; }
+  .wave--sweep-2 { animation-duration: 38s; animation-direction: reverse; }
   @keyframes wave-flow {
     0%   { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-720px, 0, 0); }
@@ -941,25 +955,42 @@
       <div class="wave-bg" aria-hidden="true">
         <svg viewBox="0 0 1440 600" preserveAspectRatio="none" role="presentation">
           <defs>
-            <linearGradient id="waveLight" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#1E3A5F" stop-opacity="0"/>
-              <stop offset="60%"  stop-color="#1E3A5F" stop-opacity="0.20"/>
-              <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0.35"/>
+            <linearGradient id="waveDeep" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#5A7BAA" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#5A7BAA" stop-opacity="0.45"/>
+            </linearGradient>
+            <linearGradient id="sweepBright" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#E6EDF5" stop-opacity="0"/>
+              <stop offset="50%"  stop-color="#E6EDF5" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#E6EDF5" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="sweepSoft" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#B8C8DE" stop-opacity="0"/>
+              <stop offset="50%"  stop-color="#B8C8DE" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#B8C8DE" stop-opacity="0"/>
             </linearGradient>
             <filter id="waveSoft" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="14"/>
+              <feGaussianBlur stdDeviation="18"/>
+            </filter>
+            <filter id="sweepGlow" x="-10%" y="-10%" width="120%" height="120%">
+              <feGaussianBlur stdDeviation="2.5"/>
             </filter>
           </defs>
           <g filter="url(#waveSoft)">
             <path class="wave wave--a"
-              d="M-1440,360 C-1080,320 -720,400 -360,360 C0,320 360,400 720,360 C1080,320 1440,400 1800,360 C2160,320 2520,400 2880,360 L2880,600 L-1440,600 Z"
-              fill="url(#waveLight)" opacity="0.7"/>
+              d="M-1440,340 C-1080,300 -720,380 -360,340 C0,300 360,380 720,340 C1080,300 1440,380 1800,340 C2160,300 2520,380 2880,340 L2880,600 L-1440,600 Z"
+              fill="url(#waveDeep)" opacity="0.85"/>
             <path class="wave wave--b"
               d="M-1440,420 C-1080,380 -720,460 -360,420 C0,380 360,460 720,420 C1080,380 1440,460 1800,420 C2160,380 2520,460 2880,420 L2880,600 L-1440,600 Z"
-              fill="url(#waveLight)" opacity="0.5"/>
-            <path class="wave wave--c"
-              d="M-1440,490 C-1080,450 -720,530 -360,490 C0,450 360,530 720,490 C1080,450 1440,530 1800,490 C2160,450 2520,530 2880,490 L2880,600 L-1440,600 Z"
-              fill="url(#waveLight)" opacity="0.35"/>
+              fill="url(#waveDeep)" opacity="0.55"/>
+          </g>
+          <g filter="url(#sweepGlow)">
+            <path class="wave wave--sweep"
+              d="M-1440,330 Q-720,210 0,300 T1440,290 T2880,310"
+              fill="none" stroke="url(#sweepBright)" stroke-width="1.6" stroke-linecap="round"/>
+            <path class="wave wave--sweep-2"
+              d="M-1440,390 Q-720,290 0,370 T1440,360 T2880,380"
+              fill="none" stroke="url(#sweepSoft)" stroke-width="1.2" stroke-linecap="round"/>
           </g>
         </svg>
       </div>
@@ -1188,25 +1219,42 @@
           <div class="splash__arc wave-bg" aria-hidden="true">
             <svg viewBox="0 0 1440 600" preserveAspectRatio="none" role="presentation">
               <defs>
-                <linearGradient id="waveDark" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"   stop-color="#5A7BAA" stop-opacity="0"/>
-                  <stop offset="60%"  stop-color="#5A7BAA" stop-opacity="0.35"/>
-                  <stop offset="100%" stop-color="#5A7BAA" stop-opacity="0.55"/>
+                <linearGradient id="splashWaveFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#6A8DBE" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#6A8DBE" stop-opacity="0.55"/>
                 </linearGradient>
-                <filter id="waveDarkSoft" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="12"/>
+                <linearGradient id="splashSweepA" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#F0EEE3" stop-opacity="0"/>
+                  <stop offset="50%"  stop-color="#F0EEE3" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#F0EEE3" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="splashSweepB" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#B8C8DE" stop-opacity="0"/>
+                  <stop offset="50%"  stop-color="#B8C8DE" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#B8C8DE" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="splashWaveSoft" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="20"/>
+                </filter>
+                <filter id="splashSweepGlow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="3"/>
                 </filter>
               </defs>
-              <g filter="url(#waveDarkSoft)">
+              <g filter="url(#splashWaveSoft)">
                 <path class="wave wave--a"
                   d="M-1440,340 C-1080,300 -720,380 -360,340 C0,300 360,380 720,340 C1080,300 1440,380 1800,340 C2160,300 2520,380 2880,340 L2880,600 L-1440,600 Z"
-                  fill="url(#waveDark)" opacity="0.9"/>
+                  fill="url(#splashWaveFill)" opacity="0.95"/>
                 <path class="wave wave--b"
-                  d="M-1440,400 C-1080,360 -720,440 -360,400 C0,360 360,440 720,400 C1080,360 1440,440 1800,400 C2160,360 2520,440 2880,400 L2880,600 L-1440,600 Z"
-                  fill="url(#waveDark)" opacity="0.65"/>
-                <path class="wave wave--c"
-                  d="M-1440,470 C-1080,430 -720,510 -360,470 C0,430 360,510 720,470 C1080,430 1440,510 1800,470 C2160,430 2520,510 2880,470 L2880,600 L-1440,600 Z"
-                  fill="url(#waveDark)" opacity="0.45"/>
+                  d="M-1440,420 C-1080,380 -720,460 -360,420 C0,380 360,460 720,420 C1080,380 1440,460 1800,420 C2160,380 2520,460 2880,420 L2880,600 L-1440,600 Z"
+                  fill="url(#splashWaveFill)" opacity="0.7"/>
+              </g>
+              <g filter="url(#splashSweepGlow)">
+                <path class="wave wave--sweep"
+                  d="M-1440,310 Q-720,190 0,290 T1440,280 T2880,300"
+                  fill="none" stroke="url(#splashSweepA)" stroke-width="2.2" stroke-linecap="round"/>
+                <path class="wave wave--sweep-2"
+                  d="M-1440,380 Q-720,280 0,360 T1440,350 T2880,370"
+                  fill="none" stroke="url(#splashSweepB)" stroke-width="1.6" stroke-linecap="round"/>
               </g>
             </svg>
           </div>
