@@ -3,47 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Heritage Strategies LLC — Brand Guidelines</title>
-<meta name="description" content="Heritage Strategies LLC brand system. Deep midnight navy ground, wax-oxblood identity seal, bronze hairlines, Tiempos / Cormorant serif, Söhne / Inter sans, a single luminous arc, and a steel cobalt accent reserved for state.">
+<title>Heritage Strategies LLC , Brand System</title>
+<meta name="description" content="Heritage Strategies LLC brand system. Warm ivory ground, navy contrast panels, wax-burgundy identity, aged-bronze hairlines, Fraunces display serif, Inter sans, one animated luminous arc.">
 
+<link rel="icon" type="image/webp" href="./heritage-logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
 <style>
   :root {
     /* fonts */
-    --font-display: 'Tiempos Headline', 'Mercury Text Std', 'Cormorant Garamond', Georgia, serif;
-    --font-sans:    'Söhne', 'GT America', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Tiempos Headline', 'Fraunces', Georgia, serif;
+    --font-sans:    'Söhne', 'Söhne Buch', 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
 
     /* surfaces */
-    --surface-page:        hsl(216 57% 13%);  /* #0e1d33 deep midnight navy */
-    --surface-card:        hsl(216 60% 9%);   /* #091525 quiet slate (darker than page) */
-    --surface-card-hover:  hsl(216 55% 11%);
-    --surface-parchment:   hsl(40 50% 92%);   /* #f4ede0 */
+    --page-bg:        hsl(36 40% 97%);   /* #FAF7F2 */
+    --surface:        hsl(0 0% 100%);    /* #FFFFFF */
+    --navy:           hsl(220 38% 19%);  /* #1E2A44 */
+    --contrast-dark:  hsl(220 44% 11%);  /* #0F1626 */
 
-    /* brand */
-    --brand-oxblood:       hsl(11 45% 42%);   /* #9a4b3a wax seal */
-    --brand-oxblood-deep:  hsl(11 50% 36%);
-    --brand-oxblood-tint:  hsl(11 45% 42% / 0.10);
-    --brand-bronze:        hsl(34 39% 47%);   /* #a87f4b hairline */
-    --brand-bronze-tint:   hsl(34 39% 47% / 0.12);
-    --signal-cobalt:       hsl(214 38% 39%);  /* #3d5d8a — state only */
+    /* ink + text */
+    --ink:            hsl(218 27% 14%);  /* #1B2230 */
+    --text-muted:     hsl(220 9% 47%);   /* #6B7280 */
+    --text-on-dark:   hsl(44 36% 86%);   /* #E8E2D2 */
+    --text-on-dark-muted: hsl(220 9% 67%);
 
-    /* text */
-    --text-on-dark:        hsl(216 13% 85%);  /* #d4d8df stone mist */
-    --text-strong:         hsl(40 50% 95%);
-    --text-muted:          hsl(216 12% 65%);
-    --text-placeholder:    hsl(216 10% 55%);
-    --text-on-light:       hsl(216 57% 13%);
+    /* accents */
+    --burgundy:       hsl(359 56% 23%);  /* #5C1A1B , identity only */
+    --burgundy-hover: hsl(359 56% 27%);
+    --bronze:         hsl(35 26% 43%);   /* #8C7351 , hairline + eyebrow */
+    --bronze-tint:    hsl(35 26% 43% / 0.08);
+    --bronze-on-dark: hsl(35 26% 60%);   /* lifted bronze for dark surfaces */
+    --reserved-blue:  hsl(214 50% 34%);  /* #2C5282 , state only */
 
-    /* borders */
-    --border:              hsl(216 13% 85% / 0.12);
-    --border-input:        hsl(216 13% 85% / 0.18);
-    --border-strong:       hsl(216 13% 85% / 0.28);
+    /* hairlines */
+    --rule:           hsl(38 22% 88%);   /* #E7E2D9 */
+    --rule-dark:      hsl(218 27% 28%);
 
-    --nav-height: 88px;
+    /* status (pale tints on ivory) */
+    --status-success-bg: hsl(150 30% 94%);
+    --status-success-fg: hsl(150 50% 22%);
+    --status-success-bd: hsl(150 30% 70%);
+    --status-warning-bg: hsl(46 50% 92%);
+    --status-warning-fg: hsl(46 60% 24%);
+    --status-warning-bd: hsl(46 50% 70%);
+    --status-error-bg:   hsl(0 40% 94%);
+    --status-error-fg:   hsl(0 60% 28%);
+    --status-error-bd:   hsl(0 40% 70%);
+    --status-info-bg:    hsl(214 50% 94%);
+    --status-info-fg:    hsl(214 50% 28%);
+    --status-info-bd:    hsl(214 50% 70%);
+
+    --nav-height: 72px;
+    --container: 1200px;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -51,303 +65,313 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--surface-page);
-    color: var(--text-on-dark);
+    background: var(--page-bg);
+    color: var(--ink);
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 
   *:focus-visible {
-    outline: 2px solid var(--signal-cobalt);
+    outline: 2px solid var(--reserved-blue);
     outline-offset: 2px;
     border-radius: 2px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0ms !important;
-      transition-duration: 0ms !important;
-    }
-    html { scroll-behavior: auto; }
-  }
+  ::selection { background: hsl(220 38% 19% / 0.12); color: var(--ink); }
 
-  /* ------- structural frame ------- */
-  .page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
+  /* ============== STRUCTURAL FRAME ============== */
+  .page { min-height: 100vh; display: flex; flex-direction: column; }
 
   .nav {
     height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 clamp(20px, 4vw, 56px);
-    background: hsl(216 57% 13% / 0.94);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(20px, 4vw, 48px);
+    background: hsl(36 40% 97% / 0.94);
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   .lockup {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    text-decoration: none;
-    color: inherit;
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: inherit;
   }
-  .lockup svg.seal { display: block; }
-
-  .wordmark {
+  .lockup img { display: block; height: 40px; width: auto; }
+  .lockup .lockup-word {
     font-family: var(--font-display);
+    font-variation-settings: "opsz" 48;
+    font-size: 20px; font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.01em;
     line-height: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    color: var(--text-strong);
   }
-  .wordmark .top {
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .wordmark .bot {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .wordmark .wmrule {
-    display: block;
-    height: 1px;
-    background: var(--brand-bronze);
-    width: 100%;
+  @media (max-width: 640px) {
+    .lockup .lockup-word { display: none; }
   }
 
   .nav-links {
     display: flex;
-    gap: clamp(18px, 2.6vw, 36px);
+    gap: clamp(16px, 2.4vw, 32px);
     list-style: none;
     margin: 0;
     padding: 0;
   }
   .nav-links a {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--text-on-dark);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink);
     text-decoration: none;
     transition: color 200ms ease-out;
-    position: relative;
-    padding-bottom: 4px;
   }
-  .nav-links a:hover { color: var(--brand-bronze); }
-  .nav-links a.active::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 1px;
-    background: var(--brand-oxblood);
-  }
+  .nav-links a:hover { color: var(--burgundy); }
+  @media (max-width: 540px) { .nav-links li:nth-child(n+4) { display: none; } }
 
   .hairline-bronze {
     height: 1px;
-    background: var(--brand-bronze);
+    background: var(--bronze);
     width: 100%;
   }
 
-  /* ------- luminous arc ------- */
-  .luminous-arc {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .luminous-arc svg { width: 100%; height: 100%; display: block; }
+  /* ============== MAIN ============== */
+  main { flex: 1; }
 
-  /* ------- main + sections ------- */
-  main {
-    flex: 1;
-    width: 100%;
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 56px);
+  .section {
+    padding: clamp(72px, 10vw, 144px) clamp(20px, 4vw, 48px);
+    border-bottom: 1px solid var(--rule);
   }
+  .section:last-of-type { border-bottom: none; }
+  .container { max-width: var(--container); margin: 0 auto; }
+  .measure { max-width: 680px; }
 
-  section {
-    padding: clamp(80px, 11vw, 144px) 0;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-  section:last-of-type { border-bottom: none; }
-
-  /* hero */
+  /* ============== HERO ============== */
   .hero {
-    padding-top: clamp(72px, 11vw, 144px);
-    padding-bottom: clamp(96px, 13vw, 176px);
     position: relative;
-    min-height: 80vh;
+    background: var(--contrast-dark);
+    color: var(--text-on-dark);
+    padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 48px);
+    overflow: hidden;
+    border-bottom: 1px solid var(--rule);
   }
   .hero-inner {
-    position: relative;
+    position: relative; z-index: 1;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .hero-grid {
     max-width: 880px;
   }
 
-  .display-eyebrow {
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
-    margin: 0 0 16px 0;
+  /* the animated luminous arc */
+  .hero-arc {
+    position: absolute; inset: 0;
+    pointer-events: none; overflow: hidden;
+    z-index: 0;
   }
-  .display-rule {
-    width: 64px;
-    height: 1px;
-    background: var(--brand-bronze);
-    margin-bottom: 40px;
+  .hero-arc svg { width: 100%; height: 100%; display: block; }
+  .arc {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    animation:
+      arc-draw    6s cubic-bezier(.22, .61, .36, 1) .4s forwards,
+      arc-breathe 9s ease-in-out 6.4s infinite;
   }
-
-  .display-title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(56px, 9vw, 104px);
-    line-height: 1.02;
-    letter-spacing: -0.012em;
-    color: var(--text-strong);
-    margin: 0 0 28px 0;
+  @keyframes arc-draw {
+    0%   { stroke-dashoffset: 1; opacity: 0; }
+    15%  { opacity: .9; }
+    100% { stroke-dashoffset: 0; opacity: .9; }
   }
-  .display-title .second {
-    display: block;
-    font-style: italic;
-    color: var(--brand-oxblood);
+  @keyframes arc-breathe {
+    0%, 100% { opacity: .55; }
+    50%      { opacity: .95; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .arc { animation: none; stroke-dashoffset: 0; opacity: .8; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 
-  .display-lede {
+  .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.65;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze-on-dark);
+    margin: 0 0 32px 0;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 400; line-height: 1.05;
+    color: var(--text-on-dark);
+    margin: 0 0 24px 0;
+    max-width: 880px;
+  }
+  .hero-title em {
+    font-style: italic;
     font-weight: 400;
     color: var(--text-on-dark);
-    max-width: 640px;
-    margin: 0 0 48px 0;
   }
-  .display-lede em {
-    font-style: italic;
-    color: var(--text-strong);
-  }
-
-  .trust-bar {
+  .hero-lede {
     font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin: 0;
+    font-size: clamp(17px, 1.4vw, 20px);
+    font-weight: 400; line-height: 1.55;
+    color: var(--text-on-dark);
+    max-width: 640px;
+    margin: 0 0 40px 0;
   }
-  .trust-bar span + span::before {
-    content: "·";
-    margin: 0 0.85em;
-    color: var(--text-muted);
-  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
 
-  /* section header (signature heading + subheading) */
+  /* ============== TRUST BAR ============== */
+  .trust-bar {
+    padding: 32px clamp(20px, 4vw, 48px);
+    border-bottom: 1px solid var(--rule);
+    background: var(--page-bg);
+  }
+  .trust-bar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0;
+  }
+  .trust-bar-inner span + span::before {
+    content: "·"; margin: 0 1em; color: var(--text-muted);
+  }
+  .trust-bar-inner strong { color: var(--ink); font-weight: 500; }
+
+  /* ============== SECTION HEADERS ============== */
   .section-header {
-    margin-bottom: 72px;
-    position: relative;
-    z-index: 1;
+    margin-bottom: clamp(48px, 6vw, 80px);
     max-width: 880px;
   }
   .section-eyebrow {
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
-    margin: 0 0 12px 0;
-  }
-  .section-rule {
-    width: 56px;
-    height: 1px;
-    background: var(--brand-bronze);
-    margin-bottom: 32px;
+    font-family: var(--font-sans);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
+    margin: 0 0 24px 0;
   }
   .section-heading {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(36px, 5.5vw, 64px);
-    line-height: 1.06;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400; line-height: 1.05;
+    color: var(--navy);
+    margin: 0 0 16px 0;
     letter-spacing: -0.005em;
-    color: var(--text-strong);
-    margin: 0 0 12px 0;
   }
   .section-subheading {
     font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: clamp(17px, 1.6vw, 20px);
-    letter-spacing: 0.01em;
-    color: var(--text-on-dark);
-    margin: 0 0 28px 0;
+    font-weight: 400;
+    font-size: clamp(18px, 1.8vw, 22px);
+    color: var(--text-muted);
+    margin: 0 0 24px 0;
+    line-height: 1.45;
   }
   .section-body {
     font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--text-on-dark);
-    max-width: 640px;
+    font-size: 16px; line-height: 1.7;
+    color: var(--ink);
+    max-width: 680px;
     margin: 0;
   }
   .section-body + .section-body { margin-top: 14px; }
 
-  /* logo (the mark) section */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+  [data-reveal].in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ============== BUTTONS ============== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 24px;
+    font-family: var(--font-sans);
+    font-weight: 500; font-size: 13px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-decoration: none; cursor: pointer;
+    transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
+    font-feature-settings: "tnum" 1;
+  }
+  .btn-primary {
+    background: var(--burgundy);
+    color: var(--text-on-dark);
+    border-color: var(--burgundy);
+  }
+  .btn-primary:hover { background: var(--burgundy-hover); border-color: var(--burgundy-hover); }
+  .btn-default {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--bronze);
+  }
+  .btn-default:hover { background: var(--bronze-tint); color: var(--burgundy); }
+  .btn-on-dark {
+    background: transparent;
+    color: var(--text-on-dark);
+    border-color: var(--bronze-on-dark);
+  }
+  .btn-on-dark:hover { background: hsl(35 26% 60% / 0.14); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: hsl(218 27% 14% / 0.16);
+  }
+  .btn-ghost:hover { background: hsl(218 27% 14% / 0.04); }
+
+  /* ============== LOGO TILES ============== */
   .logo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
-    margin-top: 56px;
+    margin-top: 16px;
   }
   .logo-tile {
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 64px 40px;
+    padding: 64px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 260px;
-    gap: 28px;
+    min-height: 240px;
+    gap: 24px;
   }
-  .logo-tile.on-parchment {
-    background: var(--surface-parchment);
-    color: var(--text-on-light);
+  .logo-tile.on-ivory { background: var(--page-bg); }
+  .logo-tile.on-white { background: var(--surface); }
+  .logo-tile.on-navy {
+    background: var(--navy);
+    border-color: var(--rule-dark);
   }
-  .logo-tile.on-parchment .wordmark { color: var(--text-on-light); }
-  .logo-tile.on-parchment .wordmark .wmrule { background: var(--brand-bronze); }
+  .logo-tile img { display: block; height: 64px; width: auto; }
+  .logo-tile.on-navy img {
+    background: var(--page-bg);
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
   .logo-tile .caption {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--text-muted);
   }
-  .logo-tile.on-parchment .caption { color: hsl(216 18% 36%); }
+  .logo-tile.on-navy .caption { color: var(--text-on-dark-muted); }
 
   .logo-rules {
     margin-top: 40px;
@@ -357,86 +381,90 @@
   }
   .rule-card {
     padding: 28px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
   }
   .rule-card h4 {
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
     margin: 0 0 12px 0;
   }
   .rule-card p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--text-on-dark);
+    font-family: var(--font-sans);
+    font-size: 14px; line-height: 1.6;
+    color: var(--ink);
     margin: 0;
   }
 
-  /* typography section */
+  /* ============== TYPOGRAPHY SECTION ============== */
   .type-spec {
-    margin-top: 56px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
+    gap: 24px;
   }
   .type-card {
-    padding: 36px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
   }
   .type-card .sample {
-    font-size: 112px;
+    font-size: 120px;
     line-height: 1;
-    margin: 0 0 28px 0;
+    margin: 0 0 32px 0;
   }
-  .type-card .sample.serif {
+  .type-card.serif .sample {
     font-family: var(--font-display);
-    color: var(--text-strong);
+    font-variation-settings: "opsz" 144;
+    color: var(--navy);
     font-weight: 400;
   }
-  .type-card .sample.sans {
+  .type-card.sans .sample {
     font-family: var(--font-sans);
-    color: var(--text-strong);
-    font-weight: 500;
+    color: var(--navy);
+    font-weight: 400;
+  }
+  .type-card.mono .sample {
+    font-family: var(--font-mono);
+    color: var(--navy);
+    font-size: 96px;
   }
   .type-card .meta {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
     margin: 0 0 8px 0;
   }
   .type-card .name {
     font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--text-strong);
-    margin: 0 0 18px 0;
+    font-variation-settings: "opsz" 32;
+    font-size: 24px; font-weight: 400;
+    color: var(--navy);
+    margin: 0 0 20px 0;
+  }
+  .type-card .name .fallback {
+    font-family: var(--font-sans);
+    font-size: 14px; font-weight: 400;
+    color: var(--text-muted);
   }
   .type-card .alphabet {
-    font-family: inherit;
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 14px; line-height: 1.7;
     color: var(--text-muted);
-    letter-spacing: 0.02em;
     margin: 0;
     word-break: break-word;
   }
-  .type-card.serif .alphabet { font-family: var(--font-display); }
-  .type-card.sans  .alphabet { font-family: var(--font-sans); }
+  .type-card.serif .alphabet { font-family: var(--font-display); font-variation-settings: "opsz" 14; }
+  .type-card.sans .alphabet { font-family: var(--font-sans); }
+  .type-card.mono .alphabet { font-family: var(--font-mono); }
 
   .type-scale {
-    margin-top: 48px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    margin-top: 32px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
     overflow: hidden;
   }
@@ -445,65 +473,55 @@
     grid-template-columns: 240px 1fr;
     gap: 32px;
     align-items: baseline;
-    padding: 22px 36px;
-    border-bottom: 1px solid var(--border);
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--rule);
   }
   .type-scale-row:last-child { border-bottom: none; }
   .type-scale-row .role {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bronze);
   }
-  .type-scale-row .demo { color: var(--text-on-dark); }
-  .type-scale-row .demo.serif-72 { font-family: var(--font-display); font-size: 56px; line-height: 1.06; color: var(--text-strong); font-weight: 400; letter-spacing: -0.01em; }
-  .type-scale-row .demo.serif-48 { font-family: var(--font-display); font-size: 40px; line-height: 1.1;  color: var(--text-strong); font-weight: 400; letter-spacing: -0.005em; }
-  .type-scale-row .demo.serif-36 { font-family: var(--font-display); font-size: 32px; line-height: 1.2;  color: var(--text-strong); font-weight: 400; }
-  .type-scale-row .demo.serif-italic { font-family: var(--font-display); font-size: 28px; line-height: 1.2; font-style: italic; color: var(--brand-oxblood); font-weight: 400; }
-  .type-scale-row .demo.eyebrow-12 { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brand-bronze); font-weight: 500; }
-  .type-scale-row .demo.sans-20    { font-family: var(--font-sans); font-size: 20px; font-weight: 500; color: var(--text-strong); }
-  .type-scale-row .demo.sans-15    { font-family: var(--font-sans); font-size: 15px; font-weight: 400; color: var(--text-on-dark); }
-  .type-scale-row .demo.sans-11    { font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.20em; text-transform: uppercase; color: var(--text-muted); }
-  .type-scale-row .demo.mono-14    { font-family: var(--font-mono); font-size: 14px; color: var(--brand-bronze); letter-spacing: 0.04em; }
-  .type-scale-row .demo.body-serif { font-family: var(--font-display); font-size: 18px; line-height: 1.65; color: var(--text-on-dark); font-feature-settings: "onum" 1; }
+  .type-scale-row .demo { color: var(--ink); }
+  .type-scale-row .demo.display { font-family: var(--font-display); font-variation-settings: "opsz" 144; font-size: 56px; line-height: 1.05; color: var(--navy); font-weight: 400; }
+  .type-scale-row .demo.h1-mkt  { font-family: var(--font-display); font-variation-settings: "opsz" 96;  font-size: 36px; line-height: 1.15; color: var(--navy); font-weight: 400; }
+  .type-scale-row .demo.h2-mkt  { font-family: var(--font-display); font-variation-settings: "opsz" 64;  font-size: 28px; line-height: 1.2;  color: var(--navy); font-weight: 400; }
+  .type-scale-row .demo.eyebrow { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bronze); font-weight: 500; }
+  .type-scale-row .demo.subhead { font-family: var(--font-sans); font-size: 22px; font-weight: 500; color: var(--ink); }
+  .type-scale-row .demo.body    { font-family: var(--font-sans); font-size: 16px; font-weight: 400; color: var(--ink); line-height: 1.6; }
+  .type-scale-row .demo.nav     { font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+  .type-scale-row .demo.mono    { font-family: var(--font-mono); font-size: 14px; color: var(--ink); letter-spacing: 0.04em; font-feature-settings: "tnum" 1; }
+  @media (max-width: 640px) { .type-scale-row { grid-template-columns: 1fr; gap: 8px; } }
 
-  /* color section */
+  /* ============== COLOR SECTION ============== */
   .color-grid {
-    margin-top: 56px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 16px;
   }
   .swatch {
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
   }
-  .swatch .chip {
-    height: 160px;
-    width: 100%;
-    position: relative;
-  }
+  .swatch .chip { height: 140px; width: 100%; }
   .swatch .info { padding: 22px 24px 26px; }
   .swatch .role {
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
     margin: 0 0 8px 0;
   }
   .swatch .name {
     font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--text-strong);
+    font-variation-settings: "opsz" 48;
+    font-size: 22px; font-weight: 400;
+    color: var(--navy);
     margin: 0 0 14px 0;
   }
   .swatch .hex,
@@ -516,18 +534,42 @@
   }
   .swatch .usage {
     font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--text-on-dark);
-    line-height: 1.55;
+    font-size: 13px; line-height: 1.55;
+    color: var(--ink);
     margin: 14px 0 0 0;
   }
-  .swatch .chip.navy        { background: #0e1d33; border-bottom: 1px solid var(--border); }
-  .swatch .chip.oxblood     { background: #9a4b3a; }
-  .swatch .chip.bronze      { background: #a87f4b; }
-  .swatch .chip.parchment   { background: #f4ede0; }
-  .swatch .chip.mist        { background: #d4d8df; }
-  .swatch .chip.slate       { background: #091525; border-bottom: 1px solid var(--border); }
-  .swatch .chip.cobalt      { background: #3d5d8a; }
+  .chip-ivory  { background: #FAF7F2; border-bottom: 1px solid var(--rule); }
+  .chip-white  { background: #FFFFFF; border-bottom: 1px solid var(--rule); }
+  .chip-ink    { background: #1B2230; }
+  .chip-muted  { background: #6B7280; }
+  .chip-navy   { background: #1E2A44; }
+  .chip-darker { background: #0F1626; }
+  .chip-burgundy { background: #5C1A1B; }
+  .chip-bronze   { background: #8C7351; }
+  .chip-blue     { background: #2C5282; }
+  .chip-cream    { background: #E8E2D2; border-bottom: 1px solid var(--rule); }
+
+  .ratio-bar {
+    margin-top: 40px;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    height: 56px;
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-feature-settings: "tnum" 1;
+  }
+  .ratio-bar > div {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 12px;
+  }
+  .ratio-ivory  { background: #FAF7F2; color: var(--text-muted); flex-basis: 80%; border-right: 1px solid var(--rule); }
+  .ratio-navy   { background: #1E2A44; color: var(--text-on-dark); flex-basis: 12%; }
+  .ratio-darker { background: #0F1626; color: var(--text-on-dark); flex-basis: 5%; }
+  .ratio-burg   { background: #5C1A1B; color: var(--text-on-dark); flex-basis: 2%; min-width: 36px; }
+  .ratio-bronze { background: #8C7351; color: var(--text-on-dark); flex-basis: 1%; min-width: 28px; }
 
   .color-rules {
     margin-top: 40px;
@@ -536,438 +578,488 @@
     gap: 20px;
   }
 
-  /* visual accents section — wax seal + arc + bronze rules */
-  .accent-grid {
-    margin-top: 56px;
+  /* ============== VISUAL ACCENTS ============== */
+  .accents-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 24px;
   }
-  @media (max-width: 800px) { .accent-grid { grid-template-columns: 1fr; } }
-
-  .accent-block {
-    border: 1px solid var(--border);
-    background-color: var(--surface-card);
-    border-radius: 4px;
-    aspect-ratio: 4 / 3;
+  @media (max-width: 880px) { .accents-grid { grid-template-columns: 1fr; } }
+  .accent-preview {
+    background: var(--contrast-dark);
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  .accent-block.arc-block {
-    background: linear-gradient(180deg, hsl(216 60% 11%) 0%, hsl(216 65% 8%) 100%);
-  }
-  .accent-block .label {
+  .accent-preview .label {
     position: absolute;
-    bottom: 18px;
-    left: 22px;
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
-    margin: 0;
+    bottom: 24px; left: 24px;
+    color: var(--text-on-dark);
+    font-family: var(--font-sans);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     z-index: 2;
   }
-  .accent-block svg.big-seal { width: 56%; height: auto; max-width: 240px; }
-  .accent-block svg.demo-arc { width: 100%; height: 100%; position: absolute; inset: 0; }
+  .accent-side { display: flex; flex-direction: column; gap: 20px; }
+  .accent-card {
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .accent-card h4 {
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
+    margin: 0;
+  }
+  .accent-card p {
+    font-family: var(--font-sans);
+    font-size: 14px; line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+  }
+  .seal-row { display: flex; align-items: center; gap: 16px; }
+  .seal-row img { display: block; height: 32px; width: auto; opacity: 0.95; }
+  .seal-row .sz {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .hairline-demo {
+    height: 1px;
+    background: var(--bronze);
+    margin-top: 4px;
+  }
 
-  /* components section */
+  /* ============== COMPONENTS ============== */
   .component-grid {
-    margin-top: 56px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
-  @media (max-width: 800px) { .component-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 880px) { .component-grid { grid-template-columns: 1fr; } }
 
   .panel {
-    padding: 36px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
   }
   .panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 28px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px;
   }
   .panel-title {
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
     margin: 0;
   }
-  .panel-rule { width: 32px; height: 1px; background: var(--brand-bronze); margin-bottom: 18px; }
-
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 26px;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
-    font-feature-settings: "tnum" 1;
-  }
-  .btn-hero {
-    background: var(--brand-oxblood);
-    color: var(--surface-parchment);
-    border-color: var(--brand-oxblood);
-  }
-  .btn-hero:hover { background: var(--brand-oxblood-deep); border-color: var(--brand-oxblood-deep); }
-  .btn-outline {
-    background: transparent;
-    color: var(--text-strong);
-    border-color: var(--brand-bronze);
-  }
-  .btn-outline:hover { background: var(--brand-bronze-tint); }
-  .btn-ghost {
-    background: transparent;
-    color: var(--text-on-dark);
-    border-color: var(--border-strong);
-  }
-  .btn-ghost:hover { background: hsl(216 13% 85% / 0.05); }
+  .button-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
   .btn-note {
     font-family: var(--font-sans);
-    font-size: 12px;
+    font-size: 13px; line-height: 1.55;
     color: var(--text-muted);
     margin: 0;
-    line-height: 1.55;
   }
 
   /* status row */
-  .status-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
+  .status-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
   .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
+    display: inline-flex; align-items: center;
+    gap: 8px; padding: 6px 14px;
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
     border-radius: 9999px;
     border: 1px solid transparent;
     font-feature-settings: "tnum" 1;
   }
   .badge::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
     background: currentColor;
   }
-  .badge.success { background: hsl(150 24% 16%); color: hsl(150 40% 72%); border-color: hsl(150 24% 30%); }
-  .badge.warning { background: hsl(34 30% 20%);  color: hsl(34 50% 74%);  border-color: hsl(34 30% 36%); }
-  .badge.error   { background: hsl(8 36% 22%);   color: hsl(8 50% 74%);   border-color: hsl(8 36% 36%); }
-  .badge.info    { background: hsl(214 32% 20%); color: hsl(214 40% 76%); border-color: hsl(214 38% 38%); }
+  .badge.success { background: var(--status-success-bg); color: var(--status-success-fg); border-color: var(--status-success-bd); }
+  .badge.warning { background: var(--status-warning-bg); color: var(--status-warning-fg); border-color: var(--status-warning-bd); }
+  .badge.error   { background: var(--status-error-bg);   color: var(--status-error-fg);   border-color: var(--status-error-bd); }
+  .badge.info    { background: var(--status-info-bg);    color: var(--status-info-fg);    border-color: var(--status-info-bd); }
 
-  /* statement table */
-  .statement-table {
+  /* stewardship table */
+  .stewardship-table {
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-sans);
     font-size: 13px;
-    font-feature-settings: "tnum" 1;
     font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
   }
-  .statement-table th,
-  .statement-table td {
+  .stewardship-table th,
+  .stewardship-table td {
     text-align: left;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--bronze);
+    color: var(--ink);
   }
-  .statement-table th {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-family: var(--font-sans);
+  .stewardship-table th {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bronze);
   }
-  .statement-table td.num { text-align: right; font-family: var(--font-mono); }
-  .statement-table tr:last-child td {
-    border-bottom: none;
-    font-weight: 500;
-    color: var(--text-strong);
-    padding-top: 18px;
-    border-top: 1px solid var(--brand-bronze);
-  }
-  .statement-table td.positive { color: hsl(150 40% 72%); }
-  .statement-table td.negative { color: hsl(8 50% 74%); }
+  .stewardship-table td.num,
+  .stewardship-table th.num { text-align: right; font-family: var(--font-mono); }
+  .stewardship-table tr:last-child td { border-bottom: none; }
 
-  /* feature card */
-  .feature-card {
-    padding: 40px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+  /* partner bio */
+  .partner-bio {
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
+    padding: 32px;
   }
-  .feature-card .panel-title { margin-bottom: 14px; }
-  .feature-card .panel-rule { margin-bottom: 24px; }
-  .feature-card h3 {
+  .partner-portrait {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background:
+      linear-gradient(135deg, hsl(220 9% 78%), hsl(220 9% 72%));
+    border-radius: 4px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .partner-portrait::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 42%, hsl(220 9% 84%) 0%, hsl(220 9% 70%) 70%);
+  }
+  .partner-name {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 32px;
-    color: var(--text-strong);
-    line-height: 1.15;
-    margin: 0 0 14px 0;
+    font-variation-settings: "opsz" 48;
+    font-size: 24px; font-weight: 400; line-height: 1.2;
+    color: var(--navy);
+    margin: 0; padding-bottom: 10px;
+    border-bottom: 1px solid var(--bronze);
   }
-  .feature-card h3 em {
-    font-style: italic;
-    color: var(--brand-oxblood);
-  }
-  .feature-card p {
+  .partner-role {
     font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-on-dark);
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted);
+    margin: 12px 0 14px 0;
+  }
+  .partner-bio-body { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0 0 14px 0; }
+  .partner-credentials {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--bronze);
+    text-transform: uppercase;
     margin: 0;
   }
-  .feature-card .mono {
+
+  /* three-way comparison */
+  .comparison {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 880px) { .comparison { grid-template-columns: 1fr; } }
+  .comparison-card {
+    padding: 36px 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .comparison-card.neutral { background: hsl(38 22% 95%); color: var(--ink); border: 1px solid var(--rule); }
+  .comparison-card.heritage {
+    background: var(--navy);
+    color: var(--text-on-dark);
+    border: 1px solid var(--rule-dark);
+  }
+  .comparison-label {
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
+    margin: 0;
+  }
+  .comparison-card.heritage .comparison-label { color: var(--bronze-on-dark); }
+  .comparison-card h3 {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 64;
+    font-size: 22px; font-weight: 400; line-height: 1.2;
+    color: var(--navy);
+    margin: 0;
+  }
+  .comparison-card.heritage h3 { color: var(--text-on-dark); }
+  .comparison-card ul {
+    list-style: none; padding: 0; margin: 0;
+    font-family: var(--font-sans); font-size: 14px; line-height: 1.7;
+  }
+  .comparison-card.neutral li { color: var(--ink); padding-left: 22px; position: relative; }
+  .comparison-card.heritage li { color: var(--text-on-dark); padding-left: 22px; position: relative; }
+  .comparison-card.neutral li::before {
+    content: "×";
+    position: absolute; left: 2px; top: 0;
     font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--brand-bronze);
-    letter-spacing: 0.04em;
+    color: var(--text-muted);
+  }
+  .comparison-card.heritage li::before {
+    content: "+";
+    position: absolute; left: 2px; top: 0;
+    font-family: var(--font-mono);
+    color: var(--bronze-on-dark);
+  }
+  .comparison-seal { display: flex; align-items: center; gap: 14px; }
+  .comparison-seal img {
+    height: 36px; width: auto; display: block;
+    background: var(--page-bg);
+    padding: 4px 6px;
+    border-radius: 4px;
+  }
+  .comparison-seal .seal-name {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 48;
+    font-size: 18px;
+    color: var(--text-on-dark);
   }
 
-  /* dos and donts */
+  /* ============== PRINCIPLE QUOTE INSET ============== */
+  .principle {
+    margin: 0;
+    padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 48px);
+    background: var(--navy);
+    color: var(--text-on-dark);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .principle-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .principle blockquote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400; line-height: 1.25;
+    color: var(--text-on-dark);
+    letter-spacing: -0.005em;
+  }
+  .principle blockquote::before {
+    content: "";
+    display: block;
+    width: 48px; height: 1px;
+    background: var(--bronze-on-dark);
+    margin-bottom: 32px;
+  }
+  .principle .attrib {
+    margin: 32px 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-on-dark-muted);
+  }
+
+  /* ============== DOS AND DONTS ============== */
   .do-dont {
-    margin-top: 56px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
-  @media (max-width: 800px) { .do-dont { grid-template-columns: 1fr; } }
+  @media (max-width: 880px) { .do-dont { grid-template-columns: 1fr; } }
   .do-dont .panel h4 {
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin: 0 0 22px 0;
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    margin: 0 0 20px 0;
   }
-  .do-dont .panel.do h4 { color: hsl(150 40% 72%); }
-  .do-dont .panel.dont h4 { color: hsl(8 50% 74%); }
+  .do-dont .panel.do h4 { color: hsl(150 50% 30%); }
+  .do-dont .panel.dont h4 { color: hsl(0 60% 36%); }
   .do-dont ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 12px;
   }
   .do-dont li {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-on-dark);
+    font-family: var(--font-sans);
+    font-size: 14px; line-height: 1.6;
+    color: var(--ink);
     padding-left: 24px;
     position: relative;
   }
   .do-dont .do li::before {
     content: "+";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: hsl(150 40% 72%);
+    position: absolute; left: 0; top: 0;
+    color: hsl(150 50% 30%);
     font-family: var(--font-mono);
   }
   .do-dont .dont li::before {
     content: "×";
-    position: absolute;
-    left: 2px;
-    top: 0;
-    color: hsl(8 50% 74%);
+    position: absolute; left: 2px; top: 0;
+    color: hsl(0 60% 36%);
     font-family: var(--font-mono);
   }
 
-  /* prompt embed */
+  /* ============== PROMPT EMBED ============== */
   .prompt-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 32px;
   }
   .prompt-frame {
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    background: var(--surface);
+    border: 1px solid var(--rule);
     border-radius: 4px;
     padding: 48px clamp(20px, 4vw, 64px);
     max-height: 760px;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--brand-bronze) transparent;
+    scrollbar-color: var(--bronze) transparent;
   }
   .prompt-frame::-webkit-scrollbar { width: 8px; }
-  .prompt-frame::-webkit-scrollbar-thumb { background: var(--brand-bronze); border-radius: 4px; }
+  .prompt-frame::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 4px; }
 
   .prompt-frame .md h1 {
     font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--text-strong);
-    letter-spacing: -0.005em;
-    margin: 0 0 28px 0;
+    font-variation-settings: "opsz" 144;
+    font-size: 40px; font-weight: 400;
+    color: var(--navy);
+    margin: 0 0 32px 0;
+    line-height: 1.1;
   }
   .prompt-frame .md h2 {
     font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text-strong);
-    margin: 56px 0 16px 0;
+    font-variation-settings: "opsz" 96;
+    font-size: 28px; font-weight: 400;
+    color: var(--navy);
+    margin: 64px 0 16px 0;
     padding-top: 32px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--rule);
+    line-height: 1.15;
   }
   .prompt-frame .md h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
   .prompt-frame .md h3 {
     font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--brand-bronze);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bronze);
     margin: 36px 0 14px 0;
+  }
+  .prompt-frame .md h4 {
+    font-family: var(--font-sans);
+    font-size: 15px; font-weight: 500;
+    color: var(--ink);
+    margin: 20px 0 8px 0;
   }
   .prompt-frame .md p {
     font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--text-on-dark);
-    margin: 0 0 16px 0;
+    font-size: 15px; line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 14px 0;
   }
   .prompt-frame .md ul,
-  .prompt-frame .md ol {
-    padding-left: 22px;
-    margin: 0 0 18px 0;
-  }
+  .prompt-frame .md ol { padding-left: 22px; margin: 0 0 16px 0; }
   .prompt-frame .md li {
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--text-on-dark);
-    margin-bottom: 8px;
+    font-size: 15px; line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 6px;
   }
-  .prompt-frame .md strong {
-    color: var(--text-strong);
-    font-weight: 600;
-  }
-  .prompt-frame .md em {
-    color: var(--brand-bronze);
-    font-style: italic;
-  }
+  .prompt-frame .md strong { color: var(--ink); font-weight: 600; }
+  .prompt-frame .md em { color: var(--burgundy); font-style: italic; }
   .prompt-frame .md code {
     font-family: var(--font-mono);
     font-size: 12.5px;
-    background: hsl(216 60% 7%);
-    color: var(--brand-bronze);
+    background: hsl(38 22% 92%);
+    color: var(--burgundy);
     padding: 1px 6px;
     border-radius: 3px;
   }
   .prompt-frame .md pre {
-    background: hsl(216 60% 7%);
-    border: 1px solid var(--border);
+    background: hsl(38 22% 95%);
+    border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 18px 22px;
+    padding: 16px 20px;
     overflow-x: auto;
-    margin: 18px 0;
+    margin: 16px 0;
     font-family: var(--font-mono);
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: var(--text-on-dark);
+    font-size: 12.5px; line-height: 1.6;
+    color: var(--ink);
   }
   .prompt-frame .md pre code { background: transparent; padding: 0; color: inherit; }
   .prompt-frame .md table {
     width: 100%;
     border-collapse: collapse;
-    margin: 18px 0;
+    margin: 16px 0;
     font-size: 13px;
     font-feature-settings: "tnum" 1;
   }
   .prompt-frame .md th,
   .prompt-frame .md td {
     text-align: left;
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-on-dark);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
     vertical-align: top;
   }
   .prompt-frame .md th {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-bronze);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bronze);
   }
   .prompt-frame .md hr {
     border: none;
-    border-top: 1px solid var(--brand-bronze);
-    margin: 40px 0;
-    opacity: 0.5;
+    border-top: 1px solid var(--rule);
+    margin: 36px 0;
   }
   .prompt-frame .md blockquote {
-    border-left: 2px solid var(--brand-bronze);
-    padding-left: 18px;
-    margin: 18px 0;
+    border-left: 2px solid var(--bronze);
+    padding-left: 16px;
+    margin: 16px 0;
     color: var(--text-muted);
     font-style: italic;
   }
   .prompt-frame .md a {
-    color: var(--brand-bronze);
+    color: var(--burgundy);
     text-decoration: none;
-    border-bottom: 1px solid hsl(34 39% 47% / 0.4);
+    border-bottom: 1px solid hsl(35 26% 43% / 0.5);
   }
-  .prompt-frame .md a:hover { border-bottom-color: var(--brand-bronze); }
+  .prompt-frame .md a:hover { border-bottom-color: var(--burgundy); }
 
-  /* footer */
+  /* ============== FOOTER ============== */
   footer.colophon {
-    padding: 40px clamp(20px, 4vw, 56px) 56px;
-    max-width: 1240px;
+    padding: 56px clamp(20px, 4vw, 48px) 64px;
+    max-width: var(--container);
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  footer.colophon .colophon-lines p {
+    font-family: var(--font-sans);
     color: var(--text-muted);
     font-size: 12px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
+    margin: 4px 0;
   }
   footer.colophon a {
-    color: var(--brand-bronze);
+    color: var(--burgundy);
     text-decoration: none;
-    border-bottom: 1px solid hsl(34 39% 47% / 0.4);
+    border-bottom: 1px solid hsl(35 26% 43% / 0.5);
   }
-  footer.colophon p { margin: 4px 0; }
-
-  /* mobile cleanup */
-  @media (max-width: 720px) {
-    .nav-links { display: none; }
-    .wordmark .top { font-size: 18px; }
-    .wordmark .bot { font-size: 11px; }
-    .type-scale-row { grid-template-columns: 1fr; gap: 12px; }
+  footer.colophon a:hover { border-bottom-color: var(--burgundy); }
+  footer.colophon .footer-seal img {
+    height: 40px; width: auto; display: block;
+    opacity: 0.9;
   }
 </style>
 </head>
@@ -975,34 +1067,16 @@
 <div class="page">
 
   <!-- ============== NAV + BRONZE HAIRLINE ============== -->
-  <nav class="nav" aria-label="Brand guideline navigation">
+  <nav class="nav" aria-label="Heritage Strategies brand navigation">
     <a class="lockup" href="#top" aria-label="Heritage Strategies LLC home">
-      <!-- wax seal -->
-      <svg class="seal" width="52" height="52" viewBox="0 0 64 64" aria-hidden="true">
-        <defs>
-          <radialGradient id="nav-wax" cx="0.36" cy="0.32" r="0.78">
-            <stop offset="0"    stop-color="#b25a48"/>
-            <stop offset="0.55" stop-color="#9a4b3a"/>
-            <stop offset="1"    stop-color="#5a2a1d"/>
-          </radialGradient>
-        </defs>
-        <path d="M32 4 C 44 5, 56 12, 59 24 C 62 36, 56 50, 44 56 C 32 62, 18 60, 10 50 C 2 40, 2 24, 10 14 C 16 7, 24 4, 32 4 Z"
-              fill="url(#nav-wax)"/>
-        <text x="32" y="40" text-anchor="middle"
-              font-family="Cormorant Garamond, serif" font-size="22" font-weight="500"
-              fill="#4a2218" opacity="0.88" style="letter-spacing:0.04em;">HS</text>
-      </svg>
-      <span class="wordmark">
-        <span class="top">HERITAGE</span>
-        <span class="wmrule" aria-hidden="true"></span>
-        <span class="bot">STRATEGIES&nbsp;LLC</span>
-      </span>
+      <img src="./heritage-logo.webp" alt="Heritage Strategies LLC" height="40" width="auto">
+      <span class="lockup-word">Heritage Strategies</span>
     </a>
     <ul class="nav-links">
       <li><a href="#mark">Mark</a></li>
       <li><a href="#typography">Type</a></li>
       <li><a href="#color">Color</a></li>
-      <li><a href="#visual">Visual</a></li>
+      <li><a href="#accents">Accents</a></li>
       <li><a href="#components">Components</a></li>
       <li><a href="#prompt">Prompt</a></li>
     </ul>
@@ -1012,523 +1086,599 @@
   <!-- ============== MAIN ============== -->
   <main id="top">
 
-    <!-- HERO -->
+    <!-- ============== HERO ============== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="luminous-arc" aria-hidden="true">
-        <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+
+      <div class="hero-arc" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
           <defs>
-            <linearGradient id="arc-fade" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0"    stop-color="#d4d8df" stop-opacity="0"/>
-              <stop offset="0.28" stop-color="#d4d8df" stop-opacity="0.42"/>
-              <stop offset="0.72" stop-color="#d4d8df" stop-opacity="0.42"/>
-              <stop offset="1"    stop-color="#d4d8df" stop-opacity="0"/>
+            <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#F5EFE2" stop-opacity="0"/>
+              <stop offset="50%"  stop-color="#F5EFE2" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#C9B98A" stop-opacity="0"/>
             </linearGradient>
-            <radialGradient id="hero-glow" cx="0.5" cy="0.42" r="0.72">
-              <stop offset="0"    stop-color="#27406b" stop-opacity="0.55"/>
-              <stop offset="1"    stop-color="#0e1d33" stop-opacity="0"/>
-            </radialGradient>
+            <filter id="arcGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
-          <rect width="1200" height="600" fill="url(#hero-glow)"/>
-          <path d="M -100 460 Q 600 270 1300 350"
-                stroke="url(#arc-fade)" stroke-width="1.2" fill="none"/>
-          <path d="M -100 470 Q 600 295 1300 370"
-                stroke="url(#arc-fade)" stroke-width="0.6" fill="none" opacity="0.5"/>
+          <path
+            class="arc"
+            d="M -80 460 Q 360 120 720 240 T 1520 180"
+            fill="none"
+            stroke="url(#arcGrad)"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            filter="url(#arcGlow)"
+            pathLength="1"
+          />
         </svg>
       </div>
+
       <div class="hero-inner">
-        <p class="display-eyebrow">Heritage Strategies LLC · Brand System v1</p>
-        <div class="display-rule" aria-hidden="true"></div>
-        <h1 class="display-title" id="hero-title">
-          Stewardship
-          <span class="second">across generations.</span>
-        </h1>
-        <p class="display-lede">
-          A deep midnight navy ground. A wax-oxblood identity seal. Two bronze hairlines. Two fonts.
-          A single luminous arc. A steel cobalt accent reserved for state.
-          <em>The brand is the stewardship, not the strategy.</em>
-        </p>
-        <p class="trust-bar">
-          <span>Custodian / Trustee</span>
-          <span>Wax-seal identity</span>
-          <span>Tiempos + Söhne</span>
-          <span>Archival, generational, discreet</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- THE MARK -->
-    <section id="mark" aria-labelledby="mark-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 01 · The Mark</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="mark-heading">A family crest, pressed</h2>
-        <p class="section-subheading">Wax seal + two-line wordmark, separated by a bronze hairline</p>
-        <p class="section-body">
-          The identity is a soft circular wax disc pressed into the ground, paired with a Trajan-style serif
-          lockup. HERITAGE sits above STRATEGIES LLC, joined by a single thin bronze hairline that runs the
-          width of the wordmark. The seal is always oxblood. The wordmark is two-color: cream on dark, navy
-          on parchment. Never recolor either. Never set the lockup inside a containing shape.
-        </p>
-      </header>
-
-      <div class="logo-grid">
-        <div class="logo-tile">
-          <svg width="320" height="100" viewBox="0 0 320 100" aria-hidden="true">
-            <defs>
-              <radialGradient id="tile-wax-dark" cx="0.36" cy="0.32" r="0.78">
-                <stop offset="0"    stop-color="#b25a48"/>
-                <stop offset="0.55" stop-color="#9a4b3a"/>
-                <stop offset="1"    stop-color="#5a2a1d"/>
-              </radialGradient>
-            </defs>
-            <!-- seal -->
-            <g transform="translate(0,18)">
-              <path d="M32 4 C 44 5, 56 12, 59 24 C 62 36, 56 50, 44 56 C 32 62, 18 60, 10 50 C 2 40, 2 24, 10 14 C 16 7, 24 4, 32 4 Z"
-                    fill="url(#tile-wax-dark)"/>
-              <text x="32" y="40" text-anchor="middle" font-family="Cormorant Garamond, serif"
-                    font-size="22" font-weight="500" fill="#4a2218" opacity="0.88"
-                    style="letter-spacing:0.04em;">HS</text>
-            </g>
-            <!-- wordmark -->
-            <text x="92" y="44" font-family="Cormorant Garamond, serif" font-size="28" font-weight="500"
-                  fill="#f0ead8" style="letter-spacing:0.05em;">HERITAGE</text>
-            <line x1="92" y1="54" x2="232" y2="54" stroke="#a87f4b" stroke-width="1"/>
-            <text x="92" y="74" font-family="Cormorant Garamond, serif" font-size="16" font-weight="500"
-                  fill="#f0ead8" style="letter-spacing:0.18em;">STRATEGIES LLC</text>
-          </svg>
-          <p class="caption">On dark · #0e1d33</p>
-        </div>
-        <div class="logo-tile on-parchment">
-          <svg width="320" height="100" viewBox="0 0 320 100" aria-hidden="true">
-            <defs>
-              <radialGradient id="tile-wax-light" cx="0.36" cy="0.32" r="0.78">
-                <stop offset="0"    stop-color="#b25a48"/>
-                <stop offset="0.55" stop-color="#9a4b3a"/>
-                <stop offset="1"    stop-color="#5a2a1d"/>
-              </radialGradient>
-            </defs>
-            <g transform="translate(0,18)">
-              <path d="M32 4 C 44 5, 56 12, 59 24 C 62 36, 56 50, 44 56 C 32 62, 18 60, 10 50 C 2 40, 2 24, 10 14 C 16 7, 24 4, 32 4 Z"
-                    fill="url(#tile-wax-light)"/>
-              <text x="32" y="40" text-anchor="middle" font-family="Cormorant Garamond, serif"
-                    font-size="22" font-weight="500" fill="#4a2218" opacity="0.88"
-                    style="letter-spacing:0.04em;">HS</text>
-            </g>
-            <text x="92" y="44" font-family="Cormorant Garamond, serif" font-size="28" font-weight="500"
-                  fill="#0e1d33" style="letter-spacing:0.05em;">HERITAGE</text>
-            <line x1="92" y1="54" x2="232" y2="54" stroke="#a87f4b" stroke-width="1"/>
-            <text x="92" y="74" font-family="Cormorant Garamond, serif" font-size="16" font-weight="500"
-                  fill="#0e1d33" style="letter-spacing:0.18em;">STRATEGIES LLC</text>
-          </svg>
-          <p class="caption">On parchment · #f4ede0</p>
-        </div>
-      </div>
-
-      <div class="logo-rules">
-        <div class="rule-card">
-          <h4>Two-color rule</h4>
-          <p>Wax-oxblood seal + cream wordmark on dark. Wax-oxblood seal + navy wordmark on parchment. Never solid oxblood, never solid white, never gradients.</p>
-        </div>
-        <div class="rule-card">
-          <h4>The bronze hairline</h4>
-          <p>The 1px bronze rule between HERITAGE and STRATEGIES LLC is part of the wordmark. Never omit it, never thicken it, never recolor it.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Clearspace</h4>
-          <p>Reserve the cap-height of the H in HERITAGE around the entire lockup. Nothing crosses that boundary — not a luminous arc, not adjacent type.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Minimum size</h4>
-          <p>Full lockup ≥ 180px wide. Seal alone ≥ 32px square. Below that, hand-set HS monogram, never a downscaled raster.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Never alter</h4>
-          <p>No stretching, rotating, recoloring, outlining, embossing beyond the seal's natural impression, drop-shadows, or containing shapes.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Never animate</h4>
-          <p>The seal does not spin, fade in, pulse, or "stamp down" on page load. A signature does not animate.</p>
+        <div class="hero-grid">
+          <p class="hero-eyebrow">Heritage Strategies LLC · Brand System v2</p>
+          <h1 class="hero-title" id="hero-title">
+            Three generations of stewardship, <em>set in print.</em>
+          </h1>
+          <p class="hero-lede">
+            A warm ivory ground. Navy contrast panels. One wax-burgundy identity color, reserved for the seal.
+            Aged bronze hairlines, top and bottom. Fraunces display serif, Inter sans, one animated luminous arc behind the hero.
+            Numbers beat adjectives.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#prompt">Read the Brand Prompt</a>
+            <a class="btn btn-on-dark" href="#mark">View the Mark</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TYPOGRAPHY -->
-    <section id="typography" aria-labelledby="type-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 02 · Typography</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="type-heading">Two fonts, archival voice</h2>
-        <p class="section-subheading">Classical display serif + clean modern sans</p>
-        <p class="section-body">
-          Tiempos Headline does the heavy lifting for the wordmark, headings, hero copy, and editorial body
-          on letterhead. Söhne handles navigation, body, and all dense data. If brand-licensed fonts are
-          unavailable, Cormorant Garamond and Inter are mandatory free fallbacks. JetBrains Mono is allowed
-          for account references and code only. Three fonts in a Heritage surface is a redesign, not a variation.
-        </p>
-      </header>
-
-      <div class="type-spec">
-        <div class="type-card serif">
-          <p class="sample serif">Aa</p>
-          <p class="meta">Display Serif</p>
-          <p class="name">Tiempos Headline <span style="color:var(--text-muted); font-size:13px;">(Cormorant Garamond fallback)</span></p>
-          <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 — &amp; ÆŒ</p>
-        </div>
-        <div class="type-card sans">
-          <p class="sample sans">Aa</p>
-          <p class="meta">Sans (UI + body)</p>
-          <p class="name">Söhne <span style="color:var(--text-muted); font-size:13px;">(Inter fallback)</span></p>
-          <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
-        </div>
+    <!-- ============== TRUST BAR ============== -->
+    <div class="trust-bar" aria-label="Heritage Strategies trust bar">
+      <div class="trust-bar-inner">
+        <span><strong>Custodian / Trustee</strong> archetype</span>
+        <span>Warm ivory ground (80%)</span>
+        <span>Navy + cream typography</span>
+        <span>Wax burgundy at 2%</span>
+        <span>1px bronze hairlines</span>
       </div>
+    </div>
 
-      <div class="type-scale" role="table" aria-label="Type scale">
-        <div class="type-scale-row"><span class="role">Display · 64–96px serif</span><span class="demo serif-72">Stewardship.</span></div>
-        <div class="type-scale-row"><span class="role">Display italic · 48px serif</span><span class="demo serif-italic">across generations.</span></div>
-        <div class="type-scale-row"><span class="role">H1 marketing · 48px serif</span><span class="demo serif-48">A quarterly letter, rendered</span></div>
-        <div class="type-scale-row"><span class="role">H2 marketing · 36px serif</span><span class="demo serif-36">The trustee's posture</span></div>
-        <div class="type-scale-row"><span class="role">Eyebrow · 12px serif small-caps</span><span class="demo eyebrow-12">Section · 02 · Typography</span></div>
-        <div class="type-scale-row"><span class="role">Subheading · 20px sans medium</span><span class="demo sans-20">Classical display serif + clean modern sans</span></div>
-        <div class="type-scale-row"><span class="role">Editorial body · 18px serif (onum)</span><span class="demo body-serif">Heritage Strategies has been engaged by 47 families since 1998. Each engagement begins with a six-month listening period before a single recommendation is made.</span></div>
-        <div class="type-scale-row"><span class="role">Body · 15px sans regular</span><span class="demo sans-15">Default screen body. Stone Mist on the deep navy ground. Line-height 1.6 for breathing room without losing density.</span></div>
-        <div class="type-scale-row"><span class="role">Nav · 11px sans medium uppercase</span><span class="demo sans-11">Mark · Type · Color · Visual</span></div>
-        <div class="type-scale-row"><span class="role">Mono · 14px JetBrains</span><span class="demo mono-14">Trust · 2018-114-A · IRS EIN 47-3920811</span></div>
-      </div>
-    </section>
+    <!-- ============== THE MARK ============== -->
+    <section class="section" id="mark" aria-labelledby="mark-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">The Mark</p>
+          <h2 class="section-heading" id="mark-heading">A seal, not a logo.</h2>
+          <p class="section-subheading">The wax-seal HS monogram demoted to a detail element.</p>
+          <p class="section-body">
+            The actual <code>heritage-logo.webp</code> file is the source of truth. Never redrawn as inline SVG, never recolored, never gradient-tinted, never set at hero scale. The seal is a 24 to 48px detail in section terminators, the footer, and the favicon. The page does the work, not the seal.
+          </p>
+        </header>
 
-    <!-- COLOR -->
-    <section id="color" aria-labelledby="color-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 03 · Color</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="color-heading">Seven swatches, strict roles</h2>
-        <p class="section-subheading">No improvisation, no crossovers</p>
-        <p class="section-body">
-          Oxblood is identity, never interaction. Bronze is a hairline color, never a fill. Cobalt is state,
-          never decoration. Deep midnight navy is the page; cards descend toward black, not ascend toward
-          white. Parchment is for document interiors, never a marketing-page ground. The system breaks the
-          moment any color crosses its lane.
-        </p>
-      </header>
+        <div class="logo-grid" data-reveal>
+          <div class="logo-tile on-ivory">
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on ivory">
+            <p class="caption">On ivory · #FAF7F2</p>
+          </div>
+          <div class="logo-tile on-white">
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on white">
+            <p class="caption">On white · #FFFFFF</p>
+          </div>
+          <div class="logo-tile on-navy">
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on navy with warm-white pill">
+            <p class="caption">On navy · pill #FAF7F2</p>
+          </div>
+        </div>
 
-      <div class="color-grid">
-        <div class="swatch">
-          <div class="chip navy"></div>
-          <div class="info">
-            <p class="role">Signature ground</p>
-            <h3 class="name">Deep Midnight Navy</h3>
-            <p class="hex">#0e1d33</p>
-            <p class="hsl">hsl(216 57% 13%)</p>
-            <p class="usage">Default page background. Every marketing surface, deck, and screen-bound PDF sits on this.</p>
+        <div class="logo-rules" data-reveal>
+          <div class="rule-card">
+            <h4>Use the real file</h4>
+            <p>Always reference <code>heritage-logo.webp</code> directly. Never reconstruct from SVG paths, the wax-seal interior typography will diverge.</p>
           </div>
-        </div>
-        <div class="swatch">
-          <div class="chip oxblood"></div>
-          <div class="info">
-            <p class="role">Identity accent</p>
-            <h3 class="name">Wax Seal Oxblood</h3>
-            <p class="hex">#9a4b3a</p>
-            <p class="hsl">hsl(11 45% 42%)</p>
-            <p class="usage">The wax seal, the active nav underline, the rare filled hero CTA. Identity, never a generic UI color.</p>
+          <div class="rule-card">
+            <h4>Detail element only</h4>
+            <p>24 to 48px in section terminators and footer. Never hero scale. Never larger than 64px outside the canonical lockup contexts.</p>
           </div>
-        </div>
-        <div class="swatch">
-          <div class="chip bronze"></div>
-          <div class="info">
-            <p class="role">Structural rule</p>
-            <h3 class="name">Bronze Hairline</h3>
-            <p class="hex">#a87f4b</p>
-            <p class="hsl">hsl(34 39% 47%)</p>
-            <p class="usage">The hairline between HERITAGE and STRATEGIES LLC, page top + bottom rules, section eyebrows. Never a fill.</p>
+          <div class="rule-card">
+            <h4>Clearspace</h4>
+            <p>Reserve the cap height of the "H" in "Heritage" around the entire lockup. Nothing crosses that boundary.</p>
           </div>
-        </div>
-        <div class="swatch">
-          <div class="chip parchment"></div>
-          <div class="info">
-            <p class="role">Document surface</p>
-            <h3 class="name">Parchment Cream</h3>
-            <p class="hex">#f4ede0</p>
-            <p class="hsl">hsl(40 50% 92%)</p>
-            <p class="usage">Letterhead, PDF body pages, print collateral. Never a marketing-page ground.</p>
+          <div class="rule-card">
+            <h4>Never alter</h4>
+            <p>No stretching, rotating, recoloring, gradient tinting, drop-shadows, or containing shapes. The seal ships with the colors it has.</p>
           </div>
-        </div>
-        <div class="swatch">
-          <div class="chip mist"></div>
-          <div class="info">
-            <p class="role">Body on dark</p>
-            <h3 class="name">Stone Mist</h3>
-            <p class="hex">#d4d8df</p>
-            <p class="hsl">hsl(216 13% 85%)</p>
-            <p class="usage">Body copy on the navy ground, the luminous arc itself at low opacity, the wordmark on dark.</p>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="chip slate"></div>
-          <div class="info">
-            <p class="role">Cards on dark</p>
-            <h3 class="name">Quiet Slate</h3>
-            <p class="hex">#091525</p>
-            <p class="hsl">hsl(216 60% 9%)</p>
-            <p class="usage">Cards descend toward black, not ascend toward white. Reads as ink-on-paper.</p>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="chip cobalt"></div>
-          <div class="info">
-            <p class="role">Reserved accent</p>
-            <h3 class="name">Steel Cobalt</h3>
-            <p class="hex">#3d5d8a</p>
-            <p class="hsl">hsl(214 38% 39%)</p>
-            <p class="usage">State only — active, selected, focus, info. Never decorative. Never a chart series.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="color-rules">
-        <div class="rule-card">
-          <h4>Oxblood is identity</h4>
-          <p>The wax seal, the section-opening pip, the active-nav-item underline. Never paint a button oxblood by default. Filled-oxblood is reserved for one hero CTA per page.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Bronze is a hairline</h4>
-          <p>1px structural rules and small-caps eyebrow color only. Bronze cannot carry a fill at any reasonable area without losing its metallic register.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Cobalt is state</h4>
-          <p>Active, selected, focus, info. The moment cobalt becomes decoration, its meaning as a state indicator is broken everywhere else.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Cards go darker</h4>
-          <p>On the navy ground, cards descend toward Quiet Slate, not ascend toward white. The page reads like ink absorbing into paper.</p>
         </div>
       </div>
     </section>
 
-    <!-- VISUAL ACCENTS -->
-    <section id="visual" aria-labelledby="visual-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 04 · Visual Accents</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="visual-heading">Three sanctioned motifs</h2>
-        <p class="section-subheading">The seal · the arc · the bronze hairlines</p>
-        <p class="section-body">
-          Three decorative devices, all drawn from the wax-seal Zoom card. The seal is the signature, used
-          in the lockup and at the top of letterhead. The luminous arc is the watermark, used once per
-          viewport at low opacity. The bronze hairlines are the structural frame at top and bottom of every
-          full-page surface. Nothing else is invented.
-        </p>
-      </header>
+    <!-- ============== TYPOGRAPHY ============== -->
+    <section class="section" id="typography" aria-labelledby="type-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">Typography</p>
+          <h2 class="section-heading" id="type-heading">Two fonts, one mono.</h2>
+          <p class="section-subheading">Display serif for heading, sans for everything else, mono for fiduciary detail.</p>
+          <p class="section-body">
+            Tiempos Headline (Klim) does the heavy lifting for headings and the wordmark. Söhne (Klim) handles navigation, body, and dense data. If Klim licenses are unavailable, Fraunces and Inter are mandatory free fallbacks. JetBrains Mono carries account numbers, CUSIPs, and document references. Three display + body fonts in a Heritage surface is a redesign, not a variation.
+          </p>
+        </header>
 
-      <div class="accent-grid">
-        <div class="accent-block">
-          <svg class="big-seal" viewBox="0 0 200 200" aria-hidden="true">
-            <defs>
-              <radialGradient id="big-wax" cx="0.36" cy="0.32" r="0.78">
-                <stop offset="0"    stop-color="#c46451"/>
-                <stop offset="0.5"  stop-color="#9a4b3a"/>
-                <stop offset="1"    stop-color="#4d231a"/>
-              </radialGradient>
-            </defs>
-            <path d="M100 14 C 138 16, 174 38, 184 76 C 194 116, 178 158, 138 178
-                     C 100 196, 56 192, 30 158 C 4 124, 4 76, 32 44 C 50 24, 76 14, 100 14 Z"
-                  fill="url(#big-wax)"/>
-            <text x="100" y="124" text-anchor="middle"
-                  font-family="Cormorant Garamond, serif" font-size="70" font-weight="500"
-                  fill="#3a1a12" opacity="0.88" style="letter-spacing:0.04em;">HS</text>
-          </svg>
-          <p class="label">Motif · 01 · The wax seal</p>
+        <div class="type-spec" data-reveal>
+          <div class="type-card serif">
+            <p class="sample">Aa</p>
+            <p class="meta">Display Serif</p>
+            <p class="name">Tiempos Headline <span class="fallback">(Fraunces fallback)</span></p>
+            <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+          </div>
+          <div class="type-card sans">
+            <p class="sample">Aa</p>
+            <p class="meta">Sans (UI + Body)</p>
+            <p class="name">Söhne <span class="fallback">(Inter fallback)</span></p>
+            <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+          </div>
+          <div class="type-card mono">
+            <p class="sample">Aa</p>
+            <p class="meta">Mono (Detail)</p>
+            <p class="name">JetBrains Mono</p>
+            <p class="alphabet">CUSIP 037833100 · $2,400,000,000<br>2026-06-03 · TR-7141<br>0123456789</p>
+          </div>
         </div>
-        <div class="accent-block arc-block">
-          <svg class="demo-arc" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="demo-arc-fade" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0"    stop-color="#d4d8df" stop-opacity="0"/>
-                <stop offset="0.25" stop-color="#d4d8df" stop-opacity="0.55"/>
-                <stop offset="0.75" stop-color="#d4d8df" stop-opacity="0.55"/>
-                <stop offset="1"    stop-color="#d4d8df" stop-opacity="0"/>
-              </linearGradient>
-              <radialGradient id="demo-glow" cx="0.5" cy="0.42" r="0.72">
-                <stop offset="0"   stop-color="#27406b" stop-opacity="0.55"/>
-                <stop offset="1"   stop-color="#091525" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="300" fill="url(#demo-glow)"/>
-            <path d="M -20 230 Q 200 130 420 170"
-                  stroke="url(#demo-arc-fade)" stroke-width="1.4" fill="none"/>
-            <path d="M -20 240 Q 200 150 420 185"
-                  stroke="url(#demo-arc-fade)" stroke-width="0.7" fill="none" opacity="0.5"/>
-          </svg>
-          <p class="label">Motif · 02 · The luminous arc</p>
-        </div>
-      </div>
 
-      <div class="logo-rules" style="margin-top: 40px;">
-        <div class="rule-card">
-          <h4>The wax seal</h4>
-          <p>Pressed, irregular, deeper at the edges. Always oxblood. Once per viewport. Letterhead upper-left, the lockup, the PDF section opener. Never recolored, never animated, never in a containing shape.</p>
-        </div>
-        <div class="rule-card">
-          <h4>The luminous arc</h4>
-          <p>A single silver-cream hairline arc sweeping the lower half of dark surfaces. 8–15% opacity. Once per viewport. Never on parchment. Never animated.</p>
-        </div>
-        <div class="rule-card">
-          <h4>Bronze hairlines</h4>
-          <p>1px bronze rule beneath the nav. 1px bronze rule above the footer. The structural frame on every full-page surface. Heritage's quieter equivalent of a leather binding.</p>
+        <div class="type-scale" role="table" aria-label="Type scale">
+          <div class="type-scale-row"><span class="role">Display · 64 to 88px serif</span><span class="demo display">Three generations.</span></div>
+          <div class="type-scale-row"><span class="role">H1 marketing · 44px serif</span><span class="demo h1-mkt">Multi-generational stewardship</span></div>
+          <div class="type-scale-row"><span class="role">H2 marketing · 32px serif</span><span class="demo h2-mkt">Family-office partner portal</span></div>
+          <div class="type-scale-row"><span class="role">Section eyebrow · 12px sans uppercase</span><span class="demo eyebrow">Stewardship Note</span></div>
+          <div class="type-scale-row"><span class="role">Subheading · 22px sans medium</span><span class="demo subhead">A trustee, not a salesperson</span></div>
+          <div class="type-scale-row"><span class="role">Body · 16px sans regular</span><span class="demo body">Heritage Strategies steward what families have built across decades, structures, and successors. A single named partner. Foreman, the firm's AI Employee, on every artifact.</span></div>
+          <div class="type-scale-row"><span class="role">Nav · 12px sans medium uppercase</span><span class="demo nav">Mark · Type · Color · Components</span></div>
+          <div class="type-scale-row"><span class="role">Mono · 14px JetBrains</span><span class="demo mono">CUSIP 037833100 · TR-7141 · 2026-06-03</span></div>
         </div>
       </div>
     </section>
 
-    <!-- COMPONENTS -->
-    <section id="components" aria-labelledby="components-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 05 · Components</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="components-heading">In use</h2>
-        <p class="section-subheading">Buttons · status · the quarterly statement</p>
-        <p class="section-body">
-          Buttons are rectangles, 4px radius. Pills are reserved for status indicators and avatars. The
-          primary button is a bronze-outlined cream-text treatment on dark. Filled-oxblood exists but is
-          rare — one hero CTA per page maximum. Tables of money use tabular figures. Account references
-          appear in JetBrains Mono.
-        </p>
-      </header>
+    <!-- ============== COLOR ============== -->
+    <section class="section" id="color" aria-labelledby="color-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">Color</p>
+          <h2 class="section-heading" id="color-heading">Ten swatches, strict roles.</h2>
+          <p class="section-subheading">80 / 12 / 5 / 2 / 1. Burgundy is identity. Bronze is hairline. Reserved blue is state.</p>
+          <p class="section-body">
+            The brand sits on warm ivory, navy is the contrast panel, burgundy is the family crest at 2%, and bronze is the structural hairline at 1%. Reserved blue handles focus and active state in the family-office portal, never decorative. No hue in the 5 to 45 degree warning band, ever.
+          </p>
+        </header>
 
-      <div class="component-grid">
-        <div class="panel">
-          <p class="panel-title">Buttons</p>
-          <div class="panel-rule" aria-hidden="true"></div>
-          <div class="button-row">
-            <button class="btn btn-hero" type="button">Request a confidential conversation</button>
+        <div class="color-grid" data-reveal>
+          <div class="swatch">
+            <div class="chip chip-ivory"></div>
+            <div class="info">
+              <p class="role">Default page</p>
+              <h3 class="name">Page Ivory</h3>
+              <p class="hex">#FAF7F2</p>
+              <p class="hsl">hsl(36 40% 97%)</p>
+              <p class="usage">The page. Every Heritage marketing surface, statement, and deck sits on this. Warm, never pure white.</p>
+            </div>
           </div>
-          <div class="button-row">
-            <button class="btn btn-outline" type="button">Read the quarterly letter</button>
-            <button class="btn btn-ghost" type="button">View the principals</button>
+          <div class="swatch">
+            <div class="chip chip-white"></div>
+            <div class="info">
+              <p class="role">Cards · tables</p>
+              <h3 class="name">Surface White</h3>
+              <p class="hex">#FFFFFF</p>
+              <p class="hsl">hsl(0 0% 100%)</p>
+              <p class="usage">Cards, tables, statement tear-sheets. Pure white sits on the ivory ground with a quiet hue gap.</p>
+            </div>
           </div>
-          <p class="btn-note">Filled-oxblood = hero CTA only, once per page. Bronze-outline = default. Ghost = secondary on dense surfaces.</p>
+          <div class="swatch">
+            <div class="chip chip-ink"></div>
+            <div class="info">
+              <p class="role">Body on ivory</p>
+              <h3 class="name">Ink Navy</h3>
+              <p class="hex">#1B2230</p>
+              <p class="hsl">hsl(218 27% 14%)</p>
+              <p class="usage">Body text and headings on ivory. Never pure black. Inherits the warmth of the page.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-muted"></div>
+            <div class="info">
+              <p class="role">Secondary text</p>
+              <h3 class="name">Text Muted</h3>
+              <p class="hex">#6B7280</p>
+              <p class="hsl">hsl(220 9% 47%)</p>
+              <p class="usage">Metadata, captions, dot-separators. Never for body copy.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-navy"></div>
+            <div class="info">
+              <p class="role">Nav · contrast</p>
+              <h3 class="name">Heritage Navy</h3>
+              <p class="hex">#1E2A44</p>
+              <p class="hsl">hsl(220 38% 19%)</p>
+              <p class="usage">The signature dark. Nav background, principle-quote inset, deck cover backgrounds.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-darker"></div>
+            <div class="info">
+              <p class="role">Hero ground</p>
+              <h3 class="name">Contrast Dark</h3>
+              <p class="hex">#0F1626</p>
+              <p class="hsl">hsl(220 44% 11%)</p>
+              <p class="usage">The deepest panel. The hero ground beneath the luminous arc. One step deeper than Heritage Navy.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-burgundy"></div>
+            <div class="info">
+              <p class="role">Identity only</p>
+              <h3 class="name">Wax Burgundy</h3>
+              <p class="hex">#5C1A1B</p>
+              <p class="hsl">hsl(359 56% 23%)</p>
+              <p class="usage">The seal, one CTA per page, link hover. Hue 359°, structurally below red and outside the warning band.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-bronze"></div>
+            <div class="info">
+              <p class="role">Hairline · eyebrow</p>
+              <h3 class="name">Aged Bronze</h3>
+              <p class="hex">#8C7351</p>
+              <p class="hsl">hsl(35 26% 43%)</p>
+              <p class="usage">1px structural hairlines (top + bottom + beneath nav), section eyebrows, metallic typography in the seal.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-blue"></div>
+            <div class="info">
+              <p class="role">State only</p>
+              <h3 class="name">Reserved Blue</h3>
+              <p class="hex">#2C5282</p>
+              <p class="hsl">hsl(214 50% 34%)</p>
+              <p class="usage">Active, selected, focus, info. Never decorative, never a hero color, never a chart series.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="chip chip-cream"></div>
+            <div class="info">
+              <p class="role">Body on dark</p>
+              <h3 class="name">Cream on Dark</h3>
+              <p class="hex">#E8E2D2</p>
+              <p class="hsl">hsl(44 36% 86%)</p>
+              <p class="usage">Body copy on the navy / contrast-dark panels. Warm cream, never pure white.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="panel">
-          <p class="panel-title">Status · app mode only</p>
-          <div class="panel-rule" aria-hidden="true"></div>
-          <div class="status-row">
-            <span class="badge success">Approved</span>
-            <span class="badge warning">Review pending</span>
-            <span class="badge error">Distribution failed</span>
-            <span class="badge info">Active</span>
+        <div class="ratio-bar" aria-label="Color usage ratio">
+          <div class="ratio-ivory">Ivory 80%</div>
+          <div class="ratio-navy">Navy 12%</div>
+          <div class="ratio-darker">Dark 5%</div>
+          <div class="ratio-burg">Burgundy 2%</div>
+          <div class="ratio-bronze">Bronze 1%</div>
+        </div>
+
+        <div class="color-rules" data-reveal>
+          <div class="rule-card">
+            <h4>Burgundy is identity</h4>
+            <p>The wax-seal color. The single primary CTA per page. Link hover. Nothing else. Never a chart series, never a button default, never a paragraph color.</p>
           </div>
-          <p class="btn-note">Semantic only. Status colors do not appear on marketing surfaces — never use them as decoration. Info uses Steel Cobalt because cobalt means "currently active / informational" everywhere it appears.</p>
-        </div>
-
-        <div class="panel">
-          <p class="panel-title">Quarterly statement</p>
-          <div class="panel-rule" aria-hidden="true"></div>
-          <table class="statement-table">
-            <thead>
-              <tr><th>Account</th><th>Holding</th><th style="text-align:right;">Position</th><th style="text-align:right;">Δ QoQ</th><th style="text-align:right;">USD</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2018-114-A</td><td>Equity, US large cap</td><td class="num">38.4%</td><td class="num positive">+1.2%</td><td class="num">3,420,800</td></tr>
-              <tr><td>2018-114-A</td><td>Equity, intl developed</td><td class="num">14.6%</td><td class="num negative">(0.4%)</td><td class="num">1,302,400</td></tr>
-              <tr><td>2018-114-A</td><td>Fixed income, taxable</td><td class="num">28.1%</td><td class="num positive">+0.3%</td><td class="num">2,505,600</td></tr>
-              <tr><td>2018-114-A</td><td>Alternatives, private</td><td class="num">18.9%</td><td class="num positive">+0.6%</td><td class="num">1,685,200</td></tr>
-              <tr><td colspan="2">Total · trustee-attested 31 March 2026</td><td class="num">100.0%</td><td class="num">+1.7%</td><td class="num">8,914,000</td></tr>
-            </tbody>
-          </table>
-          <p class="btn-note" style="margin-top:18px;">Tabular figures align the columns. Account references in mono. Gains and losses paired with signs and parentheses, never communicated by color alone.</p>
-        </div>
-
-        <div class="feature-card">
-          <p class="panel-title">Engagement profile</p>
-          <div class="panel-rule" aria-hidden="true"></div>
-          <h3>Multi-jurisdictional family,<br/><em>five-generation horizon.</em></h3>
-          <p>Trust structure spans <span class="mono">DE</span>, <span class="mono">SD</span>, <span class="mono">NV</span>, and <span class="mono">UK</span>. Six-month listening period preceded the first recommendation. Quarterly trustee letters delivered on the first Friday of the following month.</p>
+          <div class="rule-card">
+            <h4>Bronze is hairline</h4>
+            <p>1px structural rules and the section eyebrow only. Never a button fill, never a chart series, never a paragraph color. The picture frame, not the picture.</p>
+          </div>
+          <div class="rule-card">
+            <h4>Reserved blue is state</h4>
+            <p>Active, selected, focus, info. The moment reserved blue becomes decorative, its state meaning breaks everywhere else.</p>
+          </div>
+          <div class="rule-card">
+            <h4>No warning hue</h4>
+            <p>Zero use of hue 5 to 45 degrees at saturation greater than 55 percent. Warning-band colors do not appear on a fiduciary surface.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- DOS AND DONTS -->
-    <section id="rules" aria-labelledby="rules-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 06 · House Rules</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="rules-heading">Do · Don't</h2>
-        <p class="section-subheading">Restraint over volume</p>
-      </header>
+    <!-- ============== VISUAL ACCENTS ============== -->
+    <section class="section" id="accents" aria-labelledby="accents-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">Visual Accents</p>
+          <h2 class="section-heading" id="accents-heading">Three motifs, no more.</h2>
+          <p class="section-subheading">The animated arc, the wax seal demoted to detail, and the 1px bronze hairlines.</p>
+          <p class="section-body">
+            One piece of motion ornament in the entire brand, the luminous arc, used once per page inside the navy hero panel. The wax-seal monogram is a 24 to 48px detail in section terminators and the footer. Top and bottom of the page are framed by 1px bronze hairlines. A fourth motif is a redesign.
+          </p>
+        </header>
 
-      <div class="do-dont">
-        <div class="panel do">
-          <h4>Do</h4>
-          <ul>
-            <li>Default to the deep midnight navy ground. The brand was designed for it.</li>
-            <li>Use exactly two fonts — display serif and sans. Mono for account references only.</li>
-            <li>Keep the bronze hairlines at the top and the bottom of every full-page surface.</li>
-            <li>Open every section with the bronze eyebrow + 56px bronze rule + serif heading + sans subheading.</li>
-            <li>Treat the wax seal as a signature. Once per viewport at most. Always oxblood.</li>
-            <li>Treat the luminous arc as a watermark. Once per viewport, low opacity, never animated.</li>
-            <li>Reserve Steel Cobalt for state — active, selected, focus, info.</li>
-            <li>Use tabular figures in any dense data. Old-style figures in editorial serif prose.</li>
-            <li>Show the principal. Named, with credentials. Real face, available light.</li>
-            <li>Write declaratively. Owner, date, next step. Speak like a trustee writing a quarterly letter.</li>
-          </ul>
-        </div>
-        <div class="panel dont">
-          <h4>Don't</h4>
-          <ul>
-            <li>Don't recolor the wax seal. It is oxblood, always. No navy version, no white version.</li>
-            <li>Don't omit the bronze hairline between HERITAGE and STRATEGIES LLC. It is part of the wordmark.</li>
-            <li>Don't paint a button oxblood by default. Bronze-outline is the default; filled-oxblood is the hero CTA.</li>
-            <li>Don't paint a button bronze. Bronze is a hairline color, not a fill.</li>
-            <li>Don't use cobalt as decoration. State only.</li>
-            <li>Don't make cards lighter than the page. Cards go darker, not lighter.</li>
-            <li>Don't use parchment as a marketing-page ground. Parchment is for document interiors.</li>
-            <li>Don't use stock wealth imagery — skylines, handshakes, "advisor at conference table."</li>
-            <li>Don't write "we believe," "we are passionate about," "experience true wealth," or "schedule a discovery call."</li>
-            <li>Don't use em dashes. Heritage tone. Use a comma, a period, parentheses, or a colon.</li>
-            <li>Don't animate the wax seal or the luminous arc. Signatures do not animate.</li>
-          </ul>
+        <div class="accents-grid" data-reveal>
+          <div class="accent-preview" aria-label="Animated luminous arc preview on navy ground">
+            <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation" style="position:absolute; inset:0; width:100%; height:100%;">
+              <defs>
+                <linearGradient id="arcGrad2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#F5EFE2" stop-opacity="0"/>
+                  <stop offset="50%"  stop-color="#F5EFE2" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#C9B98A" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="arcGlow2" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <path
+                class="arc"
+                d="M -80 460 Q 360 120 720 240 T 1520 180"
+                fill="none"
+                stroke="url(#arcGrad2)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                filter="url(#arcGlow2)"
+                pathLength="1"
+              />
+            </svg>
+            <span class="label">The Luminous Arc · 6s draw, 9s breathe</span>
+          </div>
+
+          <div class="accent-side">
+            <div class="accent-card">
+              <h4>The Wax Seal Monogram</h4>
+              <div class="seal-row">
+                <img src="./heritage-logo.webp" alt="" aria-hidden="true">
+                <span class="sz">32px · section terminator</span>
+              </div>
+              <p>Demoted to detail. 24 to 48px in section terminators, footer, favicon. Never hero scale. Never recolored. Never as a watermark behind type.</p>
+            </div>
+            <div class="accent-card">
+              <h4>1px Bronze Hairlines</h4>
+              <div class="hairline-demo" aria-hidden="true"></div>
+              <p>Top of viewport beneath the nav. Bottom of page above the footer. Heritage's quieter version of JetHQ's gold bar, 1px only, no thick bar.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- BRAND PROMPT EMBED -->
-    <section id="prompt" aria-labelledby="prompt-heading">
-      <header class="section-header">
-        <p class="section-eyebrow">Section · 07 · The Brand Prompt</p>
-        <div class="section-rule" aria-hidden="true"></div>
-        <h2 class="section-heading" id="prompt-heading">Canonical source</h2>
-        <p class="section-subheading">Embedded for AI tools &amp; humans</p>
-        <p class="section-body">
-          The full Heritage brand prompt — opinionated, prescriptive, copy-pasteable. Hand this to any AI
-          tool building a Heritage-themed surface. Hand it to any designer producing a Heritage artifact.
-          Both should leave with the same posture: archival, generational, discreet.
-        </p>
-      </header>
+    <!-- ============== COMPONENTS ============== -->
+    <section class="section" id="components" aria-labelledby="components-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">Components</p>
+          <h2 class="section-heading" id="components-heading">In use.</h2>
+          <p class="section-subheading">Buttons, status, stewardship table, partner bio, three-way comparison.</p>
+          <p class="section-body">
+            Buttons are 4px-radius rectangles. The default is bronze-outline navy-text on ivory. Filled burgundy is the rare hero CTA, one per page. Pills are reserved for status indicators and avatars. Tabular figures align every dollar amount and date column.
+          </p>
+        </header>
 
-      <div class="prompt-actions">
-        <a class="btn btn-outline" href="./brand-prompt.md" download>Download · brand-prompt.md</a>
-        <button class="btn btn-ghost" type="button" id="copy-prompt">Copy to clipboard</button>
+        <div class="component-grid" data-reveal>
+          <div class="panel">
+            <div class="panel-header">
+              <p class="panel-title">Buttons</p>
+            </div>
+            <div class="button-row">
+              <button class="btn btn-primary" type="button">Request a Stewardship Conversation</button>
+              <button class="btn btn-default" type="button">Speak with a Partner</button>
+              <button class="btn btn-ghost" type="button">View Statements</button>
+            </div>
+            <p class="btn-note">Filled burgundy is the hero CTA only, once per page. Bronze-outline navy-text is the default. Ghost is secondary on dense surfaces.</p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <p class="panel-title">Status (app mode only)</p>
+            </div>
+            <div class="status-row">
+              <span class="badge success">Settled</span>
+              <span class="badge warning">Pending review</span>
+              <span class="badge error">Hold expired</span>
+              <span class="badge info">Active</span>
+            </div>
+            <p class="btn-note">Semantic only. Pale tints, never saturated fills. Status colors do not appear on marketing surfaces.</p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <p class="panel-title">Stewardship Table</p>
+            </div>
+            <table class="stewardship-table">
+              <thead>
+                <tr>
+                  <th>Family</th>
+                  <th>Generation</th>
+                  <th>Since</th>
+                  <th class="num">Assets Under Stewardship</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Redacted A</td><td>Third</td><td>1989</td><td class="num">$420,000,000</td></tr>
+                <tr><td>Redacted B</td><td>Second</td><td>2004</td><td class="num">$185,000,000</td></tr>
+                <tr><td>Redacted C</td><td>Fourth</td><td>1962</td><td class="num">$1,140,000,000</td></tr>
+              </tbody>
+            </table>
+            <p class="btn-note" style="margin-top:14px;">Tabular figures align the dollar column. Bronze 1px hairlines between rows.</p>
+          </div>
+
+          <div class="partner-bio">
+            <div class="partner-portrait" aria-hidden="true"></div>
+            <h3 class="partner-name">Jessica Smith-Mason</h3>
+            <p class="partner-role">Senior Partner, Stewardship</p>
+            <p class="partner-bio-body">Twenty-three years at Heritage, leads the multi-generational practice for families in transition.</p>
+            <p class="partner-credentials">JD · LLM (Tax) · TEP</p>
+          </div>
+        </div>
+
+        <div data-reveal>
+          <p class="section-eyebrow" style="margin-top: 72px;">Three-Way Comparison (the Roemer pattern)</p>
+          <div class="comparison">
+            <article class="comparison-card neutral">
+              <p class="comparison-label">Generic Trust Company</p>
+              <h3>Quarterly reviews, standardized portfolios</h3>
+              <ul>
+                <li>Phone-tree client service</li>
+                <li>Quarterly statement only</li>
+                <li>Cookie-cutter portfolio model</li>
+                <li>No named relationship</li>
+              </ul>
+            </article>
+            <article class="comparison-card neutral">
+              <p class="comparison-label">Single-Family Office</p>
+              <h3>Bespoke, expensive, single-client risk</h3>
+              <ul>
+                <li>Custom structures</li>
+                <li>High fixed overhead</li>
+                <li>Single-client concentration risk</li>
+                <li>Talent retention is the brief</li>
+              </ul>
+            </article>
+            <article class="comparison-card heritage">
+              <div class="comparison-seal">
+                <img src="./heritage-logo.webp" alt="" aria-hidden="true">
+                <span class="seal-name">Heritage Strategies</span>
+              </div>
+              <p class="comparison-label">Multi-Generational Stewardship</p>
+              <h3>Named partner per family, every artifact</h3>
+              <ul>
+                <li>Multi-generational practice</li>
+                <li>Named partner per family</li>
+                <li>Foreman, the firm's AI Employee, on every artifact</li>
+                <li>Stewardship continuity across successors</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="prompt-frame">
-        <div class="md" id="prompt-body" aria-label="Heritage brand prompt content">
-          <p style="color: var(--text-muted);">Loading brand prompt…</p>
+    <!-- ============== PRINCIPLE QUOTE (single dark inset) ============== -->
+    <aside class="principle" aria-label="Principle quote">
+      <div class="principle-inner" data-reveal>
+        <blockquote>
+          Stewardship is the patient, quiet work of holding what a family has built, across decades, structures, and successors. The number is supposed to feel old.
+        </blockquote>
+        <p class="attrib">Heritage Strategies LLC · Founding Principle</p>
+      </div>
+    </aside>
+
+    <!-- ============== DO / DONT ============== -->
+    <section class="section" id="rules" aria-labelledby="rules-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">House Rules</p>
+          <h2 class="section-heading" id="rules-heading">Do · Don't</h2>
+          <p class="section-subheading">Restraint over volume. Show, never claim.</p>
+        </header>
+
+        <div class="do-dont" data-reveal>
+          <div class="panel do">
+            <h4>Do</h4>
+            <ul>
+              <li>Default to the warm ivory ground. Cards sit on pure white. Dark panels are insets only.</li>
+              <li>Use the real <code>heritage-logo.webp</code> file. Never redraw the seal as inline SVG.</li>
+              <li>Use exactly two display + body fonts. Display serif plus sans. Mono is for fiduciary detail only.</li>
+              <li>Reserve Wax Burgundy for identity. The seal, one CTA per page, link hover.</li>
+              <li>Reserve Reserved Blue for state. Active, selected, focus, info.</li>
+              <li>Frame the page with 1px bronze hairlines, top and bottom.</li>
+              <li>Tabular figures in any dense data. Statements, position tables, stewardship counts.</li>
+              <li>Show the partner. Named, with credentials, real face, available light.</li>
+              <li>Use the animated luminous arc once per page, inside the navy hero panel.</li>
+              <li>Numbers beat adjectives. $X AUM, Y generations, Z years.</li>
+            </ul>
+          </div>
+          <div class="panel dont">
+            <h4>Don't</h4>
+            <ul>
+              <li>Don't make the page background dark. Fiduciary brands run on light grounds.</li>
+              <li>Don't use the burgundy as a chart series, a button default, a paragraph color, or a decorative fill.</li>
+              <li>Don't paint a button burgundy by default. Bronze-outline navy-text is the default.</li>
+              <li>Don't redraw the logo. Use the actual file.</li>
+              <li>Don't carry the thick 12px bottom bar from JetHQ. 1px bronze hairlines only.</li>
+              <li>Don't use stock wealth photography. Tarmac handshakes, sunset boardrooms, champagne flutes.</li>
+              <li>Don't write "we believe," "we are passionate about," "premier," "trusted," "world-class," "boutique," or "white-glove."</li>
+              <li>Don't use em dashes. Use commas, periods, or parentheses.</li>
+              <li>Don't animate the AUM. Static Tiempos. The number is supposed to feel old.</li>
+              <li>Don't visit hue 5 to 45 degrees at saturation greater than 55 percent. That is the warning band.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== BRAND PROMPT EMBED ============== -->
+    <section class="section" id="prompt" aria-labelledby="prompt-heading">
+      <div class="container">
+        <header class="section-header" data-reveal>
+          <p class="section-eyebrow">The Brand Prompt</p>
+          <h2 class="section-heading" id="prompt-heading">Canonical source.</h2>
+          <p class="section-subheading">Embedded for AI tools and humans.</p>
+          <p class="section-body">
+            The full Heritage Strategies LLC brand prompt, opinionated, prescriptive, and copy-pasteable. Hand this to any AI tool building a Heritage-themed surface. Hand it to any designer producing a Heritage artifact. Both should leave with the same posture.
+          </p>
+        </header>
+
+        <div class="prompt-actions">
+          <a class="btn btn-default" href="./brand-prompt.md" download>Download · brand-prompt.md</a>
+          <button class="btn btn-ghost" type="button" id="copy-prompt">Copy to Clipboard</button>
+        </div>
+
+        <div class="prompt-frame">
+          <div class="md" id="prompt-body" aria-label="Heritage brand prompt content">
+            <p style="color: var(--text-muted);">Loading brand prompt…</p>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ============== BRONZE BOTTOM HAIRLINE ============== -->
   <div class="hairline-bronze" role="presentation"></div>
 
+  <!-- ============== FOOTER ============== -->
   <footer class="colophon">
-    <p>Heritage Strategies LLC · Brand System v1 · Navy #0e1d33, Oxblood #9a4b3a, Bronze #a87f4b, Cobalt #3d5d8a</p>
-    <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source</a></p>
+    <div class="colophon-lines">
+      <p>Heritage Strategies LLC · Brand System v2 · Ivory #FAF7F2, Navy #1E2A44, Burgundy #5C1A1B, Bronze #8C7351</p>
+      <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source</a></p>
+    </div>
+    <div class="footer-seal" aria-hidden="true">
+      <img src="./heritage-logo.webp" alt="">
+    </div>
   </footer>
+
 </div>
 
-<!-- Markdown renderer for the embedded brand prompt -->
+<!-- ============== MARKED.JS FOR EMBEDDED PROMPT ============== -->
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script>
+  // Reveal-on-scroll for section headers
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Brand prompt embed + copy
   (async function () {
     const body = document.getElementById('prompt-body');
     const copyBtn = document.getElementById('copy-prompt');
@@ -1546,18 +1696,20 @@
         body.appendChild(pre);
       }
     } catch (e) {
-      body.innerHTML = '<p style="color: hsl(8 50% 74%);">Could not load brand-prompt.md. View it directly in the repo.</p>';
+      body.innerHTML = '<p style="color: hsl(0 60% 36%);">Could not load brand-prompt.md. View it directly in the repo.</p>';
     }
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(raw);
-        const original = copyBtn.textContent;
-        copyBtn.textContent = 'Copied';
-        setTimeout(() => { copyBtn.textContent = original; }, 1600);
-      } catch {
-        copyBtn.textContent = 'Copy failed';
-      }
-    });
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(raw);
+          const original = copyBtn.textContent;
+          copyBtn.textContent = 'Copied';
+          setTimeout(() => { copyBtn.textContent = original; }, 1600);
+        } catch {
+          copyBtn.textContent = 'Copy failed';
+        }
+      });
+    }
   })();
 </script>
 </body>

@@ -1,13 +1,14 @@
 # Heritage Brand
 
-A single-page brand site that visualizes and embeds the canonical Heritage Strategies LLC brand prompt — deep midnight navy ground, wax-oxblood identity seal, bronze hairlines, Tiempos / Cormorant serif, Söhne / Inter sans, a single luminous arc, and a steel cobalt accent reserved for state.
+A single-page brand site that visualizes and embeds the canonical Heritage Strategies LLC brand prompt. Warm ivory ground, navy contrast panels, wax-burgundy identity at 2%, aged-bronze hairlines, Fraunces display serif, Inter sans, one animated luminous arc, the real wax-seal logo demoted to detail.
 
-The site demonstrates the brand by living it: rendered wax-seal lockup, bronze hairlines, type scale, color swatches with HEX/HSL/role, decorative motifs (the wax seal, the luminous arc, the bronze hairlines), components (buttons, status badges, quarterly statement table, feature card), and house rules. The full `brand-prompt.md` is embedded at the bottom, ready to hand to any AI tool or designer producing a Heritage artifact.
+The site demonstrates the brand by living it: the real Heritage logo on three surfaces (ivory / white / navy), full type scale, ten-swatch color system with HEX/HSL/role/usage and an 80/12/5/2/1 usage ratio bar, decorative motifs (animated arc, wax seal as detail, 1px bronze hairlines), components (buttons, status badges, stewardship table, partner-bio, three-way Roemer-style comparison), a single mid-page navy principle inset, do/don't lists, and the full `brand-prompt.md` embedded at the bottom.
 
 ## Files
 
-- `index.html` — the brand site (static, no build step)
-- `brand-prompt.md` — canonical Heritage brand prompt, embedded into the page and downloadable
+- `index.html` , the brand site (static, no build step)
+- `brand-prompt.md` , canonical Heritage brand prompt, embedded into the page and downloadable
+- `heritage-logo.webp` , the real Heritage Strategies LLC logo, source of truth
 
 ## Preview locally
 
