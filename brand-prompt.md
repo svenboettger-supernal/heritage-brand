@@ -31,7 +31,7 @@ If unsure, ask before applying status colors or form/input guidance. **Never inv
 
 ## Aesthetic
 
-Editorial and archival. Screens should read like the cover of a fiduciary instrument, the inside of an estate library binder, or the title page of a private-client trust dossier. Restraint as the organizing principle, one warm ivory ground, one deep navy contrast panel, one wax-burgundy identity color reserved for the seal and a single CTA, one aged-bronze hairline metallic accent. Generous negative space on the ivory ground. Hierarchy comes from scale, spacing, and 1px bronze hairlines, not from heavy color contrast or busy chrome.
+Editorial and archival. Screens should read like the cover of a fiduciary instrument, the inside of an estate library binder, or the title page of a private-client trust dossier. Restraint as the organizing principle, one warm ivory ground, one deep navy reserved for nav and filled CTA, one mid-page navy band, one aged-bronze hairline metallic accent. The wax-seal red lives only inside the supplied logo file, never in the surrounding UI. Generous negative space on the ivory ground. Hierarchy comes from scale, spacing, and 1px bronze hairlines, not from heavy color contrast or busy chrome.
 
 Asymmetric balance over centered stacks. Type does the heavy lifting, the luminous arc is the only piece of motion ornament, and even it sits quietly behind the hero copy at low opacity until it has earned the foreground.
 
@@ -59,27 +59,26 @@ Two families only, plus a mono for fiduciary detail. Never more than two display
 
 | Role | Family | Weights | Used for |
 |------|--------|---------|----------|
-| Display serif | Tiempos Headline (Klim) , fallback: **Fraunces** (Google Fonts, use `opsz` axis) | 400, 500 | h1, h2, section headings, page titles, the Heritage wordmark in long-form, hero copy, pull quotes |
-| Sans (UI + body) | Söhne (Klim) , fallback: **Inter** (Google Fonts) | 300 (Light), 400, 500 (Medium) | h3–h6, body, navigation, captions, tables, all dense data |
-| Mono | JetBrains Mono | 400 | account numbers, statement IDs, CUSIPs, document references, code |
+| Display serif | **Source Serif 4** (Google Fonts, variable, opsz 8..60) | 400, 500, 600 | h1, h2, section headings, page titles, the Heritage wordmark in long-form, hero copy, pull quotes |
+| Sans (UI + body) | **Inter** (Google Fonts, variable) | 300, 400, 500, 600, 700 | h3–h6, body, navigation, captions, tables, all dense data |
+| Mono | **JetBrains Mono** | 400 | account numbers, statement IDs, CUSIPs, document references, code |
 
-If brand-licensed Tiempos Headline and Söhne are available (Klim Type Foundry), use them. If not, the fallbacks are mandatory and produce a faithful look, they are not "good enough," they are part of the brand system. Word document substitutes (Times New Roman, Arial) are acceptable in an Outlook email or a printed Word doc, never on a web surface.
+Three families, no exceptions. Source Serif 4 was selected over Source Serif 4 and Cormorant Garamond after explicit feedback: Source Serif 4 reads "fashion / wedding stationery" and is wrong for a fiduciary brand; Cormorant is too thin to register as authoritative; Source Serif 4 is a contemporary editorial serif designed by Frank Grießhammer at Adobe for professional and editorial use, and it carries the institutional gravity a US family office requires. The `opsz` axis lets the same font breathe at 56px display and tighten at 14px body, so a single typeface covers the full hierarchy without an additional family.
 
-Load via Google Fonts. Set `font-display: swap`. Use the `opsz` axis on Fraunces explicitly, large display sizes want the "Display" opsz value, body sizes want the "Text" opsz value.
+Load via Google Fonts. Set `font-display: swap`. Apply `font-variation-settings: "opsz" 60` on display sizes and `"opsz" 14` on serif body.
 
 ```css
-/* Fallback stack , when Klim licenses are unavailable */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400..600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
 
 :root {
-  --font-display: 'Tiempos Headline', 'Fraunces', 'Cormorant Garamond', Georgia, serif;
-  --font-sans:    'Söhne', 'Söhne Buch', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
 }
 
-/* Display sizes pick up the Fraunces opsz "Display" optical size */
-.display { font-variation-settings: "opsz" 144; }
-/* Body sizes pick up the Fraunces opsz "Text" optical size if used in serif body */
+/* Display sizes pick up a larger opsz */
+.display { font-variation-settings: "opsz" 60; }
+/* Body in serif uses a smaller opsz */
 .serif-body { font-variation-settings: "opsz" 14; }
 ```
 
@@ -157,7 +156,7 @@ Anywhere a section opens, a card, a panel, a deck slide, a PDF section break, us
 
 ### Letter-spacing
 
-- Display serif headings, default tracking, never tighten below `-0.01em`. Fraunces and Tiempos want room.
+- Display serif headings, default tracking, never tighten below `-0.01em`. Source Serif 4 and Source Serif 4 want room.
 - Small-caps bronze eyebrows, `letter-spacing: 0.22em`. Wider than JetHQ on purpose, this is the archival voice.
 - Body and UI, default tracking.
 - Mono (account, CUSIP), default tracking, uppercase.
@@ -171,7 +170,7 @@ font-variant-numeric: tabular-nums;
 font-feature-settings: "tnum" 1;
 ```
 
-Apply on `table`, `.statement`, `.position`, `.aum`, `.amount`, `pre`, `code`, and any data-bearing component. **Reject counter animations** on AUM, family count, or founding year, set them in static Tiempos. The reason a private bank does not animate its AUM ticker is because the number is supposed to feel old, not new.
+Apply on `table`, `.statement`, `.position`, `.aum`, `.amount`, `pre`, `code`, and any data-bearing component. **Reject counter animations** on AUM, family count, or founding year, set them in static Source Serif 4. The reason a private bank does not animate its AUM ticker is because the number is supposed to feel old, not new.
 
 ### Type rules
 
@@ -196,31 +195,31 @@ All values are HSL components, paste inside `hsl()` to use as a CSS color. HEX v
 | 4 | **Text Muted** (secondary) | `#6B7280` | `hsl(220 9% 47%)` | Secondary text, metadata, captions, dot-separators on the trust bar. Never for body copy. |
 | 5 | **Heritage Navy** (nav, contrast) | `#1E2A44` | `hsl(220 38% 19%)` | The nav background, the hero contrast panel, principle-quote insets, deck cover backgrounds. The signature dark color. |
 | 6 | **Contrast Dark** (hero panel) | `#0F1626` | `hsl(220 44% 11%)` | The deeper of the two dark surfaces. Used for the hero panel and the single mid-page principle-quote inset. Sits one step deeper than Heritage Navy. |
-| 7 | **Wax Burgundy** (identity only) | `#5C1A1B` | `hsl(359 56% 23%)` | **Identity color, not interaction.** The wax-seal monogram, a single primary CTA per page, and link hover. Hue sits at 359°, structurally below red and outside the warning band. Matches the actual seal in the logo. |
-| 8 | **Aged Bronze** (hairlines, detail) | `#8C7351` | `hsl(35 26% 43%)` | 1px structural hairlines (top of page, bottom of page, beneath nav), bronze type accents in section eyebrows, metallic typography in the seal interior. Never a button fill, never a chart series. |
-| 9 | **Reserved Blue** (state only) | `#2C5282` | `hsl(214 50% 34%)` | **State only**, active, selected, focus, info. Never decorative, never a hero color, never a chart series. A reserved-blue focus ring or active tab indicator. |
-| 10 | **Cream on Dark** (text on navy) | `#E8E2D2` | `hsl(44 36% 86%)` | Body copy on the navy / contrast-dark panels. Warm cream, never pure white. The cream-on-dark voice. |
+| 7 | **Aged Bronze** (hairlines, detail) | `#8C7351` | `hsl(35 26% 43%)` | 1px structural hairlines (top of page, bottom of page, beneath nav). **Never a button fill, never a text color, never a chart series.** Bronze is the picture frame, not the picture. |
+| 8 | **Reserved Blue** (state only) | `#2C5282` | `hsl(214 50% 34%)` | **State only**, active, selected, focus, info. Never decorative, never a hero color, never a chart series. A reserved-blue focus ring or active tab indicator. |
+| 9 | **Cream on Dark** (text on navy) | `#F4F0E6` | `hsl(44 36% 93%)` | Body copy on the navy / contrast-dark panels. Warm cream, never pure white. |
+
+> **The system carries no red.** The wax seal in the supplied logo file `heritage-logo.webp` is the only red the brand uses, and it stays inside the logo. Do not introduce a burgundy CTA, link, badge, accent, divider, chart series, or rule color. If a designer reaches for red because "the seal is red," they have misunderstood the system. The seal lives in the lockup. The rest of the surface is ivory, navy, and ink.
 
 ### Usage ratio (the most important rule)
 
-The brand is **80 / 12 / 5 / 2 / 1**:
+The brand is **80 / 14 / 5 / 1**:
 
 - **80%** Page Ivory (`#FAF7F2`) and Surface White (`#FFFFFF`).
-- **12%** Heritage Navy (`#1E2A44`), the nav, the hero panel, the principle-quote inset, deck cover.
-- **5%** Contrast Dark (`#0F1626`), the deepest panels, the hero ground beneath the arc.
-- **2%** Wax Burgundy (`#5C1A1B`), the seal monogram, one CTA per page, link hover. **This is the upper bound.** If burgundy appears anywhere beyond identity, it dilutes the family crest.
-- **1%** Aged Bronze (`#8C7351`), the 1px hairline top + bottom + beneath nav, section eyebrows, metallic typography in the seal.
+- **14%** Heritage Navy (`#0F1E36`), the nav text, headlines, filled CTA, and the one mid-page principle-quote inset.
+- **5%** Contrast Dark (`#0A1628`), the deepest panel, used inside the inset band and the splash mode.
+- **1%** Aged Bronze (`#8C7351`), the 1px hairline top + bottom + beneath nav, section eyebrows.
 
 Reserved Blue and the viz palette are below 1% combined, they appear only inside the family-office portal app.
 
 ### The strict color partitioning
 
-Heritage has four colors that signal interaction or state, plus the identity color. They are strictly partitioned:
+Heritage has three colors that signal interaction or state. They are strictly partitioned:
 
-1. **Wax Burgundy (`#5C1A1B`)**, **identity**, not interaction in general use. Use for the seal monogram, one primary CTA per page (e.g. "Request a Stewardship Conversation" in the hero), and link hover. **Never paint a chart series burgundy. Never paint a generic UI button burgundy.** Burgundy is the family crest, it dilutes the moment it becomes a generic UI color.
-2. **Aged Bronze (`#8C7351`)**, **structural metallic**, used for 1px hairlines, section eyebrows, and detail rules. **Never a button fill, never a chart series, never a paragraph color.** Bronze is the picture frame, not the picture.
-3. **Reserved Blue (`#2C5282`)**, **state only**, active, selected, focus, informational status. A reserved-blue focus ring. A reserved-blue "active tab" underline. A reserved-blue "this option is currently chosen" indicator. **Never a decorative accent. Never a hero color. Never a chart series default.** Once reserved blue appears on a decorative element, its meaning as a state indicator is broken everywhere else.
-4. **Ink Navy (`#1B2230`)** for body type on light, **Cream (`#E8E2D2`)** for body type on dark. These two text colors are not interchangeable, ink on dark or cream on light are both wrong.
+1. **Heritage Navy (`#0F1E36`)** is the system's only chromatic identity. Use for nav text, headlines, filled CTA, the principle-quote inset, and the splash-mode background. It is the one deep color, doing the heavy lifting.
+2. **Aged Bronze (`#8C7351`)**, **structural metallic**, used for 1px hairlines and detail rules. **Never a button fill, never a chart series, never a paragraph color.** Bronze is the picture frame, not the picture.
+3. **Reserved Blue (`#2C5282`)**, **state only**, active, selected, focus, informational status. A reserved-blue focus ring. A reserved-blue "active tab" underline. **Never a decorative accent. Never a hero color. Never a chart series default.** Once reserved blue appears on a decorative element, its meaning as a state indicator is broken everywhere else.
+4. **Ink (`#1B2230`)** for body type on light, **Cream (`#F4F0E6`)** for body type on dark. These two text colors are not interchangeable, ink on dark or cream on light are both wrong.
 
 ### Page surfaces
 
@@ -238,26 +237,23 @@ The page is ivory, cards on ivory go **whiter, not darker**. This is the opposit
 
 ### Action color, interactive elements
 
-Heritage's primary button is **bronze-outlined navy-text on ivory**. The filled-burgundy CTA exists but is rare, one primary CTA per page (e.g. "Request a Stewardship Conversation" in the hero).
+Heritage's primary button is **filled Heritage Navy with ivory text on a light ground**. Secondary is **navy-outlined with navy text**. Ghost is a quiet rule-bordered tertiary. **There is no burgundy or red button. There is no burgundy or red link.** The wax seal in the logo file is the only red the brand ever shows.
 
 | Role | Value |
 |------|-------|
-| Primary button bg (filled burgundy, rare, hero CTA only) | `hsl(359 56% 23%)`, `#5C1A1B` |
-| Primary button text on filled burgundy | `hsl(44 36% 86%)`, `#E8E2D2` (cream) |
-| Primary button hover (filled) | `hsl(359 56% 27%)`, slightly lighter burgundy |
-| Default button bg on ivory (outline) | transparent |
-| Default button border on ivory | `hsl(35 26% 43%)`, bronze |
-| Default button text on ivory | `hsl(218 27% 14%)`, ink navy |
-| Default button hover on ivory | `hsl(35 26% 43% / 0.08)` background tint |
-| Default button bg on dark (outline) | transparent |
-| Default button border on dark | `hsl(35 26% 43%)`, bronze |
-| Default button text on dark | `hsl(44 36% 86%)`, cream |
-| Default button hover on dark | `hsl(35 26% 43% / 0.14)` background tint |
-| Ghost button | transparent, `hsl(218 27% 14% / 0.16)` border, ink navy text |
+| Primary button bg (filled navy, one per page) | `hsl(218 57% 14%)`, `#0F1E36` |
+| Primary button text on filled navy | `hsl(36 40% 97%)`, `#FAF7F2` (ivory) |
+| Primary button hover (filled) | `hsl(220 44% 11%)`, `#0A1628` (one step deeper) |
+| Secondary button bg on ivory (outline) | transparent |
+| Secondary button border on ivory | `hsl(218 57% 14%)`, navy |
+| Secondary button text on ivory | `hsl(218 57% 14%)`, navy |
+| Secondary button hover on ivory | navy fill, ivory text (full inversion on hover) |
+| Ghost button | transparent, `hsl(38 22% 88%)` border, navy text |
+| Ghost hover | `hsl(38 22% 92%)` background (light surface-2 tint) |
 | Focus ring (everywhere) | `hsl(214 50% 34%)`, reserved blue, 2px, 2px offset |
-| Inline link (on ivory) | `hsl(218 27% 14%)` with `border-bottom: 1px solid hsl(35 26% 43% / 0.6)` |
-| Inline link hover (on ivory) | `hsl(359 56% 23%)` (burgundy), border-color `hsl(359 56% 23%)` |
-| Inline link (on dark) | `hsl(44 36% 86%)` (cream) with bronze underline |
+| Inline link (on ivory) | `hsl(218 57% 14%)` (navy) with `border-bottom: 1px solid hsl(38 22% 85%)` |
+| Inline link hover (on ivory) | navy text, border-bottom color navy |
+| Inline link (on dark) | `hsl(44 36% 93%)` (cream) with bronze underline |
 
 **Buttons are rectangles with a 4px radius, not pills.** Pills read as consumer-app casual and break the fiduciary posture. The only pill-radius elements are status indicators and avatars (`9999px`).
 
@@ -282,7 +278,7 @@ Borders on the ivory ground are warm hairlines, on navy they are mist at low alp
 
 **Skip this section entirely if you are building a marketing surface, deck, or PDF.** Status colors exist for success / warning / error / info feedback inside the family-office portal. **They are semantic-only, never use a status color as a decorative or brand accent.**
 
-Heritage status colors are calibrated to sit on the ivory ground without clashing with the burgundy identity. Backgrounds are pale tints, not saturated fills.
+Heritage status colors are calibrated to sit on the ivory ground without competing with the navy identity. Backgrounds are pale tints, not saturated fills. **No red destructive state**, destructive actions use a typed confirmation modal instead of a color.
 
 | Status | Background (on ivory) | Text / Icon | Border |
 |--------|----------------------|-------------|--------|
@@ -291,15 +287,15 @@ Heritage status colors are calibrated to sit on the ivory ground without clashin
 | Error   | `hsl(0 40% 94%)`  | `hsl(0 60% 28%)`  | `hsl(0 40% 70%)` |
 | Info (uses Reserved Blue) | `hsl(214 50% 94%)` | `hsl(214 50% 28%)` | `hsl(214 50% 70%)` |
 
-Note the warning hue is at 46°, **outside the burgundy identity's hue family** (359°) and **above the warning band threshold** (45°). Warning is for app state only, it never appears on a marketing surface.
+Note the warning hue is at 46°, **above the warning band threshold** (45°) and **outside the navy identity's hue family** (218°). Warning is for app state only, it never appears on a marketing surface.
 
 Info status and Reserved Blue are the same hue family, this is intentional. Reserved Blue means "currently active / informational" everywhere it appears.
 
 ### Visualization palette
 
-Eight calibrated identity colors for charts inside the family-office portal, position-vs-benchmark grids, sector allocation rings, and entity markers on map views. Three permitted uses, (1) data visualization, (2) categorical markers, (3) brand-decorative accents on long-form surfaces. This is the accent palette, reach for it instead of burgundy.
+Eight calibrated identity colors for charts inside the family-office portal, position-vs-benchmark grids, sector allocation rings, and entity markers on map views. Three permitted uses, (1) data visualization, (2) categorical markers, (3) brand-decorative accents on long-form surfaces. **No red or burgundy in the viz palette** — the seal red stays inside the logo file.
 
-Never use viz colors on UI controls (buttons, alerts, status indicators, badges). Never use **Wax Burgundy** or **Reserved Blue** as a chart series, they have other jobs. Never use **Aged Bronze** as a chart series, it has only one job (hairlines).
+Never use viz colors on UI controls (buttons, alerts, status indicators, badges). Never use **Reserved Blue** as a chart series, it has another job (state). Never use **Aged Bronze** as a chart series, it has only one job (hairlines).
 
 **Chart series assignment.** Single-series charts use index 0 (Slate Navy). Multi-series charts cycle 0 → 7 before any reuse.
 
@@ -402,7 +398,7 @@ The arc is the only piece of motion in the brand. No counter animations, no scro
 
 ### 2. The wax-seal HS monogram (demoted to detail)
 
-The actual `heritage-logo.webp` file is the canonical seal. It carries burgundy and bronze interior typography. The seal is a **detail element**, not a hero element.
+The actual `heritage-logo.webp` file is the canonical seal. The wax-seal red and the bronze interior typography are properties of that file. They are not extracted as system colors. The seal is a **detail element**, not a hero element.
 
 **When to use:**
 - **Section terminator,** a 24–32px seal at the bottom-right of a section as a quiet closing punctuation mark.
@@ -513,7 +509,7 @@ The luminous arc is the only piece of motion ornament in the brand.
 - **Arc draw,** 6s, ease-out, runs once on page load with a 400ms delay.
 - **Arc breathe,** 9s, ease-in-out, runs after the draw completes (6.4s start), loops infinitely.
 - **Reveal-on-scroll,** section headers fade and translate-y(8px) to 0 over 400ms, ease-out, triggered by IntersectionObserver at 20% threshold. **Subtle, single transition per element, no stagger choreography.**
-- **No counter animations.** AUM, family count, founding year, all set in static Tiempos. The reason a private bank does not animate its AUM ticker is because the number is supposed to feel old.
+- **No counter animations.** AUM, family count, founding year, all set in static Source Serif 4. The reason a private bank does not animate its AUM ticker is because the number is supposed to feel old.
 - **No scroll-jacking, no parallax, no spring physics, no decorative motion.**
 
 Fast 150ms, base 250ms, slow 400ms; ease-out for fades, ease-in-out for transforms. Honor `prefers-reduced-motion: reduce` with a zero-duration variant on every animation in the system. The arc snippet above already does this, every other transition must too.
@@ -580,31 +576,29 @@ Founded 1987   ·   Family stewardship since 1962   ·   $2.4B under stewardship
 ```css
 :root {
   /* fonts */
-  --font-display: 'Tiempos Headline', 'Fraunces', Georgia, serif;
-  --font-sans:    'Söhne', 'Inter', system-ui, sans-serif;
+  --font-display: 'Source Serif 4', 'Source Serif 4', Georgia, serif;
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
   /* surfaces */
-  --page-bg:        hsl(36 40% 97%);   /* #FAF7F2 */
+  --page:           hsl(36 40% 97%);   /* #FAF7F2 */
   --surface:        hsl(0 0% 100%);    /* #FFFFFF */
-  --navy:           hsl(220 38% 19%);  /* #1E2A44 */
-  --contrast-dark:  hsl(220 44% 11%);  /* #0F1626 */
+  --surface-2:      hsl(38 22% 92%);   /* #F2EDE3, tinted panel */
+  --navy:           hsl(218 57% 14%);  /* #0F1E36, the single dark */
+  --navy-deep:      hsl(220 44% 11%);  /* #0A1628, the inset band */
 
   /* ink + text */
   --ink:            hsl(218 27% 14%);  /* #1B2230 */
-  --text-muted:     hsl(220 9% 47%);   /* #6B7280 */
-  --text-on-dark:   hsl(44 36% 86%);   /* #E8E2D2 */
+  --text-muted:     hsl(220 11% 41%);  /* #5C6573 */
+  --text-on-dark:   hsl(44 36% 93%);   /* #F4F0E6 */
   --text-on-dark-muted: hsl(220 9% 67%);
 
-  /* accents */
-  --burgundy:       hsl(359 56% 23%);  /* #5C1A1B, identity only */
-  --burgundy-hover: hsl(359 56% 27%);
-  --bronze:         hsl(35 26% 43%);   /* #8C7351, hairlines + eyebrow */
-  --bronze-tint:    hsl(35 26% 43% / 0.08);
-  --reserved-blue:  hsl(214 50% 34%);  /* #2C5282, state only */
+  /* details — NO burgundy, NO red */
+  --bronze:         hsl(35 26% 43%);   /* #8C7351, 1px hairlines only */
+  --state:          hsl(214 50% 34%);  /* #2C5282, focus / active only */
 
   /* hairlines */
-  --rule:           hsl(38 22% 88%);   /* #E7E2D9, warm hairline on ivory */
+  --rule:           hsl(38 22% 85%);   /* #E2DCD0, warm hairline on ivory */
   --rule-dark:      hsl(218 27% 28%);  /* hairline on navy */
 
   --nav-height: 72px;
@@ -657,11 +651,11 @@ body {
   color: var(--ink); text-decoration: none;
   transition: color 200ms ease-out;
 }
-.nav-links a:hover { color: var(--burgundy); }
-.hairline-bronze { height: 1px; background: var(--bronze); width: 100%; }
+.nav-links a:hover { opacity: 0.55; }
+.hairline-bronze { height: 1px; background: var(--bronze); opacity: 0.45; width: 100%; }
 ```
 
-### Primary button (filled burgundy, rare, hero CTA only)
+### Primary button (filled navy, one per page)
 
 ```html
 <button class="btn btn-primary" type="button">Request a Stewardship Conversation</button>
@@ -670,39 +664,39 @@ body {
 ```css
 .btn-primary {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 24px;
-  background: var(--burgundy);
-  color: var(--text-on-dark);
-  border: 1px solid var(--burgundy);
-  border-radius: 4px;
+  padding: 14px 26px;
+  background: var(--navy);
+  color: var(--page);
+  border: 1px solid var(--navy);
+  border-radius: 3px;
   font-family: var(--font-sans);
   font-weight: 500; font-size: 13px; letter-spacing: 0.14em;
   text-transform: uppercase; text-decoration: none; cursor: pointer;
   transition: background-color 200ms ease-out, border-color 200ms ease-out;
 }
-.btn-primary:hover { background: var(--burgundy-hover); border-color: var(--burgundy-hover); }
+.btn-primary:hover { background: var(--navy-deep); border-color: var(--navy-deep); }
 ```
 
-### Default button (bronze outline, navy text on ivory)
+### Secondary button (navy outline, navy text on ivory)
 
 ```html
-<button class="btn btn-default" type="button">Speak with a Partner</button>
+<button class="btn btn-secondary" type="button">Speak with a Partner</button>
 ```
 
 ```css
-.btn-default {
+.btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 24px;
+  padding: 14px 26px;
   background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--bronze);
-  border-radius: 4px;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  border-radius: 3px;
   font-family: var(--font-sans);
   font-weight: 500; font-size: 13px; letter-spacing: 0.14em;
   text-transform: uppercase; text-decoration: none; cursor: pointer;
   transition: background-color 200ms ease-out, color 200ms ease-out;
 }
-.btn-default:hover { background: var(--bronze-tint); color: var(--burgundy); }
+.btn-secondary:hover { background: var(--navy); color: var(--page); }
 ```
 
 ### Card on light
@@ -903,8 +897,8 @@ If the project uses shadcn/ui, override the default theme tokens to map Heritage
   --popover: 0 0% 100%;
   --popover-foreground: 218 27% 14%;
 
-  --primary: 359 56% 23%;         /* wax burgundy, identity */
-  --primary-foreground: 44 36% 86%;
+  --primary: 218 57% 14%;         /* Heritage Navy, used for filled CTA */
+  --primary-foreground: 36 40% 97%;
 
   --secondary: 38 22% 95%;        /* warm cream secondary surface */
   --secondary-foreground: 218 27% 14%;
@@ -931,7 +925,7 @@ If the project uses shadcn/ui, override the default theme tokens to map Heritage
 }
 ```
 
-After mapping, override the default Button variants so `variant="default"` is the bronze-outline navy-text treatment (not filled) and a new `variant="hero"` is the filled-burgundy CTA. Filled-burgundy is for one button per page maximum.
+After mapping, the default Button variant ships filled with `--primary` (Heritage Navy on ivory text). There is no burgundy variant. There is no red variant. Destructive actions use a typed confirmation modal, not a color.
 
 ---
 
@@ -942,7 +936,7 @@ After mapping, override the default Button variants so `variant="default"` is th
 - **Default to the warm ivory ground.** `#FAF7F2` is the page. Cards sit on pure white. Dark panels are insets only.
 - **Use the real logo file.** `heritage-logo.webp` ships with the system. Never redraw the seal as inline SVG.
 - **Use exactly two display + body fonts.** Display serif + sans. Mono is for fiduciary detail only.
-- **Reserve Wax Burgundy for identity.** The seal, one CTA per page, link hover. Nothing else.
+- **Keep all red inside the logo file.** The wax seal in `heritage-logo.webp` is the only red the brand carries. Do not introduce a burgundy CTA, link, badge, or accent.
 - **Reserve Reserved Blue for state.** Active, selected, focus, info.
 - **Frame the page with 1px bronze hairlines** top and bottom. Heritage's quieter version of JetHQ's gold bar.
 - **Tabular figures in any dense data.** Statements, position tables, stewardship counts.
@@ -953,14 +947,14 @@ After mapping, override the default Button variants so `variant="default"` is th
 ### Don't
 
 - **Don't make the page background dark.** Fiduciary brands run on light grounds. Dark-only is a casino, not a trustee.
-- **Don't use the burgundy as a chart series, a button default, a paragraph color, or a decorative fill.** Burgundy is identity, demoted everywhere else.
-- **Don't paint a button burgundy by default.** Bronze outline + navy text is the default button. Filled burgundy is for the one hero CTA per page.
+- **Don't introduce red anywhere outside the logo file.** No burgundy buttons, no burgundy links, no burgundy chart series. The wax-seal red lives inside `heritage-logo.webp` and stops there.
+- **Don't paint a button burgundy, ever.** Filled navy is the primary CTA. Navy-outlined is the default. Ghost is the tertiary. Three buttons, all navy.
 - **Don't redraw the logo.** Use the actual `heritage-logo.webp` file.
 - **Don't carry the thick 12px bottom bar from JetHQ.** Heritage is quieter, 1px bronze hairlines only.
 - **Don't use stock wealth photography.** Tarmac handshakes, sunset boardrooms, champagne flutes, hands signing in soft focus.
 - **Don't write "we believe," "we are passionate about," "premier," "trusted," "world-class," "boutique," or "white-glove."** Show, never claim.
 - **Don't use em dashes.** Use commas, periods, or parentheses.
-- **Don't animate the AUM.** Static Tiempos. The number is supposed to feel old.
+- **Don't animate the AUM.** Static Source Serif 4. The number is supposed to feel old.
 - **Don't use any hue between 5° and 45° at saturation >55% and lightness >35%.** That is the warning band. Heritage does not visit the warning band.
 - **Don't use vendor Tailwind colors** (`bg-amber-50`, `text-rose-600`). They will not match the calibrated palette.
 - **Don't use pills for buttons.** Buttons are 4px-radius rectangles. Pills are reserved for status indicators and avatars.
@@ -970,13 +964,13 @@ After mapping, override the default Button variants so `variant="default"` is th
 
 ## Common mistakes to avoid
 
-1. **The oxblood-on-navy warning-orange trap.** A `#9a4b3a` accent (hue ~14°, saturation ~46%, lightness ~42%) sits inside the visual warning band and reads as a fintech alert on a wealth-management surface. High-net-worth families assigning all their assets to the firm cannot have any element reading as "warning." Use the Wax Burgundy at hue 359° instead, structurally below red, structurally outside the warning band.
+1. **The warning-band trap.** Any hex with HSL hue between 5° and 45° at saturation >55% and lightness >35% reads as "alert" on a wealth-management surface. A wax-oxblood-style accent in this band reads as a fintech alert. High-net-worth families assigning all their assets to the firm cannot have any element reading as "warning." Heritage stays out of the band entirely.
 2. **Defaulting to the dark ground.** Heritage is light by default. Every peer in the prestige wealth set (Bessemer, Pictet, BBH, Lombard Odier, Northern Trust, Rothschild & Co, JPMorgan Private Bank) runs a white or warm-off-white page. A dark-only Heritage surface reads as a hedge-fund poster.
-3. **Burgundy as a chart series or button default.** The moment burgundy becomes a generic UI color, the seal stops being the family crest. Burgundy is identity, full stop.
+3. **Leaking the seal red into the UI.** A burgundy button or burgundy link feels harmonious with the logo at first glance, but a fiduciary brand cannot afford a red CTA. The wax-seal red is contained inside the logo file. Use filled navy or outlined navy.
 4. **Redrawing the logo as inline SVG.** The real `heritage-logo.webp` is the source of truth. Reconstructions never match the wax-seal interior typography or the bronze metallic, and they will diverge from the file Sven hands the client.
 5. **Hero scale on the seal.** The seal is a detail element, 24–48px. Hero-scale seals read as a corporate-seal stamp from a 1990s annual report cover, not a contemporary stewardship brand.
 6. **Em dashes in body copy.** Sven has flagged this directly. Use commas, periods, or parentheses.
-7. **Counter animations on AUM.** A wealth firm's AUM is not a startup's MRR. Set the number in static Tiempos. The number is supposed to feel old.
+7. **Counter animations on AUM.** A wealth firm's AUM is not a startup's MRR. Set the number in static Source Serif 4. The number is supposed to feel old.
 8. **Stock wealth imagery.** A glossy tarmac handshake or champagne-flute boardroom will instantly drag the brand back into the category it works to escape.
 9. **A thick 12px bottom bar.** Heritage is quieter than JetHQ. 1px bronze hairlines only.
 10. **A third font.** Display serif + sans + mono is the entire system. A "modern" display font for the hero and a separate sans for the nav is a redesign, not a Heritage surface.
@@ -1141,4 +1135,4 @@ After mapping, override the default Button variants so `variant="default"` is th
 
 ## One-line summary
 
-Warm ivory ground, navy contrast panels, wax-burgundy identity at 2%, aged-bronze hairlines, Tiempos / Fraunces display serif, Söhne / Inter sans, one animated luminous arc behind the hero, the real wax-seal logo file demoted to detail. Numbers beat adjectives. Show, never claim. No warning hues, ever.
+Warm ivory ground, deep navy as the single dark, aged-bronze hairlines top and bottom, Source Serif 4 display serif, Inter sans, one animated luminous arc inside the splash-mode dark panel, the real wax-seal logo file as the only red the brand carries. Numbers beat adjectives. Show, never claim. No warning hues, no red anywhere outside the logo file, ever.

@@ -3,61 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Heritage Strategies LLC , Brand System</title>
-<meta name="description" content="Heritage Strategies LLC brand system. Warm ivory ground, navy contrast panels, wax-burgundy identity, aged-bronze hairlines, Fraunces display serif, Inter sans, one animated luminous arc.">
-
+<title>Heritage Strategies LLC — Brand System</title>
+<meta name="description" content="Heritage Strategies LLC brand system. Warm ivory ground, deep navy ink, single bronze hairline, Source Serif 4 over Inter. Custodial, archival, generational.">
 <link rel="icon" type="image/webp" href="./heritage-logo.webp">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400..600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    /* fonts */
-    --font-display: 'Tiempos Headline', 'Fraunces', Georgia, serif;
-    --font-sans:    'Söhne', 'Söhne Buch', 'Inter', system-ui, -apple-system, sans-serif;
-    --font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+    /* type */
+    --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono:  'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
 
     /* surfaces */
-    --page-bg:        hsl(36 40% 97%);   /* #FAF7F2 */
-    --surface:        hsl(0 0% 100%);    /* #FFFFFF */
-    --navy:           hsl(220 38% 19%);  /* #1E2A44 */
-    --contrast-dark:  hsl(220 44% 11%);  /* #0F1626 */
+    --page:       #FAF7F2;
+    --surface:    #FFFFFF;
+    --surface-2:  #F2EDE3;
 
-    /* ink + text */
-    --ink:            hsl(218 27% 14%);  /* #1B2230 */
-    --text-muted:     hsl(220 9% 47%);   /* #6B7280 */
-    --text-on-dark:   hsl(44 36% 86%);   /* #E8E2D2 */
-    --text-on-dark-muted: hsl(220 9% 67%);
+    /* navy + ink */
+    --navy:       #0F1E36;
+    --navy-deep:  #0A1628;
+    --ink:        #1B2230;
+    --muted:      #5C6573;
+    --on-dark:    #F4F0E6;
+    --on-dark-muted: #A8AEB8;
 
-    /* accents */
-    --burgundy:       hsl(359 56% 23%);  /* #5C1A1B , identity only */
-    --burgundy-hover: hsl(359 56% 27%);
-    --bronze:         hsl(35 26% 43%);   /* #8C7351 , hairline + eyebrow */
-    --bronze-tint:    hsl(35 26% 43% / 0.08);
-    --bronze-on-dark: hsl(35 26% 60%);   /* lifted bronze for dark surfaces */
-    --reserved-blue:  hsl(214 50% 34%);  /* #2C5282 , state only */
-
-    /* hairlines */
-    --rule:           hsl(38 22% 88%);   /* #E7E2D9 */
-    --rule-dark:      hsl(218 27% 28%);
-
-    /* status (pale tints on ivory) */
-    --status-success-bg: hsl(150 30% 94%);
-    --status-success-fg: hsl(150 50% 22%);
-    --status-success-bd: hsl(150 30% 70%);
-    --status-warning-bg: hsl(46 50% 92%);
-    --status-warning-fg: hsl(46 60% 24%);
-    --status-warning-bd: hsl(46 50% 70%);
-    --status-error-bg:   hsl(0 40% 94%);
-    --status-error-fg:   hsl(0 60% 28%);
-    --status-error-bd:   hsl(0 40% 70%);
-    --status-info-bg:    hsl(214 50% 94%);
-    --status-info-fg:    hsl(214 50% 28%);
-    --status-info-bd:    hsl(214 50% 70%);
-
-    --nav-height: 72px;
-    --container: 1200px;
+    /* details */
+    --bronze:     #8C7351;
+    --rule:       #E2DCD0;
+    --rule-soft:  #EFEAE0;
+    --state:      #2C5282;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -65,7 +43,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--page-bg);
+    background: var(--page);
     color: var(--ink);
     font-family: var(--font-sans);
     font-size: 16px;
@@ -74,851 +52,735 @@
     min-height: 100vh;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: "tnum";
   }
 
   *:focus-visible {
-    outline: 2px solid var(--reserved-blue);
-    outline-offset: 2px;
+    outline: 2px solid var(--state);
+    outline-offset: 3px;
     border-radius: 2px;
   }
 
-  ::selection { background: hsl(220 38% 19% / 0.12); color: var(--ink); }
+  ::selection { background: var(--navy); color: var(--page); }
 
-  /* ============== STRUCTURAL FRAME ============== */
   .page { min-height: 100vh; display: flex; flex-direction: column; }
 
+  /* ===== NAV ===== */
   .nav {
-    height: var(--nav-height);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 clamp(20px, 4vw, 48px);
-    background: hsl(36 40% 97% / 0.94);
-    position: sticky; top: 0; z-index: 50;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  .lockup {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none; color: inherit;
-  }
-  .lockup img { display: block; height: 40px; width: auto; }
-  .lockup .lockup-word {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 48;
-    font-size: 20px; font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.01em;
-    line-height: 1;
-  }
-  @media (max-width: 640px) {
-    .lockup .lockup-word { display: none; }
-  }
-
-  .nav-links {
+    height: 76px;
     display: flex;
-    gap: clamp(16px, 2.4vw, 32px);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(20px, 4vw, 56px);
+    background: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav__lockup { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav__lockup img { height: 44px; width: auto; display: block; }
+  .nav__links {
+    display: flex;
+    gap: clamp(20px, 3.2vw, 40px);
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .nav-links a {
+  .nav__links a {
     font-family: var(--font-sans);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color 200ms ease-out;
-  }
-  .nav-links a:hover { color: var(--burgundy); }
-  @media (max-width: 540px) { .nav-links li:nth-child(n+4) { display: none; } }
-
-  .hairline-bronze {
-    height: 1px;
-    background: var(--bronze);
-    width: 100%;
-  }
-
-  /* ============== MAIN ============== */
-  main { flex: 1; }
-
-  .section {
-    padding: clamp(72px, 10vw, 144px) clamp(20px, 4vw, 48px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .section:last-of-type { border-bottom: none; }
-  .container { max-width: var(--container); margin: 0 auto; }
-  .measure { max-width: 680px; }
-
-  /* ============== HERO ============== */
-  .hero {
-    position: relative;
-    background: var(--contrast-dark);
-    color: var(--text-on-dark);
-    padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 48px);
-    overflow: hidden;
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero-inner {
-    position: relative; z-index: 1;
-    max-width: var(--container);
-    margin: 0 auto;
-  }
-  .hero-grid {
-    max-width: 880px;
-  }
-
-  /* the animated luminous arc */
-  .hero-arc {
-    position: absolute; inset: 0;
-    pointer-events: none; overflow: hidden;
-    z-index: 0;
-  }
-  .hero-arc svg { width: 100%; height: 100%; display: block; }
-  .arc {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    opacity: 0;
-    animation:
-      arc-draw    6s cubic-bezier(.22, .61, .36, 1) .4s forwards,
-      arc-breathe 9s ease-in-out 6.4s infinite;
-  }
-  @keyframes arc-draw {
-    0%   { stroke-dashoffset: 1; opacity: 0; }
-    15%  { opacity: .9; }
-    100% { stroke-dashoffset: 0; opacity: .9; }
-  }
-  @keyframes arc-breathe {
-    0%, 100% { opacity: .55; }
-    50%      { opacity: .95; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .arc { animation: none; stroke-dashoffset: 0; opacity: .8; }
-    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-sans);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze-on-dark);
-    margin: 0 0 32px 0;
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
-    font-size: clamp(48px, 7vw, 88px);
-    font-weight: 400; line-height: 1.05;
-    color: var(--text-on-dark);
-    margin: 0 0 24px 0;
-    max-width: 880px;
-  }
-  .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--text-on-dark);
-  }
-  .hero-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(17px, 1.4vw, 20px);
-    font-weight: 400; line-height: 1.55;
-    color: var(--text-on-dark);
-    max-width: 640px;
-    margin: 0 0 40px 0;
-  }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
-
-  /* ============== TRUST BAR ============== */
-  .trust-bar {
-    padding: 32px clamp(20px, 4vw, 48px);
-    border-bottom: 1px solid var(--rule);
-    background: var(--page-bg);
-  }
-  .trust-bar-inner {
-    max-width: var(--container);
-    margin: 0 auto;
-    font-family: var(--font-sans);
-    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
-    color: var(--text-muted);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum" 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 0;
-  }
-  .trust-bar-inner span + span::before {
-    content: "·"; margin: 0 1em; color: var(--text-muted);
-  }
-  .trust-bar-inner strong { color: var(--ink); font-weight: 500; }
-
-  /* ============== SECTION HEADERS ============== */
-  .section-header {
-    margin-bottom: clamp(48px, 6vw, 80px);
-    max-width: 880px;
-  }
-  .section-eyebrow {
-    font-family: var(--font-sans);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0 0 24px 0;
-  }
-  .section-heading {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 400; line-height: 1.05;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--navy);
-    margin: 0 0 16px 0;
-    letter-spacing: -0.005em;
+    text-decoration: none;
+    transition: opacity 180ms ease-out;
   }
-  .section-subheading {
-    font-family: var(--font-sans);
+  .nav__links a:hover { opacity: 0.55; }
+  @media (max-width: 720px) {
+    .nav__links { gap: 16px; }
+    .nav__links a { font-size: 11px; letter-spacing: 0.12em; }
+  }
+
+  .hairline { height: 1px; background: var(--bronze); opacity: 0.45; }
+  .hairline--soft { background: var(--rule); opacity: 1; }
+
+  /* ===== TYPE ===== */
+  .display {
+    font-family: var(--font-serif);
     font-weight: 400;
-    font-size: clamp(18px, 1.8vw, 22px);
-    color: var(--text-muted);
-    margin: 0 0 24px 0;
-    line-height: 1.45;
+    font-size: clamp(48px, 7vw, 80px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin: 0;
+    font-variation-settings: "opsz" 60;
   }
-  .section-body {
+  .h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(36px, 4.2vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin: 0;
+    font-variation-settings: "opsz" 48;
+  }
+  .h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(26px, 2.6vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--navy);
+    margin: 0;
+    font-variation-settings: "opsz" 32;
+  }
+  .h3 {
     font-family: var(--font-sans);
-    font-size: 16px; line-height: 1.7;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.35;
     color: var(--ink);
-    max-width: 680px;
     margin: 0;
   }
-  .section-body + .section-body { margin-top: 14px; }
-
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
-  }
-  [data-reveal].in-view {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* ============== BUTTONS ============== */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 14px 24px;
+  .lede {
     font-family: var(--font-sans);
-    font-weight: 500; font-size: 13px;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    text-decoration: none; cursor: pointer;
-    transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
-    font-feature-settings: "tnum" 1;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+    max-width: 620px;
   }
-  .btn-primary {
-    background: var(--burgundy);
-    color: var(--text-on-dark);
-    border-color: var(--burgundy);
+  .meta {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
   }
-  .btn-primary:hover { background: var(--burgundy-hover); border-color: var(--burgundy-hover); }
-  .btn-default {
-    background: transparent;
-    color: var(--ink);
-    border-color: var(--bronze);
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
   }
-  .btn-default:hover { background: var(--bronze-tint); color: var(--burgundy); }
-  .btn-on-dark {
-    background: transparent;
-    color: var(--text-on-dark);
-    border-color: var(--bronze-on-dark);
-  }
-  .btn-on-dark:hover { background: hsl(35 26% 60% / 0.14); }
-  .btn-ghost {
-    background: transparent;
-    color: var(--ink);
-    border-color: hsl(218 27% 14% / 0.16);
-  }
-  .btn-ghost:hover { background: hsl(218 27% 14% / 0.04); }
 
-  /* ============== LOGO TILES ============== */
-  .logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
+  /* ===== LAYOUT ===== */
+  main { flex: 1; }
+  .wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 56px);
   }
-  .logo-tile {
+  .section {
+    padding: clamp(80px, 11vw, 144px) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .section:first-of-type { border-top: none; }
+  .section__head { margin-bottom: clamp(48px, 6vw, 80px); max-width: 720px; }
+  .section__eyebrow { margin-bottom: 18px; }
+  .section__title { margin-bottom: 16px; }
+  .section__lede { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 620px; }
+
+  /* ===== HERO (light) ===== */
+  .hero {
+    position: relative;
+    padding: clamp(96px, 14vw, 168px) 0 clamp(96px, 12vw, 160px);
+    overflow: hidden;
+    background: var(--page);
+  }
+  .hero__arc { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .hero__arc svg { width: 100%; height: 100%; display: block; }
+  .hero__inner { position: relative; z-index: 1; max-width: 880px; }
+  .hero__eyebrow { margin-bottom: 28px; color: var(--muted); }
+  .hero__title { margin-bottom: 32px; }
+  .hero__lede {
+    margin-bottom: 48px;
+    color: var(--ink);
+    max-width: 620px;
+    font-size: clamp(17px, 1.6vw, 19px);
+    line-height: 1.65;
+  }
+  .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ===== BUTTONS — navy only ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 26px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
+    line-height: 1;
+  }
+  .btn--primary { background: var(--navy); color: var(--page); border-color: var(--navy); }
+  .btn--primary:hover { background: var(--navy-deep); border-color: var(--navy-deep); }
+  .btn--secondary { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn--secondary:hover { background: var(--navy); color: var(--page); }
+  .btn--ghost { background: transparent; color: var(--navy); border-color: var(--rule); }
+  .btn--ghost:hover { background: var(--surface-2); }
+
+  /* ===== TRUST BAR ===== */
+  .trust {
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface-2);
+  }
+  .trust__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 48px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .trust__inner span { white-space: nowrap; }
+  .trust__inner .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--bronze); opacity: 0.7; }
+
+  /* ===== MARK ===== */
+  .mark-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 880px) { .mark-grid { grid-template-columns: 1fr; } }
+  .mark-tile {
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 64px 32px;
+    padding: 56px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 240px;
+    min-height: 220px;
     gap: 24px;
+    background: var(--surface);
   }
-  .logo-tile.on-ivory { background: var(--page-bg); }
-  .logo-tile.on-white { background: var(--surface); }
-  .logo-tile.on-navy {
-    background: var(--navy);
-    border-color: var(--rule-dark);
+  .mark-tile--ivory { background: var(--page); }
+  .mark-tile--navy { background: var(--navy); border-color: var(--navy); }
+  .mark-tile img { height: 56px; width: auto; display: block; }
+  .mark-tile--navy .mark-tile__caption { color: var(--on-dark-muted); }
+  .mark-tile__caption {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
-  .logo-tile img { display: block; height: 64px; width: auto; }
-  .logo-tile.on-navy img {
-    background: var(--page-bg);
-    padding: 12px 16px;
+  .mark-tile--navy .mark-tile__logo-pill {
+    background: var(--page);
     border-radius: 4px;
+    padding: 16px 22px;
   }
-  .logo-tile .caption {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .logo-tile.on-navy .caption { color: var(--text-on-dark-muted); }
+  .mark-tile--navy .mark-tile__logo-pill img { height: 40px; }
 
-  .logo-rules {
+  .mark-rules {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
+  @media (max-width: 880px) { .mark-rules { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .mark-rules { grid-template-columns: 1fr; } }
   .rule-card {
-    padding: 28px;
+    padding: 24px;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
   }
   .rule-card h4 {
     font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0 0 12px 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0 0 10px 0;
   }
   .rule-card p {
-    font-family: var(--font-sans);
-    font-size: 14px; line-height: 1.6;
-    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
     margin: 0;
   }
 
-  /* ============== TYPOGRAPHY SECTION ============== */
-  .type-spec {
+  /* ===== TYPE SECTION ===== */
+  .type-specimens {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
+    margin-bottom: 32px;
   }
+  @media (max-width: 720px) { .type-specimens { grid-template-columns: 1fr; } }
   .type-card {
-    padding: 40px;
+    padding: 48px 40px;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
   }
-  .type-card .sample {
-    font-size: 120px;
+  .type-card__sample {
+    font-size: 96px;
     line-height: 1;
     margin: 0 0 32px 0;
-  }
-  .type-card.serif .sample {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
     color: var(--navy);
+  }
+  .type-card__sample--serif { font-family: var(--font-serif); font-weight: 400; font-variation-settings: "opsz" 60; }
+  .type-card__sample--sans  { font-family: var(--font-sans);  font-weight: 500; }
+  .type-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px 0;
+  }
+  .type-card__name {
+    font-family: var(--font-serif);
+    font-size: 22px;
     font-weight: 400;
-  }
-  .type-card.sans .sample {
-    font-family: var(--font-sans);
     color: var(--navy);
-    font-weight: 400;
-  }
-  .type-card.mono .sample {
-    font-family: var(--font-mono);
-    color: var(--navy);
-    font-size: 96px;
-  }
-  .type-card .meta {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0 0 8px 0;
-  }
-  .type-card .name {
-    font-family: var(--font-display);
+    margin: 0 0 12px 0;
     font-variation-settings: "opsz" 32;
-    font-size: 24px; font-weight: 400;
-    color: var(--navy);
-    margin: 0 0 20px 0;
   }
-  .type-card .name .fallback {
-    font-family: var(--font-sans);
-    font-size: 14px; font-weight: 400;
-    color: var(--text-muted);
-  }
-  .type-card .alphabet {
-    font-size: 14px; line-height: 1.7;
-    color: var(--text-muted);
+  .type-card__alphabet {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
     margin: 0;
     word-break: break-word;
+    letter-spacing: 0.01em;
   }
-  .type-card.serif .alphabet { font-family: var(--font-display); font-variation-settings: "opsz" 14; }
-  .type-card.sans .alphabet { font-family: var(--font-sans); }
-  .type-card.mono .alphabet { font-family: var(--font-mono); }
+  .type-card--serif .type-card__alphabet { font-family: var(--font-serif); }
+  .type-card--sans  .type-card__alphabet { font-family: var(--font-sans); }
 
   .type-scale {
-    margin-top: 32px;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
     overflow: hidden;
   }
-  .type-scale-row {
+  .type-scale__row {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 32px;
     align-items: baseline;
-    padding: 22px 32px;
+    padding: 20px 32px;
     border-bottom: 1px solid var(--rule);
   }
-  .type-scale-row:last-child { border-bottom: none; }
-  .type-scale-row .role {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--bronze);
+  .type-scale__row:last-child { border-bottom: none; }
+  @media (max-width: 720px) {
+    .type-scale__row { grid-template-columns: 1fr; gap: 8px; padding: 16px 20px; }
   }
-  .type-scale-row .demo { color: var(--ink); }
-  .type-scale-row .demo.display { font-family: var(--font-display); font-variation-settings: "opsz" 144; font-size: 56px; line-height: 1.05; color: var(--navy); font-weight: 400; }
-  .type-scale-row .demo.h1-mkt  { font-family: var(--font-display); font-variation-settings: "opsz" 96;  font-size: 36px; line-height: 1.15; color: var(--navy); font-weight: 400; }
-  .type-scale-row .demo.h2-mkt  { font-family: var(--font-display); font-variation-settings: "opsz" 64;  font-size: 28px; line-height: 1.2;  color: var(--navy); font-weight: 400; }
-  .type-scale-row .demo.eyebrow { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bronze); font-weight: 500; }
-  .type-scale-row .demo.subhead { font-family: var(--font-sans); font-size: 22px; font-weight: 500; color: var(--ink); }
-  .type-scale-row .demo.body    { font-family: var(--font-sans); font-size: 16px; font-weight: 400; color: var(--ink); line-height: 1.6; }
-  .type-scale-row .demo.nav     { font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
-  .type-scale-row .demo.mono    { font-family: var(--font-mono); font-size: 14px; color: var(--ink); letter-spacing: 0.04em; font-feature-settings: "tnum" 1; }
-  @media (max-width: 640px) { .type-scale-row { grid-template-columns: 1fr; gap: 8px; } }
+  .type-scale__role {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .type-scale__demo { color: var(--navy); }
+  .t--display { font-family: var(--font-serif); font-size: 56px; line-height: 1.05; font-variation-settings: "opsz" 60; }
+  .t--h1      { font-family: var(--font-serif); font-size: 40px; line-height: 1.1;  font-variation-settings: "opsz" 48; }
+  .t--h2      { font-family: var(--font-serif); font-size: 28px; line-height: 1.2;  font-variation-settings: "opsz" 32; }
+  .t--h3      { font-family: var(--font-sans);  font-size: 18px; font-weight: 500;  color: var(--ink); }
+  .t--body    { font-family: var(--font-sans);  font-size: 16px; font-weight: 400;  color: var(--ink); line-height: 1.6; }
+  .t--meta    { font-family: var(--font-sans);  font-size: 12px; font-weight: 500;  color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .t--mono    { font-family: var(--font-mono);  font-size: 13px; color: var(--navy); letter-spacing: 0.04em; }
 
-  /* ============== COLOR SECTION ============== */
+  /* ===== COLOR ===== */
   .color-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
   .swatch {
-    background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background: var(--surface);
   }
-  .swatch .chip { height: 140px; width: 100%; }
-  .swatch .info { padding: 22px 24px 26px; }
-  .swatch .role {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0 0 8px 0;
+  .swatch__chip { height: 120px; width: 100%; border-bottom: 1px solid var(--rule); }
+  .swatch__info { padding: 18px 22px 22px; }
+  .swatch__role {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px 0;
   }
-  .swatch .name {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 48;
-    font-size: 22px; font-weight: 400;
+  .swatch__name {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 400;
     color: var(--navy);
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0;
+    font-variation-settings: "opsz" 24;
   }
-  .swatch .hex,
-  .swatch .hsl {
+  .swatch__hex, .swatch__hsl {
     font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-muted);
-    margin: 0 0 4px 0;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 3px 0;
     letter-spacing: 0.02em;
   }
-  .swatch .usage {
-    font-family: var(--font-sans);
-    font-size: 13px; line-height: 1.55;
+  .swatch__usage {
+    font-size: 13px;
     color: var(--ink);
-    margin: 14px 0 0 0;
-  }
-  .chip-ivory  { background: #FAF7F2; border-bottom: 1px solid var(--rule); }
-  .chip-white  { background: #FFFFFF; border-bottom: 1px solid var(--rule); }
-  .chip-ink    { background: #1B2230; }
-  .chip-muted  { background: #6B7280; }
-  .chip-navy   { background: #1E2A44; }
-  .chip-darker { background: #0F1626; }
-  .chip-burgundy { background: #5C1A1B; }
-  .chip-bronze   { background: #8C7351; }
-  .chip-blue     { background: #2C5282; }
-  .chip-cream    { background: #E8E2D2; border-bottom: 1px solid var(--rule); }
-
-  .ratio-bar {
-    margin-top: 40px;
-    display: flex;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid var(--rule);
-    height: 56px;
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    font-feature-settings: "tnum" 1;
-  }
-  .ratio-bar > div {
-    display: flex; align-items: center; justify-content: center;
-    padding: 0 12px;
-  }
-  .ratio-ivory  { background: #FAF7F2; color: var(--text-muted); flex-basis: 80%; border-right: 1px solid var(--rule); }
-  .ratio-navy   { background: #1E2A44; color: var(--text-on-dark); flex-basis: 12%; }
-  .ratio-darker { background: #0F1626; color: var(--text-on-dark); flex-basis: 5%; }
-  .ratio-burg   { background: #5C1A1B; color: var(--text-on-dark); flex-basis: 2%; min-width: 36px; }
-  .ratio-bronze { background: #8C7351; color: var(--text-on-dark); flex-basis: 1%; min-width: 28px; }
-
-  .color-rules {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    line-height: 1.5;
+    margin: 12px 0 0 0;
   }
 
-  /* ============== VISUAL ACCENTS ============== */
-  .accents-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 24px;
-  }
-  @media (max-width: 880px) { .accents-grid { grid-template-columns: 1fr; } }
-  .accent-preview {
-    background: var(--contrast-dark);
-    border-radius: 8px;
-    aspect-ratio: 16 / 9;
+  /* ===== VISUAL — splash ===== */
+  .splash {
     position: relative;
-    overflow: hidden;
-  }
-  .accent-preview .label {
-    position: absolute;
-    bottom: 24px; left: 24px;
-    color: var(--text-on-dark);
-    font-family: var(--font-sans);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    z-index: 2;
-  }
-  .accent-side { display: flex; flex-direction: column; gap: 20px; }
-  .accent-card {
-    padding: 28px;
-    background: var(--surface);
-    border: 1px solid var(--rule);
+    aspect-ratio: 16 / 9;
     border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0A1628 0%, #14233A 50%, #0A1628 100%);
+    background-size: 200% 200%;
+    animation: atmos 50s ease-in-out infinite alternate;
   }
-  .accent-card h4 {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0;
+  @keyframes atmos { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
+
+  .splash__arc { position: absolute; inset: 0; pointer-events: none; }
+  .splash__arc svg { width: 100%; height: 100%; display: block; }
+  .splash__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
-  .accent-card p {
-    font-family: var(--font-sans);
-    font-size: 14px; line-height: 1.6;
-    color: var(--ink);
-    margin: 0;
+  .splash__logo-bg {
+    background: rgba(244, 240, 230, 0.96);
+    padding: 18px 28px;
+    border-radius: 3px;
   }
-  .seal-row { display: flex; align-items: center; gap: 16px; }
-  .seal-row img { display: block; height: 32px; width: auto; opacity: 0.95; }
-  .seal-row .sz {
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.06em;
-    color: var(--text-muted);
+  .splash__logo-bg img { height: 48px; width: auto; display: block; }
+  .splash__caption {
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
-  .hairline-demo {
-    height: 1px;
-    background: var(--bronze);
-    margin-top: 4px;
+  @media (prefers-reduced-motion: reduce) {
+    .splash { animation: none; }
   }
 
-  /* ============== COMPONENTS ============== */
-  .component-grid {
+  /* shared arc animation */
+  .arc-path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    animation:
+      arc-draw    10s cubic-bezier(.22, .61, .36, 1) .6s forwards,
+      arc-breathe 14s ease-in-out 10.6s infinite;
+  }
+  @keyframes arc-draw {
+    0%   { stroke-dashoffset: 1; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+  @keyframes arc-breathe {
+    0%, 100% { opacity: .65; }
+    50%      { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .arc-path { animation: none; stroke-dashoffset: 0; opacity: .55; }
+  }
+
+  /* ===== COMPONENTS ===== */
+  .comp-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 20px;
   }
-  @media (max-width: 880px) { .component-grid { grid-template-columns: 1fr; } }
-
+  @media (max-width: 720px) { .comp-grid { grid-template-columns: 1fr; } }
   .panel {
-    padding: 32px;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
+    padding: 32px;
   }
-  .panel-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
+  .panel__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     margin-bottom: 24px;
   }
-  .panel-title {
+  .panel__title {
     font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
     margin: 0;
   }
-  .button-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
-  .btn-note {
+  .panel__note {
     font-family: var(--font-sans);
-    font-size: 13px; line-height: 1.55;
-    color: var(--text-muted);
-    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 16px 0 0 0;
+    line-height: 1.5;
+  }
+  .button-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
-  /* status row */
-  .status-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .badge {
-    display: inline-flex; align-items: center;
-    gap: 8px; padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
     font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     border-radius: 9999px;
-    border: 1px solid transparent;
-    font-feature-settings: "tnum" 1;
+    border: 1px solid;
+    line-height: 1;
   }
-  .badge::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: currentColor;
-  }
-  .badge.success { background: var(--status-success-bg); color: var(--status-success-fg); border-color: var(--status-success-bd); }
-  .badge.warning { background: var(--status-warning-bg); color: var(--status-warning-fg); border-color: var(--status-warning-bd); }
-  .badge.error   { background: var(--status-error-bg);   color: var(--status-error-fg);   border-color: var(--status-error-bd); }
-  .badge.info    { background: var(--status-info-bg);    color: var(--status-info-fg);    border-color: var(--status-info-bd); }
+  .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .badge--active   { background: hsl(214 50% 96%); color: hsl(214 50% 34%); border-color: hsl(214 30% 80%); }
+  .badge--draft    { background: hsl(220 16% 96%); color: hsl(220 24% 30%); border-color: hsl(220 16% 82%); }
+  .badge--review   { background: hsl(46 50% 96%);  color: hsl(46 60% 28%);  border-color: hsl(46 40% 76%);  }
+  .badge--archived { background: hsl(220 8% 96%);  color: hsl(220 10% 38%); border-color: hsl(220 10% 80%); }
 
-  /* stewardship table */
-  .stewardship-table {
+  .table {
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: 14px;
     font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum" 1;
+    font-feature-settings: "tnum";
   }
-  .stewardship-table th,
-  .stewardship-table td {
+  .table th, .table td {
     text-align: left;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--bronze);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
     color: var(--ink);
   }
-  .stewardship-table th {
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--bronze);
+  .table th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
-  .stewardship-table td.num,
-  .stewardship-table th.num { text-align: right; font-family: var(--font-mono); }
-  .stewardship-table tr:last-child td { border-bottom: none; }
+  .table td.num { text-align: right; font-family: var(--font-mono); font-size: 13px; }
+  .table tr:last-child td { border-bottom: none; font-weight: 500; color: var(--navy); }
 
-  /* partner bio */
-  .partner-bio {
+  .bio {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .bio__portrait {
+    width: 96px;
+    height: 96px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--rule) 100%);
+    border: 1px solid var(--rule);
+  }
+  .bio__name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    margin: 0;
+    font-variation-settings: "opsz" 32;
+  }
+  .bio__name-rule { width: 32px; height: 1px; background: var(--bronze); margin: 10px 0 14px; }
+  .bio__role { font-size: 13px; color: var(--muted); margin: 0 0 12px 0; }
+  .bio__body { font-size: 14px; color: var(--ink); line-height: 1.6; margin: 0 0 12px 0; }
+  .bio__designations {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* comparison */
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 880px) { .compare { grid-template-columns: 1fr; } }
+  .compare__card {
+    padding: 32px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .compare__card--accent {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--on-dark);
+  }
+  .compare__title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    margin: 0 0 6px 0;
+    font-variation-settings: "opsz" 32;
+  }
+  .compare__card--accent .compare__title {
+    color: var(--on-dark);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .compare__card--accent .compare__title img {
+    height: 32px; width: auto;
+    background: var(--page);
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
+  .compare__sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 24px 0;
+  }
+  .compare__card--accent .compare__sub { color: var(--on-dark-muted); }
+  .compare__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .compare__list li {
+    padding-left: 24px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .compare__card--accent .compare__list li { color: var(--on-dark); }
+  .compare__list li::before {
+    position: absolute;
+    left: 0; top: 1px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .compare__list--no li::before { content: "×"; color: var(--muted); }
+  .compare__list--yes li::before { content: "✓"; color: var(--on-dark); }
+
+  /* ===== INSET DARK ===== */
+  .inset-dark {
+    background: var(--navy-deep);
+    padding: clamp(96px, 12vw, 144px) 0;
+  }
+  .inset-dark .wrap { max-width: 880px; }
+  .inset-dark__hairline { width: 48px; height: 1px; background: var(--bronze); margin: 0 0 32px; }
+  .inset-dark__quote {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.3;
+    color: var(--on-dark);
+    margin: 0 0 32px 0;
+    font-variation-settings: "opsz" 40;
+    letter-spacing: -0.005em;
+  }
+  .inset-dark__quote em { font-style: italic; }
+  .inset-dark__attribution {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-dark-muted);
+    margin: 0;
+  }
+
+  /* ===== DO / DON'T ===== */
+  .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 720px) { .dodont { grid-template-columns: 1fr; } }
+  .dodont__panel {
+    padding: 32px;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 32px;
   }
-  .partner-portrait {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    background:
-      linear-gradient(135deg, hsl(220 9% 78%), hsl(220 9% 72%));
-    border-radius: 4px;
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .partner-portrait::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 50% 42%, hsl(220 9% 84%) 0%, hsl(220 9% 70%) 70%);
-  }
-  .partner-name {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 48;
-    font-size: 24px; font-weight: 400; line-height: 1.2;
-    color: var(--navy);
-    margin: 0; padding-bottom: 10px;
-    border-bottom: 1px solid var(--bronze);
-  }
-  .partner-role {
+  .dodont__panel h4 {
     font-family: var(--font-sans);
-    font-size: 13px; font-weight: 500;
-    color: var(--text-muted);
-    margin: 12px 0 14px 0;
-  }
-  .partner-bio-body { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0 0 14px 0; }
-  .partner-credentials {
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.12em;
-    color: var(--bronze);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+    margin: 0 0 20px 0;
+    color: var(--navy);
+  }
+  .dodont__panel ul {
+    list-style: none;
     margin: 0;
-  }
-
-  /* three-way comparison */
-  .comparison {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 880px) { .comparison { grid-template-columns: 1fr; } }
-  .comparison-card {
-    padding: 36px 32px;
-    border-radius: 4px;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
   }
-  .comparison-card.neutral { background: hsl(38 22% 95%); color: var(--ink); border: 1px solid var(--rule); }
-  .comparison-card.heritage {
-    background: var(--navy);
-    color: var(--text-on-dark);
-    border: 1px solid var(--rule-dark);
-  }
-  .comparison-label {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 0;
-  }
-  .comparison-card.heritage .comparison-label { color: var(--bronze-on-dark); }
-  .comparison-card h3 {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 64;
-    font-size: 22px; font-weight: 400; line-height: 1.2;
-    color: var(--navy);
-    margin: 0;
-  }
-  .comparison-card.heritage h3 { color: var(--text-on-dark); }
-  .comparison-card ul {
-    list-style: none; padding: 0; margin: 0;
-    font-family: var(--font-sans); font-size: 14px; line-height: 1.7;
-  }
-  .comparison-card.neutral li { color: var(--ink); padding-left: 22px; position: relative; }
-  .comparison-card.heritage li { color: var(--text-on-dark); padding-left: 22px; position: relative; }
-  .comparison-card.neutral li::before {
-    content: "×";
-    position: absolute; left: 2px; top: 0;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-  }
-  .comparison-card.heritage li::before {
-    content: "+";
-    position: absolute; left: 2px; top: 0;
-    font-family: var(--font-mono);
-    color: var(--bronze-on-dark);
-  }
-  .comparison-seal { display: flex; align-items: center; gap: 14px; }
-  .comparison-seal img {
-    height: 36px; width: auto; display: block;
-    background: var(--page-bg);
-    padding: 4px 6px;
-    border-radius: 4px;
-  }
-  .comparison-seal .seal-name {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 48;
-    font-size: 18px;
-    color: var(--text-on-dark);
-  }
-
-  /* ============== PRINCIPLE QUOTE INSET ============== */
-  .principle {
-    margin: 0;
-    padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 48px);
-    background: var(--navy);
-    color: var(--text-on-dark);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    overflow: hidden;
-  }
-  .principle-inner {
-    max-width: 920px;
-    margin: 0 auto;
-    position: relative; z-index: 1;
-  }
-  .principle blockquote {
-    margin: 0;
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 400; line-height: 1.25;
-    color: var(--text-on-dark);
-    letter-spacing: -0.005em;
-  }
-  .principle blockquote::before {
-    content: "";
-    display: block;
-    width: 48px; height: 1px;
-    background: var(--bronze-on-dark);
-    margin-bottom: 32px;
-  }
-  .principle .attrib {
-    margin: 32px 0 0 0;
-    font-family: var(--font-sans);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--text-on-dark-muted);
-  }
-
-  /* ============== DOS AND DONTS ============== */
-  .do-dont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  @media (max-width: 880px) { .do-dont { grid-template-columns: 1fr; } }
-  .do-dont .panel h4 {
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    margin: 0 0 20px 0;
-  }
-  .do-dont .panel.do h4 { color: hsl(150 50% 30%); }
-  .do-dont .panel.dont h4 { color: hsl(0 60% 36%); }
-  .do-dont ul {
-    list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 12px;
-  }
-  .do-dont li {
-    font-family: var(--font-sans);
-    font-size: 14px; line-height: 1.6;
+  .dodont__panel li {
+    font-size: 14px;
+    line-height: 1.55;
     color: var(--ink);
-    padding-left: 24px;
+    padding-left: 22px;
     position: relative;
   }
-  .do-dont .do li::before {
-    content: "+";
-    position: absolute; left: 0; top: 0;
-    color: hsl(150 50% 30%);
+  .dodont__panel li::before {
+    position: absolute;
+    left: 0; top: 0;
     font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
   }
-  .do-dont .dont li::before {
-    content: "×";
-    position: absolute; left: 2px; top: 0;
-    color: hsl(0 60% 36%);
-    font-family: var(--font-mono);
-  }
+  .dodont__panel.do li::before { content: "+"; }
+  .dodont__panel.dont li::before { content: "−"; }
 
-  /* ============== PROMPT EMBED ============== */
-  .prompt-actions {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin-bottom: 32px;
-  }
+  /* ===== PROMPT EMBED ===== */
+  .prompt-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
   .prompt-frame {
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 48px clamp(20px, 4vw, 64px);
-    max-height: 760px;
+    padding: 40px clamp(20px, 4vw, 56px);
+    max-height: 720px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--bronze) transparent;
@@ -926,713 +788,591 @@
   .prompt-frame::-webkit-scrollbar { width: 8px; }
   .prompt-frame::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 4px; }
 
-  .prompt-frame .md h1 {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
-    font-size: 40px; font-weight: 400;
+  .md h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 32px;
     color: var(--navy);
-    margin: 0 0 32px 0;
-    line-height: 1.1;
+    margin: 0 0 24px 0;
+    font-variation-settings: "opsz" 36;
   }
-  .prompt-frame .md h2 {
-    font-family: var(--font-display);
-    font-variation-settings: "opsz" 96;
-    font-size: 28px; font-weight: 400;
+  .md h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 22px;
     color: var(--navy);
-    margin: 64px 0 16px 0;
+    margin: 48px 0 16px 0;
     padding-top: 32px;
     border-top: 1px solid var(--rule);
-    line-height: 1.15;
+    font-variation-settings: "opsz" 32;
   }
-  .prompt-frame .md h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
-  .prompt-frame .md h3 {
+  .md h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .md h3 {
     font-family: var(--font-sans);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--bronze);
-    margin: 36px 0 14px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 28px 0 10px 0;
+    letter-spacing: 0.02em;
   }
-  .prompt-frame .md h4 {
-    font-family: var(--font-sans);
-    font-size: 15px; font-weight: 500;
-    color: var(--ink);
-    margin: 20px 0 8px 0;
-  }
-  .prompt-frame .md p {
-    font-family: var(--font-sans);
-    font-size: 15px; line-height: 1.7;
-    color: var(--ink);
-    margin: 0 0 14px 0;
-  }
-  .prompt-frame .md ul,
-  .prompt-frame .md ol { padding-left: 22px; margin: 0 0 16px 0; }
-  .prompt-frame .md li {
-    font-size: 15px; line-height: 1.7;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-  .prompt-frame .md strong { color: var(--ink); font-weight: 600; }
-  .prompt-frame .md em { color: var(--burgundy); font-style: italic; }
-  .prompt-frame .md code {
+  .md p { font-size: 14px; line-height: 1.7; color: var(--ink); margin: 0 0 14px 0; }
+  .md ul, .md ol { padding-left: 22px; margin: 0 0 16px 0; }
+  .md li { font-size: 14px; line-height: 1.7; color: var(--ink); margin-bottom: 6px; }
+  .md strong { color: var(--navy); font-weight: 600; }
+  .md em { color: var(--ink); font-style: italic; }
+  .md code {
     font-family: var(--font-mono);
     font-size: 12.5px;
-    background: hsl(38 22% 92%);
-    color: var(--burgundy);
-    padding: 1px 6px;
+    background: var(--surface-2);
+    color: var(--navy);
+    padding: 2px 6px;
     border-radius: 3px;
   }
-  .prompt-frame .md pre {
-    background: hsl(38 22% 95%);
+  .md pre {
+    background: var(--surface-2);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 16px 20px;
+    padding: 18px 22px;
     overflow-x: auto;
     margin: 16px 0;
     font-family: var(--font-mono);
-    font-size: 12.5px; line-height: 1.6;
+    font-size: 12.5px;
+    line-height: 1.55;
     color: var(--ink);
   }
-  .prompt-frame .md pre code { background: transparent; padding: 0; color: inherit; }
-  .prompt-frame .md table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 13px;
-    font-feature-settings: "tnum" 1;
-  }
-  .prompt-frame .md th,
-  .prompt-frame .md td {
+  .md pre code { background: transparent; padding: 0; color: inherit; }
+  .md table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  .md th, .md td {
     text-align: left;
     padding: 10px 14px;
     border-bottom: 1px solid var(--rule);
     color: var(--ink);
     vertical-align: top;
   }
-  .prompt-frame .md th {
+  .md th {
     font-family: var(--font-sans);
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--bronze);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
-  .prompt-frame .md hr {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 36px 0;
-  }
-  .prompt-frame .md blockquote {
+  .md hr { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+  .md blockquote {
     border-left: 2px solid var(--bronze);
     padding-left: 16px;
     margin: 16px 0;
-    color: var(--text-muted);
+    color: var(--muted);
     font-style: italic;
   }
-  .prompt-frame .md a {
-    color: var(--burgundy);
-    text-decoration: none;
-    border-bottom: 1px solid hsl(35 26% 43% / 0.5);
-  }
-  .prompt-frame .md a:hover { border-bottom-color: var(--burgundy); }
+  .md a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .md a:hover { border-bottom-color: var(--navy); }
 
-  /* ============== FOOTER ============== */
+  /* ===== FOOTER ===== */
   footer.colophon {
-    padding: 56px clamp(20px, 4vw, 48px) 64px;
-    max-width: var(--container);
+    padding: 48px clamp(20px, 4vw, 56px) 56px;
+    max-width: 1180px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  footer.colophon .colophon-lines p {
-    font-family: var(--font-sans);
-    color: var(--text-muted);
+    color: var(--muted);
     font-size: 12px;
     letter-spacing: 0.04em;
-    margin: 4px 0;
   }
+  footer.colophon p { margin: 4px 0; }
   footer.colophon a {
-    color: var(--burgundy);
+    color: var(--navy);
     text-decoration: none;
-    border-bottom: 1px solid hsl(35 26% 43% / 0.5);
+    border-bottom: 1px solid var(--rule);
   }
-  footer.colophon a:hover { border-bottom-color: var(--burgundy); }
-  footer.colophon .footer-seal img {
-    height: 40px; width: auto; display: block;
-    opacity: 0.9;
+  footer.colophon a:hover { border-bottom-color: var(--navy); }
+  footer.colophon img { height: 28px; width: auto; vertical-align: middle; margin-right: 12px; opacity: 0.85; }
+
+  /* ===== REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 700ms cubic-bezier(.22,.61,.36,1), transform 700ms cubic-bezier(.22,.61,.36,1);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ============== NAV + BRONZE HAIRLINE ============== -->
-  <nav class="nav" aria-label="Heritage Strategies brand navigation">
-    <a class="lockup" href="#top" aria-label="Heritage Strategies LLC home">
-      <img src="./heritage-logo.webp" alt="Heritage Strategies LLC" height="40" width="auto">
-      <span class="lockup-word">Heritage Strategies</span>
+  <!-- NAV -->
+  <nav class="nav" aria-label="Brand system navigation">
+    <a class="nav__lockup" href="#top" aria-label="Heritage Strategies home">
+      <img src="./heritage-logo.webp" alt="Heritage Strategies LLC">
     </a>
-    <ul class="nav-links">
+    <ul class="nav__links">
       <li><a href="#mark">Mark</a></li>
-      <li><a href="#typography">Type</a></li>
+      <li><a href="#type">Type</a></li>
       <li><a href="#color">Color</a></li>
-      <li><a href="#accents">Accents</a></li>
+      <li><a href="#visual">Visual</a></li>
       <li><a href="#components">Components</a></li>
       <li><a href="#prompt">Prompt</a></li>
     </ul>
   </nav>
-  <div class="hairline-bronze" role="presentation"></div>
+  <div class="hairline" role="presentation"></div>
 
-  <!-- ============== MAIN ============== -->
   <main id="top">
 
-    <!-- ============== HERO ============== -->
-    <section class="hero" aria-labelledby="hero-title">
-
-      <div class="hero-arc" aria-hidden="true">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__arc" aria-hidden="true">
         <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
           <defs>
-            <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="#F5EFE2" stop-opacity="0"/>
-              <stop offset="50%"  stop-color="#F5EFE2" stop-opacity="1"/>
-              <stop offset="100%" stop-color="#C9B98A" stop-opacity="0"/>
+            <linearGradient id="arcLight" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#2A3E5E" stop-opacity="0"/>
+              <stop offset="40%"  stop-color="#2A3E5E" stop-opacity="0.32"/>
+              <stop offset="60%"  stop-color="#2A3E5E" stop-opacity="0.32"/>
+              <stop offset="100%" stop-color="#2A3E5E" stop-opacity="0"/>
             </linearGradient>
-            <filter id="arcGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="4" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
+            <filter id="arcLightGlow" x="-10%" y="-10%" width="120%" height="120%">
+              <feGaussianBlur stdDeviation="1.5"/>
             </filter>
           </defs>
           <path
-            class="arc"
-            d="M -80 460 Q 360 120 720 240 T 1520 180"
-            fill="none"
-            stroke="url(#arcGrad)"
-            stroke-width="1.25"
-            stroke-linecap="round"
-            filter="url(#arcGlow)"
+            class="arc-path"
+            d="M -120 480 Q 380 140 760 280 T 1560 220"
+            stroke="url(#arcLight)"
+            stroke-width="1.2"
+            filter="url(#arcLightGlow)"
             pathLength="1"
           />
         </svg>
       </div>
-
-      <div class="hero-inner">
-        <div class="hero-grid">
-          <p class="hero-eyebrow">Heritage Strategies LLC · Brand System v2</p>
-          <h1 class="hero-title" id="hero-title">
-            Three generations of stewardship, <em>set in print.</em>
-          </h1>
-          <p class="hero-lede">
-            A warm ivory ground. Navy contrast panels. One wax-burgundy identity color, reserved for the seal.
-            Aged bronze hairlines, top and bottom. Fraunces display serif, Inter sans, one animated luminous arc behind the hero.
-            Numbers beat adjectives.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#prompt">Read the Brand Prompt</a>
-            <a class="btn btn-on-dark" href="#mark">View the Mark</a>
-          </div>
+      <div class="wrap hero__inner">
+        <p class="meta hero__eyebrow">Heritage Strategies LLC · Brand System</p>
+        <h1 class="display hero__title">
+          A quiet system, set in print.
+        </h1>
+        <p class="lede hero__lede">
+          A warm ivory ground. A single deep navy. One bronze hairline, top and bottom. Source Serif 4 set against Inter. The brand is the stewardship, not the strategy.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#prompt">Read the brand prompt</a>
+          <a class="btn btn--secondary" href="#mark">View the mark</a>
         </div>
       </div>
     </section>
 
-    <!-- ============== TRUST BAR ============== -->
-    <div class="trust-bar" aria-label="Heritage Strategies trust bar">
-      <div class="trust-bar-inner">
-        <span><strong>Custodian / Trustee</strong> archetype</span>
-        <span>Warm ivory ground (80%)</span>
-        <span>Navy + cream typography</span>
-        <span>Wax burgundy at 2%</span>
-        <span>1px bronze hairlines</span>
+    <!-- TRUST BAR -->
+    <div class="trust">
+      <div class="wrap trust__inner">
+        <span>Custodian / Trustee</span>
+        <span class="dot"></span>
+        <span>Source Serif 4 + Inter</span>
+        <span class="dot"></span>
+        <span>Warm ivory, deep navy</span>
+        <span class="dot"></span>
+        <span>One bronze hairline</span>
       </div>
     </div>
 
-    <!-- ============== THE MARK ============== -->
-    <section class="section" id="mark" aria-labelledby="mark-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">The Mark</p>
-          <h2 class="section-heading" id="mark-heading">A seal, not a logo.</h2>
-          <p class="section-subheading">The wax-seal HS monogram demoted to a detail element.</p>
-          <p class="section-body">
-            The actual <code>heritage-logo.webp</code> file is the source of truth. Never redrawn as inline SVG, never recolored, never gradient-tinted, never set at hero scale. The seal is a 24 to 48px detail in section terminators, the footer, and the favicon. The page does the work, not the seal.
-          </p>
+    <!-- MARK -->
+    <section class="section" id="mark">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">The Mark</p>
+          <h2 class="h1 section__title">The lockup is a heraldic asset.</h2>
+          <p class="section__lede">Use the supplied lockup as a single image. Do not redraw it, do not recolor it, do not set it inside a container. The wax seal carries the firm's only red. It does not appear anywhere else in the system.</p>
         </header>
 
-        <div class="logo-grid" data-reveal>
-          <div class="logo-tile on-ivory">
-            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on ivory">
-            <p class="caption">On ivory · #FAF7F2</p>
+        <div class="mark-grid reveal">
+          <div class="mark-tile mark-tile--ivory">
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on ivory">
+            <p class="mark-tile__caption">On ivory · #FAF7F2</p>
           </div>
-          <div class="logo-tile on-white">
-            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on white">
-            <p class="caption">On white · #FFFFFF</p>
+          <div class="mark-tile">
+            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on white">
+            <p class="mark-tile__caption">On white · #FFFFFF</p>
           </div>
-          <div class="logo-tile on-navy">
-            <img src="./heritage-logo.webp" alt="Heritage Strategies LLC logo on navy with warm-white pill">
-            <p class="caption">On navy · pill #FAF7F2</p>
+          <div class="mark-tile mark-tile--navy">
+            <div class="mark-tile__logo-pill">
+              <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup on navy pill">
+            </div>
+            <p class="mark-tile__caption">On navy · ivory pill</p>
           </div>
         </div>
 
-        <div class="logo-rules" data-reveal>
+        <div class="mark-rules reveal">
           <div class="rule-card">
-            <h4>Use the real file</h4>
-            <p>Always reference <code>heritage-logo.webp</code> directly. Never reconstruct from SVG paths, the wax-seal interior typography will diverge.</p>
-          </div>
-          <div class="rule-card">
-            <h4>Detail element only</h4>
-            <p>24 to 48px in section terminators and footer. Never hero scale. Never larger than 64px outside the canonical lockup contexts.</p>
+            <h4>Single-image rule</h4>
+            <p>The lockup is supplied as a file. Do not recreate it in code, do not letterspace the wordmark, do not rebuild the seal.</p>
           </div>
           <div class="rule-card">
             <h4>Clearspace</h4>
-            <p>Reserve the cap height of the "H" in "Heritage" around the entire lockup. Nothing crosses that boundary.</p>
+            <p>Reserve the cap height of the H in HERITAGE around the entire lockup. Nothing crosses that margin.</p>
           </div>
           <div class="rule-card">
-            <h4>Never alter</h4>
-            <p>No stretching, rotating, recoloring, gradient tinting, drop-shadows, or containing shapes. The seal ships with the colors it has.</p>
+            <h4>Minimum size</h4>
+            <p>Full lockup at least 180px wide on screen, 32mm in print. Below that, use the wax-seal monogram alone.</p>
+          </div>
+          <div class="rule-card">
+            <h4>On dark grounds</h4>
+            <p>The lockup sits on an ivory pill, not directly on navy. The seal needs warm light around it to read.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== TYPOGRAPHY ============== -->
-    <section class="section" id="typography" aria-labelledby="type-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">Typography</p>
-          <h2 class="section-heading" id="type-heading">Two fonts, one mono.</h2>
-          <p class="section-subheading">Display serif for heading, sans for everything else, mono for fiduciary detail.</p>
-          <p class="section-body">
-            Tiempos Headline (Klim) does the heavy lifting for headings and the wordmark. Söhne (Klim) handles navigation, body, and dense data. If Klim licenses are unavailable, Fraunces and Inter are mandatory free fallbacks. JetBrains Mono carries account numbers, CUSIPs, and document references. Three display + body fonts in a Heritage surface is a redesign, not a variation.
-          </p>
+    <!-- TYPE -->
+    <section class="section" id="type">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">Typography</p>
+          <h2 class="h1 section__title">One serif, one sans, one mono.</h2>
+          <p class="section__lede">Source Serif 4 for display and headlines. Inter for body, navigation, and dense UI. JetBrains Mono for account references, ticker numbers, and dates. No fourth typeface, no decorative font, no display swashes.</p>
         </header>
 
-        <div class="type-spec" data-reveal>
-          <div class="type-card serif">
-            <p class="sample">Aa</p>
-            <p class="meta">Display Serif</p>
-            <p class="name">Tiempos Headline <span class="fallback">(Fraunces fallback)</span></p>
-            <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+        <div class="type-specimens reveal">
+          <div class="type-card type-card--serif">
+            <p class="type-card__sample type-card__sample--serif">Aa</p>
+            <p class="type-card__label">Display &amp; Headlines</p>
+            <h3 class="type-card__name">Source Serif 4</h3>
+            <p class="type-card__alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
           </div>
-          <div class="type-card sans">
-            <p class="sample">Aa</p>
-            <p class="meta">Sans (UI + Body)</p>
-            <p class="name">Söhne <span class="fallback">(Inter fallback)</span></p>
-            <p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
-          </div>
-          <div class="type-card mono">
-            <p class="sample">Aa</p>
-            <p class="meta">Mono (Detail)</p>
-            <p class="name">JetBrains Mono</p>
-            <p class="alphabet">CUSIP 037833100 · $2,400,000,000<br>2026-06-03 · TR-7141<br>0123456789</p>
+          <div class="type-card type-card--sans">
+            <p class="type-card__sample type-card__sample--sans">Aa</p>
+            <p class="type-card__label">Body &amp; UI</p>
+            <h3 class="type-card__name">Inter</h3>
+            <p class="type-card__alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
           </div>
         </div>
 
-        <div class="type-scale" role="table" aria-label="Type scale">
-          <div class="type-scale-row"><span class="role">Display · 64 to 88px serif</span><span class="demo display">Three generations.</span></div>
-          <div class="type-scale-row"><span class="role">H1 marketing · 44px serif</span><span class="demo h1-mkt">Multi-generational stewardship</span></div>
-          <div class="type-scale-row"><span class="role">H2 marketing · 32px serif</span><span class="demo h2-mkt">Family-office partner portal</span></div>
-          <div class="type-scale-row"><span class="role">Section eyebrow · 12px sans uppercase</span><span class="demo eyebrow">Stewardship Note</span></div>
-          <div class="type-scale-row"><span class="role">Subheading · 22px sans medium</span><span class="demo subhead">A trustee, not a salesperson</span></div>
-          <div class="type-scale-row"><span class="role">Body · 16px sans regular</span><span class="demo body">Heritage Strategies steward what families have built across decades, structures, and successors. A single named partner. Foreman, the firm's AI Employee, on every artifact.</span></div>
-          <div class="type-scale-row"><span class="role">Nav · 12px sans medium uppercase</span><span class="demo nav">Mark · Type · Color · Components</span></div>
-          <div class="type-scale-row"><span class="role">Mono · 14px JetBrains</span><span class="demo mono">CUSIP 037833100 · TR-7141 · 2026-06-03</span></div>
+        <div class="type-scale reveal" role="table" aria-label="Type scale">
+          <div class="type-scale__row"><span class="type-scale__role">Display · 56 / 1.05</span><span class="type-scale__demo t--display">Three generations.</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">H1 · 40 / 1.1</span><span class="type-scale__demo t--h1">Stewardship of family wealth</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">H2 · 28 / 1.2</span><span class="type-scale__demo t--h2">Generational trust planning</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">H3 · 18 sans medium</span><span class="type-scale__demo t--h3">Quarterly statement</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">Body · 16 sans regular</span><span class="type-scale__demo t--body">Heritage Strategies has held discretionary authority over multi-generational estates since 1992, with current stewardship across 47 families in 14 states.</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">Meta · 12 sans uppercase</span><span class="type-scale__demo t--meta">Founded 1992 · 47 Families · $4.2B AUS</span></div>
+          <div class="type-scale__row"><span class="type-scale__role">Mono · 13 JetBrains</span><span class="type-scale__demo t--mono">Account · HS-2026-04471 · Q2 2026</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============== COLOR ============== -->
-    <section class="section" id="color" aria-labelledby="color-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">Color</p>
-          <h2 class="section-heading" id="color-heading">Ten swatches, strict roles.</h2>
-          <p class="section-subheading">80 / 12 / 5 / 2 / 1. Burgundy is identity. Bronze is hairline. Reserved blue is state.</p>
-          <p class="section-body">
-            The brand sits on warm ivory, navy is the contrast panel, burgundy is the family crest at 2%, and bronze is the structural hairline at 1%. Reserved blue handles focus and active state in the family-office portal, never decorative. No hue in the 5 to 45 degree warning band, ever.
-          </p>
+    <!-- COLOR -->
+    <section class="section" id="color">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">Color</p>
+          <h2 class="h1 section__title">Five system colors. None of them red.</h2>
+          <p class="section__lede">Warm ivory is the page. Deep navy is the single dark. Bronze appears only as ink-thin hairline. Reserved blue is for active state. The wax-burgundy in the seal belongs to the heraldic mark and does not appear anywhere else in the system.</p>
         </header>
 
-        <div class="color-grid" data-reveal>
+        <div class="color-grid reveal">
           <div class="swatch">
-            <div class="chip chip-ivory"></div>
-            <div class="info">
-              <p class="role">Default page</p>
-              <h3 class="name">Page Ivory</h3>
-              <p class="hex">#FAF7F2</p>
-              <p class="hsl">hsl(36 40% 97%)</p>
-              <p class="usage">The page. Every Heritage marketing surface, statement, and deck sits on this. Warm, never pure white.</p>
+            <div class="swatch__chip" style="background: #FAF7F2;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Default page</p>
+              <h3 class="swatch__name">Page Ivory</h3>
+              <p class="swatch__hex">#FAF7F2</p>
+              <p class="swatch__hsl">hsl(36 40% 97%)</p>
+              <p class="swatch__usage">Default background everywhere except the trust strip and one mid-page dark band.</p>
             </div>
           </div>
-          <div class="swatch">
-            <div class="chip chip-white"></div>
-            <div class="info">
-              <p class="role">Cards · tables</p>
-              <h3 class="name">Surface White</h3>
-              <p class="hex">#FFFFFF</p>
-              <p class="hsl">hsl(0 0% 100%)</p>
-              <p class="usage">Cards, tables, statement tear-sheets. Pure white sits on the ivory ground with a quiet hue gap.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-ink"></div>
-            <div class="info">
-              <p class="role">Body on ivory</p>
-              <h3 class="name">Ink Navy</h3>
-              <p class="hex">#1B2230</p>
-              <p class="hsl">hsl(218 27% 14%)</p>
-              <p class="usage">Body text and headings on ivory. Never pure black. Inherits the warmth of the page.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-muted"></div>
-            <div class="info">
-              <p class="role">Secondary text</p>
-              <h3 class="name">Text Muted</h3>
-              <p class="hex">#6B7280</p>
-              <p class="hsl">hsl(220 9% 47%)</p>
-              <p class="usage">Metadata, captions, dot-separators. Never for body copy.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-navy"></div>
-            <div class="info">
-              <p class="role">Nav · contrast</p>
-              <h3 class="name">Heritage Navy</h3>
-              <p class="hex">#1E2A44</p>
-              <p class="hsl">hsl(220 38% 19%)</p>
-              <p class="usage">The signature dark. Nav background, principle-quote inset, deck cover backgrounds.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-darker"></div>
-            <div class="info">
-              <p class="role">Hero ground</p>
-              <h3 class="name">Contrast Dark</h3>
-              <p class="hex">#0F1626</p>
-              <p class="hsl">hsl(220 44% 11%)</p>
-              <p class="usage">The deepest panel. The hero ground beneath the luminous arc. One step deeper than Heritage Navy.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-burgundy"></div>
-            <div class="info">
-              <p class="role">Identity only</p>
-              <h3 class="name">Wax Burgundy</h3>
-              <p class="hex">#5C1A1B</p>
-              <p class="hsl">hsl(359 56% 23%)</p>
-              <p class="usage">The seal, one CTA per page, link hover. Hue 359°, structurally below red and outside the warning band.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-bronze"></div>
-            <div class="info">
-              <p class="role">Hairline · eyebrow</p>
-              <h3 class="name">Aged Bronze</h3>
-              <p class="hex">#8C7351</p>
-              <p class="hsl">hsl(35 26% 43%)</p>
-              <p class="usage">1px structural hairlines (top + bottom + beneath nav), section eyebrows, metallic typography in the seal.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-blue"></div>
-            <div class="info">
-              <p class="role">State only</p>
-              <h3 class="name">Reserved Blue</h3>
-              <p class="hex">#2C5282</p>
-              <p class="hsl">hsl(214 50% 34%)</p>
-              <p class="usage">Active, selected, focus, info. Never decorative, never a hero color, never a chart series.</p>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="chip chip-cream"></div>
-            <div class="info">
-              <p class="role">Body on dark</p>
-              <h3 class="name">Cream on Dark</h3>
-              <p class="hex">#E8E2D2</p>
-              <p class="hsl">hsl(44 36% 86%)</p>
-              <p class="usage">Body copy on the navy / contrast-dark panels. Warm cream, never pure white.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="ratio-bar" aria-label="Color usage ratio">
-          <div class="ratio-ivory">Ivory 80%</div>
-          <div class="ratio-navy">Navy 12%</div>
-          <div class="ratio-darker">Dark 5%</div>
-          <div class="ratio-burg">Burgundy 2%</div>
-          <div class="ratio-bronze">Bronze 1%</div>
-        </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #FFFFFF;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Card surface</p>
+              <h3 class="swatch__name">Surface White</h3>
+              <p class="swatch__hex">#FFFFFF</p>
+              <p class="swatch__hsl">hsl(0 0% 100%)</p>
+              <p class="swatch__usage">Cards, tables, and dense UI panels on the ivory ground. The hue gap is intentional.</p>
+            </div>
+          </div>
 
-        <div class="color-rules" data-reveal>
-          <div class="rule-card">
-            <h4>Burgundy is identity</h4>
-            <p>The wax-seal color. The single primary CTA per page. Link hover. Nothing else. Never a chart series, never a button default, never a paragraph color.</p>
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #0F1E36;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">The single dark</p>
+              <h3 class="swatch__name">Heritage Navy</h3>
+              <p class="swatch__hex">#0F1E36</p>
+              <p class="swatch__hsl">hsl(218 57% 14%)</p>
+              <p class="swatch__usage">Nav text, headlines, filled CTA, the single mid-page contrast band, and the splash mode.</p>
+            </div>
           </div>
-          <div class="rule-card">
-            <h4>Bronze is hairline</h4>
-            <p>1px structural rules and the section eyebrow only. Never a button fill, never a chart series, never a paragraph color. The picture frame, not the picture.</p>
+
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #1B2230;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Body ink</p>
+              <h3 class="swatch__name">Ink</h3>
+              <p class="swatch__hex">#1B2230</p>
+              <p class="swatch__hsl">hsl(218 27% 14%)</p>
+              <p class="swatch__usage">Body copy on ivory and white. Slightly warmer than the navy used for headings.</p>
+            </div>
           </div>
-          <div class="rule-card">
-            <h4>Reserved blue is state</h4>
-            <p>Active, selected, focus, info. The moment reserved blue becomes decorative, its state meaning breaks everywhere else.</p>
+
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #5C6573;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Secondary text</p>
+              <h3 class="swatch__name">Muted</h3>
+              <p class="swatch__hex">#5C6573</p>
+              <p class="swatch__hsl">hsl(220 11% 41%)</p>
+              <p class="swatch__usage">Captions, lede paragraphs, table headers, eyebrow labels.</p>
+            </div>
           </div>
-          <div class="rule-card">
-            <h4>No warning hue</h4>
-            <p>Zero use of hue 5 to 45 degrees at saturation greater than 55 percent. Warning-band colors do not appear on a fiduciary surface.</p>
+
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #8C7351;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Hairline detail</p>
+              <h3 class="swatch__name">Aged Bronze</h3>
+              <p class="swatch__hex">#8C7351</p>
+              <p class="swatch__hsl">hsl(35 26% 43%)</p>
+              <p class="swatch__usage">1px hairlines only. Top of page, bottom of page, the rule beneath a partner name. Never a fill, never a text color.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #2C5282;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Reserved state</p>
+              <h3 class="swatch__name">State Blue</h3>
+              <p class="swatch__hex">#2C5282</p>
+              <p class="swatch__hsl">hsl(214 50% 34%)</p>
+              <p class="swatch__usage">Focus rings, active tab indicator, in-text inline links. Never decorative, never a chart series.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch__chip" style="background: #E2DCD0;"></div>
+            <div class="swatch__info">
+              <p class="swatch__role">Hairline rule</p>
+              <h3 class="swatch__name">Warm Rule</h3>
+              <p class="swatch__hex">#E2DCD0</p>
+              <p class="swatch__hsl">hsl(38 22% 85%)</p>
+              <p class="swatch__usage">Section dividers, table row separators, card borders.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== VISUAL ACCENTS ============== -->
-    <section class="section" id="accents" aria-labelledby="accents-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">Visual Accents</p>
-          <h2 class="section-heading" id="accents-heading">Three motifs, no more.</h2>
-          <p class="section-subheading">The animated arc, the wax seal demoted to detail, and the 1px bronze hairlines.</p>
-          <p class="section-body">
-            One piece of motion ornament in the entire brand, the luminous arc, used once per page inside the navy hero panel. The wax-seal monogram is a 24 to 48px detail in section terminators and the footer. Top and bottom of the page are framed by 1px bronze hairlines. A fourth motif is a redesign.
-          </p>
+    <!-- VISUAL — splash + arc -->
+    <section class="section" id="visual">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">Visual</p>
+          <h2 class="h1 section__title">The splash mode and the arc.</h2>
+          <p class="section__lede">For video splash cards, deck covers, and PDF title pages only, the brand has a single dark treatment, the original Heritage gradient with the animated luminous arc behind the lockup. Web surfaces stay on the ivory ground.</p>
         </header>
 
-        <div class="accents-grid" data-reveal>
-          <div class="accent-preview" aria-label="Animated luminous arc preview on navy ground">
-            <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation" style="position:absolute; inset:0; width:100%; height:100%;">
+        <div class="splash reveal" aria-label="Splash mode reference, dark gradient with animated arc behind the lockup">
+          <div class="splash__arc" aria-hidden="true">
+            <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" role="presentation">
               <defs>
-                <linearGradient id="arcGrad2" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%"   stop-color="#F5EFE2" stop-opacity="0"/>
-                  <stop offset="50%"  stop-color="#F5EFE2" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#C9B98A" stop-opacity="0"/>
+                <linearGradient id="arcDark" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#F4F0E6" stop-opacity="0"/>
+                  <stop offset="45%"  stop-color="#F4F0E6" stop-opacity="0.85"/>
+                  <stop offset="55%"  stop-color="#F4F0E6" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#A8AEB8" stop-opacity="0"/>
                 </linearGradient>
-                <filter id="arcGlow2" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
+                <filter id="arcDarkGlow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="3"/>
                 </filter>
               </defs>
               <path
-                class="arc"
+                class="arc-path"
                 d="M -80 460 Q 360 120 720 240 T 1520 180"
-                fill="none"
-                stroke="url(#arcGrad2)"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                filter="url(#arcGlow2)"
+                stroke="url(#arcDark)"
+                stroke-width="1.2"
+                filter="url(#arcDarkGlow)"
                 pathLength="1"
               />
             </svg>
-            <span class="label">The Luminous Arc · 6s draw, 9s breathe</span>
           </div>
-
-          <div class="accent-side">
-            <div class="accent-card">
-              <h4>The Wax Seal Monogram</h4>
-              <div class="seal-row">
-                <img src="./heritage-logo.webp" alt="" aria-hidden="true">
-                <span class="sz">32px · section terminator</span>
-              </div>
-              <p>Demoted to detail. 24 to 48px in section terminators, footer, favicon. Never hero scale. Never recolored. Never as a watermark behind type.</p>
-            </div>
-            <div class="accent-card">
-              <h4>1px Bronze Hairlines</h4>
-              <div class="hairline-demo" aria-hidden="true"></div>
-              <p>Top of viewport beneath the nav. Bottom of page above the footer. Heritage's quieter version of JetHQ's gold bar, 1px only, no thick bar.</p>
+          <div class="splash__logo">
+            <div class="splash__logo-bg">
+              <img src="./heritage-logo.webp" alt="Heritage Strategies LLC lockup, splash mode">
             </div>
           </div>
         </div>
+        <p class="splash__caption">Splash mode · Video / Deck / PDF cover only · Single animated arc, 10s draw, 14s breathe</p>
       </div>
     </section>
 
-    <!-- ============== COMPONENTS ============== -->
-    <section class="section" id="components" aria-labelledby="components-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">Components</p>
-          <h2 class="section-heading" id="components-heading">In use.</h2>
-          <p class="section-subheading">Buttons, status, stewardship table, partner bio, three-way comparison.</p>
-          <p class="section-body">
-            Buttons are 4px-radius rectangles. The default is bronze-outline navy-text on ivory. Filled burgundy is the rare hero CTA, one per page. Pills are reserved for status indicators and avatars. Tabular figures align every dollar amount and date column.
-          </p>
+    <!-- COMPONENTS -->
+    <section class="section" id="components">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">Components</p>
+          <h2 class="h1 section__title">In use.</h2>
+          <p class="section__lede">Navy filled, navy outlined, ghost. Three buttons. Status badges are blue, neutral, sand, and gray. No red anywhere.</p>
         </header>
 
-        <div class="component-grid" data-reveal>
+        <div class="comp-grid reveal">
+
           <div class="panel">
-            <div class="panel-header">
-              <p class="panel-title">Buttons</p>
-            </div>
+            <header class="panel__head"><p class="panel__title">Buttons</p></header>
             <div class="button-row">
-              <button class="btn btn-primary" type="button">Request a Stewardship Conversation</button>
-              <button class="btn btn-default" type="button">Speak with a Partner</button>
-              <button class="btn btn-ghost" type="button">View Statements</button>
+              <button class="btn btn--primary" type="button">Read more</button>
+              <button class="btn btn--secondary" type="button">Speak with us</button>
+              <button class="btn btn--ghost" type="button">Cancel</button>
             </div>
-            <p class="btn-note">Filled burgundy is the hero CTA only, once per page. Bronze-outline navy-text is the default. Ghost is secondary on dense surfaces.</p>
+            <p class="panel__note">Filled navy = one primary action per page. Outlined navy = default. Ghost = secondary on dense surfaces.</p>
           </div>
 
           <div class="panel">
-            <div class="panel-header">
-              <p class="panel-title">Status (app mode only)</p>
+            <header class="panel__head"><p class="panel__title">Status badges (app mode only)</p></header>
+            <div class="badge-row">
+              <span class="badge badge--active">Active</span>
+              <span class="badge badge--draft">Draft</span>
+              <span class="badge badge--review">Under review</span>
+              <span class="badge badge--archived">Archived</span>
             </div>
-            <div class="status-row">
-              <span class="badge success">Settled</span>
-              <span class="badge warning">Pending review</span>
-              <span class="badge error">Hold expired</span>
-              <span class="badge info">Active</span>
-            </div>
-            <p class="btn-note">Semantic only. Pale tints, never saturated fills. Status colors do not appear on marketing surfaces.</p>
+            <p class="panel__note">No red destructive state. Destructive actions use a typed confirmation modal instead of a color.</p>
           </div>
 
           <div class="panel">
-            <div class="panel-header">
-              <p class="panel-title">Stewardship Table</p>
-            </div>
-            <table class="stewardship-table">
+            <header class="panel__head"><p class="panel__title">Stewardship statement</p></header>
+            <table class="table">
               <thead>
-                <tr>
-                  <th>Family</th>
-                  <th>Generation</th>
-                  <th>Since</th>
-                  <th class="num">Assets Under Stewardship</th>
-                </tr>
+                <tr><th>Family</th><th>Stewardship since</th><th style="text-align:right;">Generations</th><th style="text-align:right;">AUS (USD m)</th></tr>
               </thead>
               <tbody>
-                <tr><td>Redacted A</td><td>Third</td><td>1989</td><td class="num">$420,000,000</td></tr>
-                <tr><td>Redacted B</td><td>Second</td><td>2004</td><td class="num">$185,000,000</td></tr>
-                <tr><td>Redacted C</td><td>Fourth</td><td>1962</td><td class="num">$1,140,000,000</td></tr>
+                <tr><td>Wexley</td><td>1992</td><td class="num">3</td><td class="num">142.8</td></tr>
+                <tr><td>Ashford</td><td>1998</td><td class="num">2</td><td class="num">87.4</td></tr>
+                <tr><td>Crewe</td><td>2003</td><td class="num">2</td><td class="num">54.1</td></tr>
+                <tr><td colspan="2">Total</td><td class="num">7</td><td class="num">284.3</td></tr>
               </tbody>
             </table>
-            <p class="btn-note" style="margin-top:14px;">Tabular figures align the dollar column. Bronze 1px hairlines between rows.</p>
+            <p class="panel__note">Tabular figures align the columns. Account references in mono.</p>
           </div>
 
-          <div class="partner-bio">
-            <div class="partner-portrait" aria-hidden="true"></div>
-            <h3 class="partner-name">Jessica Smith-Mason</h3>
-            <p class="partner-role">Senior Partner, Stewardship</p>
-            <p class="partner-bio-body">Twenty-three years at Heritage, leads the multi-generational practice for families in transition.</p>
-            <p class="partner-credentials">JD · LLM (Tax) · TEP</p>
+          <div class="panel">
+            <header class="panel__head"><p class="panel__title">Partner bio</p></header>
+            <div class="bio">
+              <div class="bio__portrait" aria-hidden="true"></div>
+              <div>
+                <h3 class="bio__name">Eleanor Wexley-Crewe</h3>
+                <div class="bio__name-rule"></div>
+                <p class="bio__role">Managing Partner · Stewardship</p>
+                <p class="bio__body">Twenty-two years with the firm. Leads multi-generational stewardship for fourteen families across three states.</p>
+                <p class="bio__designations">JD · LLM Tax · CFA</p>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        <div data-reveal>
-          <p class="section-eyebrow" style="margin-top: 72px;">Three-Way Comparison (the Roemer pattern)</p>
-          <div class="comparison">
-            <article class="comparison-card neutral">
-              <p class="comparison-label">Generic Trust Company</p>
-              <h3>Quarterly reviews, standardized portfolios</h3>
-              <ul>
-                <li>Phone-tree client service</li>
-                <li>Quarterly statement only</li>
-                <li>Cookie-cutter portfolio model</li>
-                <li>No named relationship</li>
-              </ul>
-            </article>
-            <article class="comparison-card neutral">
-              <p class="comparison-label">Single-Family Office</p>
-              <h3>Bespoke, expensive, single-client risk</h3>
-              <ul>
-                <li>Custom structures</li>
-                <li>High fixed overhead</li>
-                <li>Single-client concentration risk</li>
-                <li>Talent retention is the brief</li>
-              </ul>
-            </article>
-            <article class="comparison-card heritage">
-              <div class="comparison-seal">
-                <img src="./heritage-logo.webp" alt="" aria-hidden="true">
-                <span class="seal-name">Heritage Strategies</span>
-              </div>
-              <p class="comparison-label">Multi-Generational Stewardship</p>
-              <h3>Named partner per family, every artifact</h3>
-              <ul>
-                <li>Multi-generational practice</li>
-                <li>Named partner per family</li>
-                <li>Foreman, the firm's AI Employee, on every artifact</li>
-                <li>Stewardship continuity across successors</li>
-              </ul>
-            </article>
+        <!-- comparison three-way -->
+        <header class="section__head reveal" style="margin-top: 96px;">
+          <p class="meta section__eyebrow">Comparison</p>
+          <h2 class="h1 section__title">Heritage versus the alternatives.</h2>
+          <p class="section__lede">A three-way pattern, borrowed in shape from modern advisory sites and rendered in the Heritage palette. The third card carries the lockup.</p>
+        </header>
+
+        <div class="compare reveal">
+          <div class="compare__card">
+            <h3 class="compare__title">Generic Trust Company</h3>
+            <p class="compare__sub">A category, not a relationship.</p>
+            <ul class="compare__list compare__list--no">
+              <li>Single point of contact rotates every 18 months</li>
+              <li>Off-the-shelf trust documents</li>
+              <li>Quarterly statements, no narrative</li>
+              <li>Cross-sold investment products</li>
+            </ul>
+          </div>
+          <div class="compare__card">
+            <h3 class="compare__title">Single-Family Office</h3>
+            <p class="compare__sub">Yours alone, with the cost that implies.</p>
+            <ul class="compare__list compare__list--no">
+              <li>Internal hire and retention burden on the family</li>
+              <li>Operational risk concentrated in one staff</li>
+              <li>No peer benchmarking across families</li>
+              <li>Succession risk when the principal exits</li>
+            </ul>
+          </div>
+          <div class="compare__card compare__card--accent">
+            <h3 class="compare__title">
+              <img src="./heritage-logo.webp" alt="Heritage Strategies LLC">
+              Heritage
+            </h3>
+            <p class="compare__sub">A stewardship, structured for three generations.</p>
+            <ul class="compare__list compare__list--yes">
+              <li>Named partner, named successor, on file from day one</li>
+              <li>Stewardship plan reviewed at each generational handover</li>
+              <li>Quarterly statement with a written letter from the partner</li>
+              <li>Aligned compensation, no product cross-sell</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== PRINCIPLE QUOTE (single dark inset) ============== -->
-    <aside class="principle" aria-label="Principle quote">
-      <div class="principle-inner" data-reveal>
-        <blockquote>
-          Stewardship is the patient, quiet work of holding what a family has built, across decades, structures, and successors. The number is supposed to feel old.
-        </blockquote>
-        <p class="attrib">Heritage Strategies LLC · Founding Principle</p>
+    <!-- DARK CONTRAST INSET — one per page -->
+    <section class="inset-dark">
+      <div class="wrap">
+        <div class="inset-dark__hairline reveal" aria-hidden="true"></div>
+        <p class="inset-dark__quote reveal">
+          The brand is the <em>stewardship</em>, not the strategy. Every design decision answers to a single question, would a custodian holding a family's wealth across three generations recognise this as their own.
+        </p>
+        <p class="inset-dark__attribution reveal">Brand principle · Heritage Strategies LLC</p>
       </div>
-    </aside>
+    </section>
 
-    <!-- ============== DO / DONT ============== -->
-    <section class="section" id="rules" aria-labelledby="rules-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">House Rules</p>
-          <h2 class="section-heading" id="rules-heading">Do · Don't</h2>
-          <p class="section-subheading">Restraint over volume. Show, never claim.</p>
+    <!-- DO / DON'T -->
+    <section class="section">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">House Rules</p>
+          <h2 class="h1 section__title">Do, do not.</h2>
         </header>
-
-        <div class="do-dont" data-reveal>
-          <div class="panel do">
+        <div class="dodont reveal">
+          <div class="dodont__panel do">
             <h4>Do</h4>
             <ul>
-              <li>Default to the warm ivory ground. Cards sit on pure white. Dark panels are insets only.</li>
-              <li>Use the real <code>heritage-logo.webp</code> file. Never redraw the seal as inline SVG.</li>
-              <li>Use exactly two display + body fonts. Display serif plus sans. Mono is for fiduciary detail only.</li>
-              <li>Reserve Wax Burgundy for identity. The seal, one CTA per page, link hover.</li>
-              <li>Reserve Reserved Blue for state. Active, selected, focus, info.</li>
-              <li>Frame the page with 1px bronze hairlines, top and bottom.</li>
-              <li>Tabular figures in any dense data. Statements, position tables, stewardship counts.</li>
-              <li>Show the partner. Named, with credentials, real face, available light.</li>
-              <li>Use the animated luminous arc once per page, inside the navy hero panel.</li>
-              <li>Numbers beat adjectives. $X AUM, Y generations, Z years.</li>
+              <li>Default to the warm ivory ground. The brand was designed for it.</li>
+              <li>Use Source Serif 4 for display and Inter for everything else.</li>
+              <li>Reserve navy for headlines, nav, the filled CTA, and one mid-page band.</li>
+              <li>Pair every numeric figure with tabular figures and JetBrains Mono.</li>
+              <li>Use the supplied lockup as a single image. Do not recreate it.</li>
+              <li>Write in declarative, owner-dated, next-step framed prose.</li>
+              <li>Anchor the founding year, family count, and assets-under-stewardship high on the page.</li>
             </ul>
           </div>
-          <div class="panel dont">
-            <h4>Don't</h4>
+          <div class="dodont__panel dont">
+            <h4>Do not</h4>
             <ul>
-              <li>Don't make the page background dark. Fiduciary brands run on light grounds.</li>
-              <li>Don't use the burgundy as a chart series, a button default, a paragraph color, or a decorative fill.</li>
-              <li>Don't paint a button burgundy by default. Bronze-outline navy-text is the default.</li>
-              <li>Don't redraw the logo. Use the actual file.</li>
-              <li>Don't carry the thick 12px bottom bar from JetHQ. 1px bronze hairlines only.</li>
-              <li>Don't use stock wealth photography. Tarmac handshakes, sunset boardrooms, champagne flutes.</li>
-              <li>Don't write "we believe," "we are passionate about," "premier," "trusted," "world-class," "boutique," or "white-glove."</li>
-              <li>Don't use em dashes. Use commas, periods, or parentheses.</li>
-              <li>Don't animate the AUM. Static Tiempos. The number is supposed to feel old.</li>
-              <li>Don't visit hue 5 to 45 degrees at saturation greater than 55 percent. That is the warning band.</li>
+              <li>Do not introduce red. The wax seal in the logo is the only red the brand carries.</li>
+              <li>Do not paint a button, a badge, or a link burgundy.</li>
+              <li>Do not put the full page on a dark ground. Dark is for one mid-page band and the splash mode.</li>
+              <li>Do not introduce a third typeface, a swash serif, or a display script.</li>
+              <li>Do not use stock wealth photography. Commission a real portrait or use type alone.</li>
+              <li>Do not write em dashes. Use commas, periods, or parentheses.</li>
+              <li>Do not write claims like "we believe" or "premier". Numbers and names beat adjectives.</li>
+              <li>Do not redraw the wax seal in CSS. The logo is supplied as a file.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== BRAND PROMPT EMBED ============== -->
-    <section class="section" id="prompt" aria-labelledby="prompt-heading">
-      <div class="container">
-        <header class="section-header" data-reveal>
-          <p class="section-eyebrow">The Brand Prompt</p>
-          <h2 class="section-heading" id="prompt-heading">Canonical source.</h2>
-          <p class="section-subheading">Embedded for AI tools and humans.</p>
-          <p class="section-body">
-            The full Heritage Strategies LLC brand prompt, opinionated, prescriptive, and copy-pasteable. Hand this to any AI tool building a Heritage-themed surface. Hand it to any designer producing a Heritage artifact. Both should leave with the same posture.
-          </p>
+    <!-- PROMPT EMBED -->
+    <section class="section" id="prompt">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="meta section__eyebrow">The Brand Prompt</p>
+          <h2 class="h1 section__title">Canonical source.</h2>
+          <p class="section__lede">The full Heritage Strategies brand prompt, ready to hand to any tool generating a Heritage-themed surface. Embedded here for reading and copying.</p>
         </header>
 
-        <div class="prompt-actions">
-          <a class="btn btn-default" href="./brand-prompt.md" download>Download · brand-prompt.md</a>
-          <button class="btn btn-ghost" type="button" id="copy-prompt">Copy to Clipboard</button>
+        <div class="prompt-actions reveal">
+          <a class="btn btn--primary" href="./brand-prompt.md" download>Download brand-prompt.md</a>
+          <button class="btn btn--secondary" type="button" id="copy-prompt">Copy to clipboard</button>
         </div>
 
-        <div class="prompt-frame">
-          <div class="md" id="prompt-body" aria-label="Heritage brand prompt content">
-            <p style="color: var(--text-muted);">Loading brand prompt…</p>
+        <div class="prompt-frame reveal">
+          <div class="md" id="prompt-body" aria-label="Heritage Strategies brand prompt content">
+            <p class="t--meta">Loading brand prompt…</p>
           </div>
         </div>
       </div>
@@ -1640,45 +1380,31 @@
 
   </main>
 
-  <!-- ============== BRONZE BOTTOM HAIRLINE ============== -->
-  <div class="hairline-bronze" role="presentation"></div>
-
-  <!-- ============== FOOTER ============== -->
+  <div class="hairline hairline--soft" role="presentation"></div>
   <footer class="colophon">
-    <div class="colophon-lines">
-      <p>Heritage Strategies LLC · Brand System v2 · Ivory #FAF7F2, Navy #1E2A44, Burgundy #5C1A1B, Bronze #8C7351</p>
-      <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source</a></p>
-    </div>
-    <div class="footer-seal" aria-hidden="true">
-      <img src="./heritage-logo.webp" alt="">
-    </div>
+    <p><img src="./heritage-logo.webp" alt="Heritage Strategies LLC"> Brand System v3 · Page ivory #FAF7F2 · Heritage navy #0F1E36 · Aged bronze hairline #8C7351</p>
+    <p>Built with the brand it documents. <a href="https://github.com/svenboettger-supernal/heritage-brand">View source on GitHub</a></p>
   </footer>
+  <div class="hairline" role="presentation"></div>
 
 </div>
 
-<!-- ============== MARKED.JS FOR EMBEDDED PROMPT ============== -->
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script>
-  // Reveal-on-scroll for section headers
   (function () {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const els = document.querySelectorAll('[data-reveal]');
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('in-view'));
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('in'));
       return;
     }
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => io.observe(el));
   })();
 
-  // Brand prompt embed + copy
   (async function () {
     const body = document.getElementById('prompt-body');
     const copyBtn = document.getElementById('copy-prompt');
@@ -1696,20 +1422,18 @@
         body.appendChild(pre);
       }
     } catch (e) {
-      body.innerHTML = '<p style="color: hsl(0 60% 36%);">Could not load brand-prompt.md. View it directly in the repo.</p>';
+      body.innerHTML = '<p class="t--meta">Could not load brand-prompt.md. View it directly in the repository.</p>';
     }
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(raw);
-          const original = copyBtn.textContent;
-          copyBtn.textContent = 'Copied';
-          setTimeout(() => { copyBtn.textContent = original; }, 1600);
-        } catch {
-          copyBtn.textContent = 'Copy failed';
-        }
-      });
-    }
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(raw);
+        const original = copyBtn.textContent;
+        copyBtn.textContent = 'Copied';
+        setTimeout(() => { copyBtn.textContent = original; }, 1600);
+      } catch {
+        copyBtn.textContent = 'Copy failed';
+      }
+    });
   })();
 </script>
 </body>
